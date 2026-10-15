@@ -61,7 +61,7 @@ jobs:
             python -m scraper.run --only statistika
           elif [ "$SCHEDULE" = "37 1 * * 1" ] || [ "$REZIM" = "mrk" ]; then
             python -m scraper.run --only mrk
-          elif [ "${{ github.event_name }}" = "push" ] && [ -f data-cache/crs.json ]; then
+          elif [ "${{ github.event_name }}" = "push" ] && [ -f data-cache/crs.json ] && [ -f data-cache/novinky.json ]; then
             python -m scraper.run --build-only
           else
             python -m scraper.run
