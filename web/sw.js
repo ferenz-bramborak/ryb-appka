@@ -1,5 +1,5 @@
 // Offline podpora: aplikace a poslední stažená data jsou k dispozici i u vody bez signálu.
-const CACHE = 'reviry-v1';
+const CACHE = 'reviry-v2';
 const SHELL = [
   './', 'index.html', 'css/app.css', 'manifest.webmanifest', 'icons/icon.svg',
   'js/main.js', 'js/data.js', 'js/rules.js', 'js/weather.js', 'js/water.js', 'js/recommend.js',

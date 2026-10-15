@@ -1,3 +1,7 @@
 __pycache__/
 *.pyc
-web/data/.*.tmp
+.pytest_cache/
+# Generovaná data – žijí ve větvi `data` a v nasazeném webu, ne v historii main.
+data-cache/
+web/data/*
+!web/data/.gitkeep

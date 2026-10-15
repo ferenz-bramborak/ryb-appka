@@ -1,100 +1,73 @@
-"""Stáhne data ze všech zdrojů a zapíše je do web/data/*.json.
+"""Stáhne data ze zdrojů do data-cache/ a sestaví web/data/.
 
-Když zdroj selže, ponechají se jeho data z minulého běhu (aplikace tak
-nepřijde o revíry kvůli jednomu nedostupnému webu).
+Když zdroj selže, zůstanou jeho data z minulého běhu (aplikace tak nepřijde
+o revíry kvůli jednomu nedostupnému webu).
 
-Spuštění:  python -m scraper.run [--only voda]
+  python -m scraper.run                 # denní běh: revíry, úlovky, vysazení, voda
+  python -m scraper.run --only voda     # hodinový běh: jen stav vody
+  python -m scraper.run --only statistika
+  python -m scraper.run --build-only    # jen znovu sestavit web/data z cache
 """
 from __future__ import annotations
 
 import argparse
 import json
 import logging
-import traceback
 from datetime import datetime, timezone
-from pathlib import Path
 
-from .schema import to_json
-from .sources import ALL
+from .build import CACHE, OUT, build
+from .sources import chmi, crs, mrs, statistika, ulovky_fora, vysazeni
 
-OUT = Path(__file__).resolve().parent.parent / "web" / "data"
 log = logging.getLogger("scraper")
+
+# (modul, soubor v cache, minimální počet záznamů, aby se výsledek považoval za platný)
+DENNI = [
+    (crs, "crs.json", 1000),
+    (mrs, "mrs.json", 250),
+    (ulovky_fora, "ulovky.json", 1),
+    (vysazeni, "vysazeni.json", 1),
+    (chmi, "voda.json", 300),
+]
+ZDROJE = {
+    "voda": [(chmi, "voda.json", 300)],
+    "statistika": [(statistika, "statistika.json", 1000)],
+}
 
 
 def now_iso() -> str:
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
 
 
-def read(name: str, default):
-    p = OUT / name
-    if p.exists():
-        try:
-            return json.loads(p.read_text("utf-8"))
-        except json.JSONDecodeError:
-            log.warning("Poškozený %s, začínám znovu", name)
-    return default
-
-
-def write(name: str, data) -> None:
-    OUT.mkdir(parents=True, exist_ok=True)
-    tmp = OUT / f".{name}.tmp"
-    tmp.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")), "utf-8")
-    tmp.replace(OUT / name)
-
-
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--only", choices=["reviry", "ulovky", "voda"], help="spustit jen zdroje daného druhu")
+    ap.add_argument("--only", choices=sorted(ZDROJE))
+    ap.add_argument("--build-only", action="store_true")
     args = ap.parse_args()
-    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
 
-    reviry = read("reviry.json", {"reviry": []})["reviry"]
-    vysazeni = read("vysazeni.json", {"vysazeni": {}})["vysazeni"]
-    ulovky = read("ulovky.json", {"ulovky": {}})["ulovky"]
-    stanice = read("voda.json", {"stanice": []})["stanice"]
-    meta = read("meta.json", {"zdroje": {}})
+    meta_path = OUT / "meta.json"
+    meta = json.loads(meta_path.read_text("utf-8")) if meta_path.exists() else {}
     meta.setdefault("zdroje", {})
+    CACHE.mkdir(exist_ok=True)
 
-    for src in ALL:
-        if args.only and src.DRUH != args.only:
-            continue
-        log.info("Zdroj %s …", src.NAZEV)
+    sources = [] if args.build_only else ZDROJE[args.only] if args.only else DENNI
+    for mod, soubor, minimum in sources:
+        log.info("Zdroj %s …", mod.NAZEV)
         try:
-            result = src.fetch()
-            if src.DRUH == "reviry":
-                new_reviry, new_vys = result
-                if not new_reviry:
-                    raise RuntimeError("zdroj nevrátil žádné revíry")
-                reviry = [r for r in reviry if r.get("_zdroj") != src.NAZEV]
-                reviry += [{**to_json(r), "_zdroj": src.NAZEV} for r in new_reviry]
-                vysazeni.update(to_json(new_vys))
-                pocet = len(new_reviry)
-            elif src.DRUH == "ulovky":
-                ulovky = to_json(result)
-                pocet = sum(len(v) for v in ulovky.values())
-            else:
-                if not result:
-                    raise RuntimeError("zdroj nevrátil žádné stanice")
-                stanice = to_json(result)
-                pocet = len(stanice)
-            meta["zdroje"][src.NAZEV] = {"ok": True, "pocet": pocet, "cas": now_iso()}
+            data = mod.fetch()
+            pocet = len(data)
+            if pocet < minimum:
+                raise RuntimeError(f"jen {pocet} záznamů (očekáváno aspoň {minimum}) – ponechávám stará data")
+            (CACHE / soubor).write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")), "utf-8")
+            meta["zdroje"][mod.NAZEV] = {"ok": True, "pocet": pocet, "cas": now_iso()}
             log.info("  OK, %d záznamů", pocet)
         except Exception as e:  # noqa: BLE001 – jeden zdroj nesmí shodit ostatní
-            log.error("  CHYBA: %s", e)
-            log.debug(traceback.format_exc())
-            prev = meta["zdroje"].get(src.NAZEV, {})
-            meta["zdroje"][src.NAZEV] = {**prev, "ok": False, "chyba": str(e), "cas": now_iso()}
+            log.exception("  CHYBA: %s", e)
+            prev = meta["zdroje"].get(mod.NAZEV, {})
+            meta["zdroje"][mod.NAZEV] = {**prev, "ok": False, "chyba": str(e)[:300], "cas": now_iso()}
 
-    ids = {r["id"] for r in reviry}
-    ulovky = {k: v for k, v in ulovky.items() if k in ids}
-    reviry.sort(key=lambda r: (r.get("nazev") or "", r["id"]))
     meta["generated"] = now_iso()
-
-    write("reviry.json", {"reviry": reviry})
-    write("vysazeni.json", {"vysazeni": vysazeni})
-    write("ulovky.json", {"ulovky": ulovky})
-    write("voda.json", {"stanice": stanice})
-    write("meta.json", meta)
+    build(meta)
     return 0
 
 

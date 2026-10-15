@@ -1,13 +1,22 @@
 name: Data a web
 
+# Stažená data se ukládají do větve `data` (vždy jediný commit, aby repozitář nerostl)
+# a aplikace se z nich sestaví a nasadí na GitHub Pages.
 on:
   schedule:
-    - cron: "17 3 * * *"   # revíry, vysazování, úlovky – jednou denně
-    - cron: "41 * * * *"   # stav vody ČHMÚ – každou hodinu
+    - cron: "17 3 * * *"    # denně: revíry, pravidla, úlovky z fór, vysazování, voda
+    - cron: "41 * * * *"    # každou hodinu: stav vody ČHMÚ
+    - cron: "23 4 2 * *"    # měsíčně: oficiální statistika úlovků ČRS (~30 tis. dotazů)
   workflow_dispatch:
+    inputs:
+      rezim:
+        description: "Co stáhnout"
+        type: choice
+        options: [denni, voda, statistika, vse]
+        default: vse
   push:
     branches: [master, main]
-    paths: ["web/**", "scraper/**"]
+    paths: ["web/**", "scraper/**", ".github/workflows/**"]
 
 permissions:
   contents: write
@@ -21,26 +30,56 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
+
+      - name: Načtení dat z minulého běhu
+        run: |
+          if git fetch --depth=1 origin data 2>/dev/null; then
+            git archive FETCH_HEAD data-cache | tar -x -C . || true
+            git archive FETCH_HEAD web/data/meta.json 2>/dev/null | tar -x -C . 2>/dev/null || true
+          fi
+          ls -la data-cache || echo "Žádná předchozí data – první běh."
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+          cache: pip
+          cache-dependency-path: scraper/requirements.txt
       - run: pip install -r scraper/requirements.txt
+
       - name: Stažení dat
+        env:
+          SCHEDULE: ${{ github.event.schedule }}
+          REZIM: ${{ github.event.inputs.rezim }}
         run: |
-          if [ "${{ github.event.schedule }}" = "41 * * * *" ]; then
+          if [ "$SCHEDULE" = "41 * * * *" ] || [ "$REZIM" = "voda" ]; then
             python -m scraper.run --only voda
+          elif [ "$SCHEDULE" = "23 4 2 * *" ] || [ "$REZIM" = "statistika" ]; then
+            python -m scraper.run --only statistika
+          elif [ "${{ github.event_name }}" = "push" ] && [ -f data-cache/crs.json ]; then
+            python -m scraper.run --build-only
           else
             python -m scraper.run
+            if [ "$REZIM" = "vse" ] || [ ! -f data-cache/statistika.json ]; then
+              python -m scraper.run --only statistika
+            fi
           fi
-      - name: Uložení dat do repozitáře
+
+      - name: Uložení dat do větve data
         run: |
+          tmp=$(mktemp -d)
+          cp -r data-cache "$tmp/"
+          mkdir -p "$tmp/web/data" && cp web/data/meta.json "$tmp/web/data/"
+          cd "$tmp"
+          git init -q -b data
           git config user.name "github-actions[bot]"
           git config user.email "41898729+github-actions[bot]@users.noreply.github.com"
-          git add web/data
-          git diff --cached --quiet || git commit -m "Aktualizace dat $(date -u +%Y-%m-%dT%H:%MZ)"
-          git push
+          git add -A
+          git commit -qm "Data $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" data
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: web

@@ -1,19 +1,19 @@
 // Přiřazení vodoměrné stanice ČHMÚ k revíru a interpretace stavu vody.
-import { distanceKm, normalize, revirCenter, revirDistanceKm } from './data.js';
+import { distanceKm, normalize, pointsDistanceKm, revirCenter } from './data.js';
 
-// Preferuje stanici na stejném toku (do 40 km), jinak nejbližší stanici do 15 km.
+// Preferuje stanici na stejném toku (do 40 km), jinak nejbližší stanici do 8 km.
 export function stationForRevir(revir, stanice) {
   const center = revirCenter(revir);
   if (!center || !stanice.length) return null;
   const tok = normalize(revir.tok);
   const scored = stanice
     .filter(s => Number.isFinite(s.lat) && Number.isFinite(s.lon))
-    .map(s => ({ s, km: Math.min(revirDistanceKm(revir, s), distanceKm(center, s)) }));
+    .map(s => ({ s, km: Math.min(pointsDistanceKm(revir, s), distanceKm(center, s)) }));
   const sameRiver = tok
     ? scored.filter(x => normalize(x.s.tok) === tok && x.km <= 40).sort((a, b) => a.km - b.km)
     : [];
   if (sameRiver.length) return { ...sameRiver[0], sameRiver: true };
-  const near = scored.filter(x => x.km <= 15).sort((a, b) => a.km - b.km);
+  const near = scored.filter(x => x.km <= 8).sort((a, b) => a.km - b.km);
   return near.length ? { ...near[0], sameRiver: false } : null;
 }
 

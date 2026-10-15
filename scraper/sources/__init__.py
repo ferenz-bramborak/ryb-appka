@@ -1,10 +1,2 @@
-"""Zdroje dat. Každý modul vystavuje NAZEV, DRUH a funkci fetch().
-
-DRUH určuje, co fetch() vrací:
-  "reviry"   -> (list[Revir], dict[revir_id, list[Vysazeni]])
-  "ulovky"   -> (dict[revir_id, list[Ulovek]]) – revir_id je evidenční číslo
-  "voda"     -> list[Stanice]
-"""
-from . import chmi, crs, mrs, ulovky_fora
-
-ALL = [crs, mrs, ulovky_fora, chmi]
+"""Zdroje dat. Každý modul vystavuje NAZEV a funkci fetch(), jejíž výsledek
+run.py uloží do data-cache/ a build.py z něj sestaví web/data/."""

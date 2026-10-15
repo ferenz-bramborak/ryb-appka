@@ -1,7 +1,6 @@
 // Doporučení „na co a jak chytat“: kombinuje úlovky z revíru za poslední
 // 3 měsíce, teplotu vody, tlak, srážky, stav vody a dobu hájení.
-import { isProtected, isTrout } from './rules.js';
-import { normalize } from './data.js';
+import { isTrout, speciesKey } from './rules.js';
 
 // t: [min, opt_od, opt_do, max] teploty vody °C, ve kterých druh bere.
 const DRUHY = {
@@ -61,19 +60,10 @@ const DRUHY = {
     metoda: 'položená v noci' },
 };
 
-const ALIASY = {
-  'kapr obecny': 'kapr', 'amur bily': 'amur', 'lin obecny': 'lín', 'cejn velky': 'cejn',
-  'plotice obecna': 'plotice', 'karas stribrity': 'karas', 'stika obecna': 'štika',
-  'candat obecny': 'candát', 'okoun ricni': 'okoun', 'sumec velky': 'sumec', 'bolen dravy': 'bolen',
-  'uhor ricni': 'úhoř', 'tloust': 'jelec tloušť', 'jelec tloust': 'jelec tloušť', 'parma obecna': 'parma',
-  'pstruh': 'pstruh obecný', 'pstruh potocni': 'pstruh obecný', 'duhak': 'pstruh duhový',
-  'pstruh duhovy': 'pstruh duhový', 'lipan podhorni': 'lipan', 'mnik': 'mník jednovousý',
-};
 
 export function canonicalSpecies(name) {
-  const n = normalize(name);
-  for (const key of Object.keys(DRUHY)) if (normalize(key) === n) return key;
-  return ALIASY[n] ?? null;
+  const key = speciesKey(name);
+  return DRUHY[key] ? key : null;
 }
 
 const VYCHOZI_PSTRUH = ['pstruh obecný', 'pstruh duhový', 'lipan', 'jelec tloušť'];
@@ -91,20 +81,31 @@ function band(t) {
   return t < 10 ? 'studena' : t > 20 ? 'tepla' : 'mirna';
 }
 
-export function recommend({ revir, catchSummary, weather, water, waterTemp, date = new Date() }) {
+// Podíl druhů v posledním roce oficiální statistiky úlovků (ks).
+function officialShares(statistika) {
+  if (!statistika?.druhy?.length) return { shares: new Map(), rok: null };
+  const rok = statistika.roky?.[0]?.rok;
+  const rows = statistika.druhy
+    .map(d => ({ druh: canonicalSpecies(d.druh), ks: d.roky.find(r => r.rok === rok)?.ks ?? 0 }))
+    .filter(d => d.druh && d.ks > 0);
+  const total = rows.reduce((s, d) => s + d.ks, 0);
+  return { shares: new Map(rows.map(d => [d.druh, { share: d.ks / total, ks: d.ks }])), rok };
+}
+
+
+export function recommend({ revir, status, catchSummary, statistika, weather, water, waterTemp, date = new Date() }) {
   const t = waterTemp?.value ?? null;
   const tips = [];
-  const fromCatches = new Map();
-  const total = catchSummary.reduce((s, c) => s + c.pocet, 0);
+  const forum = new Map();
+  const forumTotal = catchSummary.reduce((s, c) => s + c.pocet, 0);
   for (const c of catchSummary) {
     const key = canonicalSpecies(c.druh);
-    if (key) fromCatches.set(key, { ...c, share: c.pocet / total });
+    if (key) forum.set(key, { ...c, share: c.pocet / forumTotal });
   }
+  const { shares: official, rok } = officialShares(statistika);
 
-  const candidates = new Set(fromCatches.keys());
-  if (candidates.size < 3) {
-    for (const d of isTrout(revir) ? VYCHOZI_PSTRUH : VYCHOZI_MIMO) candidates.add(d);
-  }
+  const candidates = new Set([...official.keys(), ...forum.keys()]);
+  if (candidates.size < 3) for (const d of isTrout(revir) ? VYCHOZI_PSTRUH : VYCHOZI_MIMO) candidates.add(d);
 
   const pTrend = weather?.pressureTrend24h ?? 0;
   const falling = pTrend <= -3;
@@ -112,42 +113,44 @@ export function recommend({ revir, catchSummary, weather, water, waterTemp, date
   const cloudy = (weather?.current?.cloud ?? 50) >= 60;
   const waterRising = water?.trend === 'roste' || (weather?.rainLast3d ?? 0) >= 15;
   const flood = (water?.spa ?? 0) >= 1;
+  const hajene = status?.hajene ?? new Set();
+  const zakazane = status?.zakazane ?? new Set();
 
   const result = [];
   for (const druh of candidates) {
     const p = DRUHY[druh];
-    if (!p) continue;
-    if (isProtected(druh, date)) continue;
+    if (!p || hajene.has(druh)) continue;
     const why = [];
-    const caught = fromCatches.get(druh);
-    let score = caught ? 0.4 + 0.6 * Math.sqrt(caught.share) : 0.25;
-    if (caught) why.push(`${caught.pocet}× uloven na revíru za 3 měsíce`);
-    else why.push('typický druh pro tento typ revíru');
+    const off = official.get(druh);
+    const fo = forum.get(druh);
+    let score = 0.2;
+    if (off) { score = 0.3 + 0.7 * Math.sqrt(off.share); why.push(`${off.ks} ks uloveno na revíru v roce ${rok} (statistika svazu)`); }
+    if (fo) { score = Math.max(score, 0.35) + 0.15; why.push(`${fo.pocet}× zmíněn v úlovcích rybářů za 3 měsíce`); }
+    if (!off && !fo) why.push('typický druh pro tento typ revíru');
 
     const tf = tempFactor(t, p.t);
     score *= tf;
     if (t != null) {
-      if (tf >= 0.95) why.push(`voda ~${Math.round(t)} °C je pro něj ideální`);
+      if (tf >= 0.95) why.push(`voda ~${Math.round(t)} °C mu sedí`);
       else if (tf < 0.5) why.push(`při ~${Math.round(t)} °C bere spíš slabě`);
     }
     if (p.dravec && falling) { score *= 1.2; why.push('klesající tlak aktivuje dravce'); }
     if (p.dravec && cloudy) { score *= 1.1; why.push('zataženo – dravci loví i přes den'); }
     if (risingFast) score *= 0.85;
-    if (waterRising && ['úhoř', 'sumec', 'jelec tloušť', 'cejn', 'parma'].includes(druh)) {
-      score *= 1.2; why.push('zvýšená/kalná voda mu svědčí');
-    }
+    if (waterRising && ['úhoř', 'sumec', 'jelec tloušť', 'cejn', 'parma'].includes(druh)) { score *= 1.2; why.push('zvýšená/kalná voda mu svědčí'); }
     if (flood && !['úhoř', 'sumec'].includes(druh)) score *= 0.6;
 
-    const nastrahy = [...(caught?.nastrahy ?? []).slice(0, 2)];
+    let metoda = fo?.metody?.[0] ?? p.metoda;
+    if (zakazane.has('privlac') && p.dravec && !['sumec', 'úhoř', 'candát', 'mník jednovousý'].includes(druh)) {
+      score *= 0.5;
+      metoda = 'na rybku / položenou (přívlač je teď zakázána)';
+    }
+    const nastrahy = [...(fo?.nastrahy ?? []).slice(0, 2)];
     for (const n of p.nastrahy[band(t)]) if (nastrahy.length < 3 && !nastrahy.includes(n)) nastrahy.push(n);
 
     result.push({
-      druh,
-      score: Math.min(1, score),
-      why,
-      nastrahy,
-      metoda: caught?.metody?.[0] ?? p.metoda,
-      kdy: p.noc ? 'za šera a v noci' : t != null && t > 22 ? 'brzy ráno a večer' : t != null && t < 10 ? 'v poledne a odpoledne, kdy je voda nejteplejší' : 'ráno a k večeru',
+      druh, score: Math.min(1, score), why, nastrahy, metoda,
+      kdy: p.noc ? 'za šera a v noci' : t != null && t > 22 ? 'brzy ráno a večer' : t != null && t < 10 ? 'kolem poledne a odpoledne, kdy je voda nejteplejší' : 'ráno a k večeru',
     });
   }
   result.sort((a, b) => b.score - a.score);
