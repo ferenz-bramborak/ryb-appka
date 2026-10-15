@@ -15,7 +15,7 @@ on:
         options: [denni, voda, statistika, vse]
         default: vse
   push:
-    branches: [master, main]
+    branches: [master, main, rybarska-appka]
     paths: ["web/**", "scraper/**", ".github/workflows/**"]
 
 permissions:

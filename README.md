@@ -59,7 +59,7 @@ python -m pytest tests                   # testy parserů
 ## Nasazení
 
 1. V repozitáři: *Settings → Pages → Source: GitHub Actions*.
-2. Spusť workflow „Data a web“ (*Actions → Data a web → Run workflow*, režim `vse`), nebo počkej na push do `master`.
+2. Spusť workflow „Data a web“ (*Actions → Data a web → Run workflow*, režim `vse`), nebo pushni do výchozí větve.
 3. Aplikace poběží na `https://<uživatel>.github.io/<repo>/`. Na mobilu ji otevři a dej „Přidat na plochu“.
 
 Pravidla v aplikaci jsou informativní – vždy platí rybářský řád a bližší podmínky výkonu rybářského práva
