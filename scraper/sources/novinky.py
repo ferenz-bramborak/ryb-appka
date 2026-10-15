@@ -17,7 +17,11 @@ from datetime import date, timedelta
 from pathlib import Path
 from urllib.parse import urljoin, urlparse
 
+import html as _html
+
 from lxml import etree
+
+html_unescape = _html.unescape
 
 from ..http import get_json, get_text
 from ..text import dates_in_text, html_text, iso, parse_date, typ_zpravy, vysazeni_z_textu
@@ -30,9 +34,39 @@ MO_WEBY = Path(__file__).resolve().parents[1] / "mo_weby.json"
 KLICOVA = re.compile(r"vysaz|zarybn|násad|nasaz|vypuštěn|zákaz|uzavř|úhyn|revír|výlov|aktualit|novink|zpráv", re.I)
 
 
+def _cisty_titulek(titul: str) -> str:
+    """„Český rybářský svaz MO Ostrov - Fotoalbum - Vysazování pstruha“ → „Vysazování pstruha“."""
+    titul = " ".join((titul or "").split()).strip(" .:-|")
+    casti = [c.strip() for c in re.split(r"\s+[-–|:»]+\s+", titul) if c.strip()]
+    casti = [c for c in casti if not re.search(
+        r"rybářský svaz|^(MO|MRS)\b|fotoalbum|fotogalerie|^aktuality$|^novinky$|^úvod$|^články$", c, re.I)]
+    return " – ".join(casti) if casti else titul
+
+
+def _obecny_titulek(titul: str) -> bool:
+    return (len(titul) < 6 or bool(re.fullmatch(r"(ČRS[, z.s]*\s*-?\s*)?(MO|MRS|místní organizace)\b.*", titul, re.I))
+            or bool(re.search(r"rybářský svaz|místní organizace|rybáři\b", titul, re.I)) and len(titul) < 60
+            or titul.count(".") > 10)
+
+
 def _zprava(**kw) -> dict:
     text = kw.get("text") or ""
-    kw["typ"] = typ_zpravy(f"{kw.get('titulek', '')} {text}")
+    titul = _cisty_titulek(kw.get("titulek") or "")
+    kw["titulek"] = titul
+    # Titulek, který je jen názvem webu („MO ČRS Počátky“), nahradit začátkem textu.
+    if text and _obecny_titulek(titul):
+        t = " ".join(text.split())
+        kw["titulek"] = t if len(t) <= 90 else t[:90].rsplit(" ", 1)[0] + "…"
+    # Datum nebo rok v titulku má přednost před datem nalezeným na stránce („Vysazování – květen 2024“).
+    if kw.get("datum"):
+        dt = parse_date(kw["titulek"])
+        roky = [int(y) for y in re.findall(r"\b(20\d\d)\b", kw["titulek"])]
+        if dt:
+            kw["datum"] = iso(dt)
+        elif roky and max(roky) < int(kw["datum"][:4]):
+            kw["datum"] = f"{max(roky)}-01-01"
+    typ_titulku = typ_zpravy(kw.get("titulek", ""))
+    kw["typ"] = typ_titulku if typ_titulku != "info" else typ_zpravy(f"{kw.get('titulek', '')} {text}")
     if kw["typ"] == "vysazeni":
         v = vysazeni_z_textu(f"{kw.get('titulek', '')}. {text}")
         if v:
@@ -131,13 +165,20 @@ def _clanek(url: str) -> tuple[str, str, date | None]:
     h = get_text(url, timeout=30)
     m = re.search(r'<meta[^>]+(?:article:published_time|datePublished)[^>]+content="([^"]+)"', h)
     d = parse_date(m.group(1)) if m else None
-    titul = re.search(r"<h1[^>]*>(.*?)</h1>", h, re.S) or re.search(r"<title>(.*?)</title>", h, re.S)
+    kandidati = [m.group(1) for m in (
+        re.search(r'<meta[^>]+property="og:title"[^>]+content="([^"]+)"', h),
+        re.search(r"<title[^>]*>(.*?)</title>", h, re.S),
+        re.search(r"<h1[^>]*>(.*?)</h1>", h, re.S),
+    ) if m]
+    tituly = [_cisty_titulek(html_text(k)) for k in kandidati]
+    titul = next((t for t in tituly if t and not _obecny_titulek(t)), tituly[0] if tituly else "")
     body = re.search(r"<(article|main)\b.*?</\1>", h, re.S)
     text = html_text(body.group(0) if body else h)
     if not d:
+        # První datum v textu článku (datum vydání bývá nahoře); „poslední aktualizace“ stránky bývá dole.
         ds = [x for x in dates_in_text(text[:3000]) if x <= date.today()]
-        d = max(ds) if ds else None
-    return html_text(titul.group(1)) if titul else "", text, d
+        d = ds[0] if ds else None
+    return titul, text, d
 
 
 def _html(org: dict, od: date) -> list[dict]:
@@ -166,15 +207,33 @@ def _html(org: dict, od: date) -> list[dict]:
     return out
 
 
+def _najdi_rss(web: str) -> str | None:
+    h = get_text(web, timeout=20)
+    m = re.search(r'<link[^>]+type="application/(?:rss|atom)\+xml"[^>]*>', h, re.I)
+    if m:
+        href = re.search(r'href="([^"]+)"', m.group(0))
+        if href and "comments" not in href.group(1):
+            return urljoin(web, html_unescape(href.group(1)))
+    return None
+
+
 def _weby_mo(od: date) -> list[dict]:
     if not MO_WEBY.exists():
         return []
-    orgs = [o for o in json.loads(MO_WEBY.read_text("utf-8")).get("organizace", []) if o.get("web")]
+    data = json.loads(MO_WEBY.read_text("utf-8"))
+    orgs = [o for o in data.get("organizace", []) if o.get("web")]
+    # Weby, které se při sestavování seznamu nepodařilo ověřit (často jen HTTP) – zkusit první kandidát.
+    orgs += [{**o, "web": o["kandidati"][0]} for o in data.get("neovereno", []) if o.get("kandidati")]
 
     def jedna(o):
         try:
+            if not o.get("rss"):
+                o = {**o, "rss": _najdi_rss(o["web"])}
             if o.get("rss"):
-                return [z for z in _rss(o["rss"], od, o) if z["typ"] != "info" or KLICOVA.search(z.get("titulek", ""))]
+                try:
+                    return [z for z in _rss(o["rss"], od, o) if z["typ"] != "info" or KLICOVA.search(z.get("titulek", ""))]
+                except Exception as e:  # noqa: BLE001 – rozbitý feed → zkusit HTML
+                    log.debug("rss %s: %s", o["rss"], e)
             return _html(o, od)
         except Exception as e:  # noqa: BLE001
             log.debug("web %s: %s", o.get("web"), e)
@@ -194,9 +253,10 @@ def fetch() -> list[dict]:
             out += f(od)
         except Exception as e:  # noqa: BLE001
             log.warning("%s: %s", f.__name__, e)
+    out = [z for z in out if z.get("datum", "") >= iso(od)]
     seen, uniq = set(), []
     for z in sorted(out, key=lambda z: z["datum"], reverse=True):
-        key = (z.get("url"), z.get("titulek"))
+        key = (z.get("mo"), z.get("titulek"), (z.get("text") or "")[:150])
         if key not in seen:
             seen.add(key)
             uniq.append(z)

@@ -12,7 +12,9 @@ Když jdeš k vodě, ukáže:
 - **stav vody** z nejbližší stanice ČHMÚ na stejném toku (stav, průtok, trend, teplota vody, povodňový stupeň),
 - **počasí** (teplota, tlak a jeho trend, vítr, výhled na 4 dny, slunce, měsíc),
 - **doporučení, na co chytat** – druh, nástraha, technika a čas podle úlovků, teploty vody, tlaku a stavu vody,
-- popis revíru, kontakty na hospodařící organizaci a navigaci k vodě.
+- popis revíru, kontakty na hospodařící organizaci a navigaci k vodě,
+- **Novinky** – feed za poslední měsíc: kdy a kolik se kam vysazovalo, výlovy, zákazy, úhyny;
+  filtr podle typu, svazu (ČRS / MRS) a okolí, odznak nových zpráv.
 
 Funguje i offline u vody (naposledy otevřené revíry zůstávají v mobilu).
 
@@ -25,6 +27,10 @@ Funguje i offline u vody (naposledy otevřené revíry zůstávají v mobilu).
 | ČRS – aktuality (CMS) | týdenní hlášení o vysazování (Východočeský ÚS) a zprávy o zarybnění revírů Rady ČRS | denně |
 | MRS – veřejné API mrsbrno.cz + mapa revírů (KML) | 333 revírů: popis, typ, tvar revíru | denně |
 | mrk.cz „Můj lov“, chytej.cz Trofejní úlovky | úlovky rybářů za 3 měsíce (druh, délka, nástraha, způsob) | denně |
+| Weby místních organizací ČRS a spolků MRS (`scraper/mo_weby.json`, ~440 webů) | novinky o vysazování, výlovech, zákazech – RSS, jinak stránka aktualit | denně |
+| ČRS – novinky MO (API) | zprávy MO zveřejněné přes rybsvaz.cz | denně |
+| mrk.cz Bleskovky | rybářské zpravodajství | denně |
+| mrk.cz soupisy revírů | alternativní názvy revírů (pro párování) a diskuse k revírům | týdně |
 | ČHMÚ otevřená data | 546 vodoměrných stanic | každou hodinu |
 | Open-Meteo | počasí (volá přímo aplikace) | živě |
 

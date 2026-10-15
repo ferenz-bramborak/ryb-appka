@@ -107,7 +107,14 @@ def _novinky(raw: list[dict], vys_raw: list[dict], mrk: dict, par: Parovac, revi
     for z in raw:
         if z["datum"] < od:
             continue
-        ids = par.podle_textu(f"{z.get('titulek', '')} {z.get('text', '')}", z.get("svaz"), cely_text=True)
+        text = f"{z.get('titulek', '')} {z.get('text', '')}"
+        ids = par.podle_textu(text, z.get("svaz"), cely_text=True)
+        if not ids and z.get("mo") and z.get("svaz"):
+            # Zpráva MO zmiňuje jen řeku („zarybnili jsme Jizeru“) → revíry té MO na daném toku.
+            t = norm(text)
+            ids = [i for i in par.podle_mo(z["svaz"], z["mo"])
+                   if (tok := norm(reviry[i].get("tok"))) and len(tok) >= 4
+                   and re.search(rf"\b{re.escape(tok[:max(4, len(tok) - 2)])}", t)]
         item = {**z, "reviry": [ref(i) for i in ids[:8]]}
         feed.append(item)
         # Zpráva o vysazení s jednoznačným revírem → i do historie vysazení revíru.

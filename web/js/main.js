@@ -290,6 +290,7 @@ const TYPY = {
   vysazeni: ['🪣', 'Vysazení', 'good'],
   zakaz: ['⛔', 'Zákaz / omezení', 'bad'],
   uhyn: ['☠️', 'Úhyn / škody', 'bad'],
+  vylov: ['🧺', 'Výlov', 'warn'],
   zavody: ['🏆', 'Závody', 'neutral'],
   info: ['ℹ️', 'Zpráva', 'neutral'],
 };
@@ -348,7 +349,7 @@ async function viewNovinky() {
   const FILTRY = [
     ['vse', 'Vše', () => true],
     ['vysazeni', '🪣 Vysazení', z => z.typ === 'vysazeni'],
-    ['zakazy', '⛔ Zákazy a úhyny', z => z.typ === 'zakaz' || z.typ === 'uhyn'],
+    ['zakazy', '⛔ Zákazy, výlovy, úhyny', z => ['zakaz', 'vylov', 'uhyn'].includes(z.typ)],
     ['pobliz', `📍 Do ${poblizKm} km`, nearby],
   ];
   const render = () => {
@@ -361,7 +362,7 @@ async function viewNovinky() {
       ${svazChips()}
       ${filtr === 'pobliz' && !lastPos ? '<div class="card small">Pro novinky z okolí otevři nejdřív záložku „U vody“, aby appka znala tvou polohu.</div>' : ''}
       ${items.length ? items.map(z => newsItem(z, seen)).join('') : '<div class="card muted">Za poslední měsíc tu nic není.</div>'}
-      <p class="small muted">Zprávy za poslední měsíc: hlášení svazů o vysazování, novinky místních organizací, Bleskovky a diskuse z mrk.cz.</p>`;
+      <p class="small muted">Zprávy za poslední měsíc: hlášení svazů o vysazování, weby a novinky místních organizací a spolků, Bleskovky a diskuse z mrk.cz.</p>`;
     view.querySelectorAll('[data-f]').forEach(b => { b.onclick = () => { filtr = b.dataset.f; store.set('novinky-filtr', filtr); render(); }; });
     bindSvazChips(view, render);
   };

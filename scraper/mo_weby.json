@@ -1,0 +1,3902 @@
+{
+  "generated": "2026-10-15T20:23:25+00:00",
+  "organizace": [
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Bechyně",
+      "sid": "107",
+      "web": "https://www.rybaribechyne.cz/",
+      "rss": "https://www.rybaribechyne.cz/?format=feed&type=rss",
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Blatná",
+      "sid": "414",
+      "web": "https://mocrsblatna.cz/",
+      "rss": "https://mocrsblatna.cz/feed/",
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Borovany",
+      "sid": "123",
+      "web": "https://www.crsborovany.eu/",
+      "rss": "https://www.crsborovany.eu/?feed=rss2",
+      "aktuality": "https://www.crsborovany.eu/?page_id=182",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Dačice",
+      "sid": "96",
+      "web": "https://www.mocrsdacice.cz/",
+      "rss": null,
+      "aktuality": "https://www.mocrsdacice.cz/aktuality/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Horní Planá",
+      "sid": "472",
+      "web": "https://www.rybari-horniplana.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Humpolec",
+      "sid": "118",
+      "web": "https://rybarihumpolec.cz/",
+      "rss": "https://rybarihumpolec.cz/feed/",
+      "aktuality": "https://rybarihumpolec.cz/aktuality-2/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Husinec",
+      "sid": "92",
+      "web": "https://www.crsmohusinec.cz/",
+      "rss": null,
+      "aktuality": "https://www.crsmohusinec.cz/aktuality.php",
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Kaplice",
+      "sid": "115",
+      "web": "https://www.crskaplice.cz/",
+      "rss": null,
+      "aktuality": "https://www.crskaplice.cz/aktuality2/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Kloužovice",
+      "sid": "415",
+      "web": "https://moklouzovice.cz/",
+      "rss": "https://moklouzovice.cz/feed/",
+      "aktuality": "https://moklouzovice.cz/zpravy/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Ledenice",
+      "sid": "104",
+      "web": "https://rybari-ledenice.cz/",
+      "rss": "https://rybari-ledenice.cz/feed/",
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Loučovice",
+      "sid": "131",
+      "web": "https://crs-mo-loucovice.wbs.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Milevsko",
+      "sid": "99",
+      "web": "https://www.crsmomilevsko.wz.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Mirotice",
+      "sid": "105",
+      "web": "https://rybarimirotice.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Mladá Vožice",
+      "sid": "88",
+      "web": "https://movozice.netstranky.cz/",
+      "rss": null,
+      "aktuality": "https://movozice.netstranky.cz/aktuality-vydej-povolenek.html",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Nová Bystřice",
+      "sid": "102",
+      "web": "https://crs.novabystrice.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Nová Včelnice",
+      "sid": "100",
+      "web": "https://crsvcelnice.weebly.com/",
+      "rss": null,
+      "aktuality": "https://crsvcelnice.weebly.com/novinky.html",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Nové Hrady",
+      "sid": "124",
+      "web": "https://crsmonovhrady.cz/",
+      "rss": null,
+      "aktuality": "https://crsmonovhrady.cz/aktuality/",
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Pacov",
+      "sid": "416",
+      "web": "https://crspacov.cz/",
+      "rss": "https://crspacov.cz/feed/",
+      "aktuality": "https://crspacov.cz/category/aktuality/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Pelhřimov",
+      "sid": "87",
+      "web": "https://www.crs-pe.cz/",
+      "rss": null,
+      "aktuality": "https://www.crs-pe.cz/Starsi-aktuality.html",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Počátky",
+      "sid": "136",
+      "web": "https://mocrspocatky.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Protivín",
+      "sid": "90",
+      "web": "https://www.crsprotivin.cz/",
+      "rss": "https://www.crsprotivin.cz/?feed=rss2",
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Písek",
+      "sid": "89",
+      "web": "https://www.mocrspisek.cz/",
+      "rss": "https://www.mocrspisek.cz/feed/",
+      "aktuality": "https://www.mocrspisek.cz/aktuality/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Soběslav",
+      "sid": "94",
+      "web": "https://www.crssobeslav.cz/",
+      "rss": "https://www.crssobeslav.cz/feed/",
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Strmilov",
+      "sid": "98",
+      "web": "https://crsstrmilov.blogspot.com/",
+      "rss": "https://crsstrmilov.blogspot.com/feeds/posts/default",
+      "aktuality": "https://crsstrmilov.blogspot.com/p/blog-page.html",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Trhové Sviny",
+      "sid": "126",
+      "web": "https://www.crstrhovesviny.cz/",
+      "rss": null,
+      "aktuality": "https://www.crstrhovesviny.cz/index.php?co=aktuality",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Tábor",
+      "sid": "103",
+      "web": "https://www.rybari-tabor.cz/",
+      "rss": "https://www.rybari-tabor.cz/feed/",
+      "aktuality": "https://www.rybari-tabor.cz/novinky/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Týn nad Vltavou",
+      "sid": "106",
+      "web": "https://rybarityn.estranky.cz/",
+      "rss": null,
+      "aktuality": "https://rybarityn.estranky.cz/clanky/informace-pro-cleny-mo/statistiky-nasad--ulovku-a-aktualni-zarybnovani-reviru-jcus/",
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Těchobuz",
+      "sid": "128",
+      "web": "https://www.rybari-techobuz.cz/",
+      "rss": "https://www.rybari-techobuz.cz/feed/",
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Třeboň",
+      "sid": "111",
+      "web": "https://www.crstrebon.cz/",
+      "rss": "https://www.crstrebon.cz/feed/",
+      "aktuality": "https://www.crstrebon.cz/category/clankymotrebon/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Velešín",
+      "sid": "114",
+      "web": "https://rybari-velesin.estranky.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Veselí nad Lužnicí",
+      "sid": "109",
+      "web": "https://mocrsveseli.cz/",
+      "rss": "https://mocrsveseli.cz/feed/",
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Vimperk",
+      "sid": "134",
+      "web": "https://mocrs-vimperk.estranky.cz/",
+      "rss": null,
+      "aktuality": "https://mocrs-vimperk.estranky.cz/clanky/aktuality/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Volary",
+      "sid": "132",
+      "web": "https://movolary.estranky.cz/",
+      "rss": "https://movolary.estranky.cz/rss/articles/data.xml",
+      "aktuality": "https://movolary.estranky.cz/clanky/aktuality/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Zliv",
+      "sid": "85",
+      "web": "https://mocrszliv.estranky.cz/",
+      "rss": null,
+      "aktuality": "https://mocrszliv.estranky.cz/clanky/novinky/",
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "České Budějovice 2",
+      "sid": "303",
+      "web": "https://rybari.pohoda.com/",
+      "rss": "https://rybari.pohoda.com/?feed=rss2",
+      "aktuality": "https://rybari.pohoda.com/?p=1863",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "České Budějovice 3",
+      "sid": "493",
+      "web": "https://www.rybsvazcb.cz/",
+      "rss": null,
+      "aktuality": "https://www.rybsvazcb.cz/cz/page/32726/archiv-aktualit.html",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Český Krumlov",
+      "sid": "130",
+      "web": "https://mockrumlov.cz/",
+      "rss": "https://mockrumlov.cz/feed/",
+      "aktuality": "https://mockrumlov.cz/aktuality-a-akce/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Želiv",
+      "sid": "127",
+      "web": "https://www.rybarizeliv.cz/",
+      "rss": "https://rybarizeliv.cz/rss/all.xml",
+      "aktuality": "https://www.rybarizeliv.cz/novinky/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Žirovnice",
+      "sid": "135",
+      "web": "https://www.crszirovnice.wz.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Moravskoslezský ÚS",
+      "nazev": "Bohumín",
+      "sid": "287",
+      "web": "https://mobohumin.wz.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Moravskoslezský ÚS",
+      "nazev": "Bruntál",
+      "sid": "271",
+      "web": "https://www.rybsvazbr.cz/",
+      "rss": null,
+      "aktuality": "https://www.rybsvazbr.cz/view.php?cisloclanku=2013110004",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Moravskoslezský ÚS",
+      "nazev": "Bílovec",
+      "sid": "297",
+      "web": "https://crs.mobilovec.cz/",
+      "rss": null,
+      "aktuality": "https://crs.mobilovec.cz/aktuality",
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Moravskoslezský ÚS",
+      "nazev": "Choryně",
+      "sid": "265",
+      "web": "https://mocrschoryne.wbs.cz/",
+      "rss": null,
+      "aktuality": "https://mocrschoryne.wbs.cz/Aktuality.html",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Moravskoslezský ÚS",
+      "nazev": "Domašov nad Bystřicí",
+      "sid": "328",
+      "web": "https://pstruzilihenbela.webnode.cz/",
+      "rss": "https://pstruzilihenbela.webnode.cz/rss/all.xml",
+      "aktuality": "https://pstruzilihenbela.webnode.cz/aktuality/",
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Moravskoslezský ÚS",
+      "nazev": "Frenštát pod Radhoštěm",
+      "sid": "280",
+      "web": "https://rybari.frenstat.org/",
+      "rss": "https://rybari.frenstat.org/?feed=rss2",
+      "aktuality": "https://rybari.frenstat.org/?cat=18",
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Moravskoslezský ÚS",
+      "nazev": "Frýdek-Místek II, casting",
+      "sid": "260",
+      "web": "https://www.castingfm.cz/",
+      "rss": "https://www.castingfm.cz/feed/",
+      "aktuality": null,
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Moravskoslezský ÚS",
+      "nazev": "Frýdlant nad Ostravicí",
+      "sid": "420",
+      "web": "https://www.rybarifrydlantno.cz/",
+      "rss": null,
+      "aktuality": "https://www.rybarifrydlantno.cz/aktuality",
+      "zdroj": "email"
+    },
+    {
+      "svaz": "ČRS – Moravskoslezský ÚS",
+      "nazev": "Fulnek",
+      "sid": "274",
+      "web": "https://mofulnek.cz/",
+      "rss": "https://mofulnek.cz/feed/",
+      "aktuality": null,
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Moravskoslezský ÚS",
+      "nazev": "Havířov",
+      "sid": "11",
+      "web": "https://www.rybari-havirov.cz/",
+      "rss": "https://www.rybari-havirov.cz/index.php?format=feed&type=rss",
+      "aktuality": "https://www.rybari-havirov.cz/index.php/u-nas/zpravodaj-crs",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Moravskoslezský ÚS",
+      "nazev": "Karviná",
+      "sid": "278",
+      "web": "https://rybarikarvina.cz/",
+      "rss": "https://rybarikarvina.cz/?feed=rss2",
+      "aktuality": "https://rybarikarvina.cz/?page_id=70",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Moravskoslezský ÚS",
+      "nazev": "Kravaře",
+      "sid": "291",
+      "web": "https://www.rybarikravare.cz/",
+      "rss": null,
+      "aktuality": "https://www.rybarikravare.cz/aktuality/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Moravskoslezský ÚS",
+      "nazev": "Krnov",
+      "sid": "272",
+      "web": "https://mocrskrnov.wbs.cz/",
+      "rss": null,
+      "aktuality": "https://mocrskrnov.wbs.cz/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Moravskoslezský ÚS",
+      "nazev": "Lipník nad Bečvou",
+      "sid": "262",
+      "web": "https://rybari-lipnik.webnode.cz/",
+      "rss": "https://rybari-lipnik.webnode.cz/rss/all.xml",
+      "aktuality": "https://rybari-lipnik.webnode.cz/novinky/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Moravskoslezský ÚS",
+      "nazev": "Litovel",
+      "sid": "281",
+      "web": "https://www.crslitovel.cz/",
+      "rss": null,
+      "aktuality": "https://www.crslitovel.cz/",
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Moravskoslezský ÚS",
+      "nazev": "Lučina",
+      "sid": "279",
+      "web": "https://rybarsky-svaz-lucina.cz/",
+      "rss": "https://rybarsky-svaz-lucina.cz/feed/",
+      "aktuality": "https://rybarsky-svaz-lucina.cz/aktuality/",
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Moravskoslezský ÚS",
+      "nazev": "Mohelnice",
+      "sid": "282",
+      "web": "https://www.mo-crsmohelnice.cz/",
+      "rss": null,
+      "aktuality": "https://www.mo-crsmohelnice.cz/rybarsky-zpravodaj/",
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Moravskoslezský ÚS",
+      "nazev": "Nový Jičín",
+      "sid": "275",
+      "web": "https://www.crsnj.cz/",
+      "rss": "https://crsnj.cz/rss/all.xml",
+      "aktuality": "https://www.crsnj.cz/news/ryby/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Moravskoslezský ÚS",
+      "nazev": "Olomouc",
+      "sid": "269",
+      "web": "https://www.rybsvaz-ol.cz/",
+      "rss": null,
+      "aktuality": "https://www.rybsvaz-ol.cz/rubrika/4/novinky.html",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Moravskoslezský ÚS",
+      "nazev": "Opava",
+      "sid": "284",
+      "web": "https://mocrsopava.cz/",
+      "rss": "https://mocrsopava.cz/feed/",
+      "aktuality": "https://mocrsopava.cz/aktuality/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Moravskoslezský ÚS",
+      "nazev": "Ostrava",
+      "sid": "422",
+      "web": "https://mo-ostrava.cz/",
+      "rss": "https://mo-ostrava.cz/feed.xml",
+      "aktuality": null,
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Moravskoslezský ÚS",
+      "nazev": "Příbor",
+      "sid": "301",
+      "web": "https://ribari2.estranky.cz/",
+      "rss": null,
+      "aktuality": "https://ribari2.estranky.cz/clanky/sportovni-odbor---zpravy-vysledky/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Moravskoslezský ÚS",
+      "nazev": "Tovačov",
+      "sid": "268",
+      "web": "https://www.crsmotovacov.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Moravskoslezský ÚS",
+      "nazev": "Třinec",
+      "sid": "299",
+      "web": "https://www.rybaritrinec.cz/",
+      "rss": "https://rybaritrinec.cz/rss/all.xml",
+      "aktuality": "https://www.rybaritrinec.cz/zpravodaj-2020/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Moravskoslezský ÚS",
+      "nazev": "Valašské Meziříčí",
+      "sid": "266",
+      "web": "https://www.rybsvaz-valmez.cz/",
+      "rss": "https://www.rybsvaz-valmez.cz/?feed=rss2",
+      "aktuality": "https://www.rybsvaz-valmez.cz/?p=676",
+      "zdroj": "email"
+    },
+    {
+      "svaz": "ČRS – Moravskoslezský ÚS",
+      "nazev": "Velká Bystřice",
+      "sid": "270",
+      "web": "https://mocrsvelkabystrice.estranky.cz/",
+      "rss": "https://mocrsvelkabystrice.estranky.cz/rss/articles/data.xml",
+      "aktuality": "https://mocrsvelkabystrice.estranky.cz/clanky/aktuality/",
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Moravskoslezský ÚS",
+      "nazev": "Vítkov",
+      "sid": "259",
+      "web": "https://crs-mo-vitkov.cz/",
+      "rss": "https://crs-mo-vitkov.cz/rss.xml",
+      "aktuality": "https://crs-mo-vitkov.cz/category/aktuality/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Moravskoslezský ÚS",
+      "nazev": "Zlaté Hory",
+      "sid": "296",
+      "web": "https://www.crsmozlatehory.cz/",
+      "rss": null,
+      "aktuality": "https://www.crsmozlatehory.cz/aktualne/",
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Moravskoslezský ÚS",
+      "nazev": "Zábřeh na Moravě",
+      "sid": "285",
+      "web": "https://www.crszabreh.cz/",
+      "rss": "https://crszabreh.cz/rss/all.xml",
+      "aktuality": "https://www.crszabreh.cz/",
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Moravskoslezský ÚS",
+      "nazev": "Český Těšín",
+      "sid": "289",
+      "web": "https://www.rybarict.cz/",
+      "rss": "https://www.rybarict.cz/feed/",
+      "aktuality": "https://www.rybarict.cz/aktuality/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Moravskoslezský ÚS",
+      "nazev": "Šternberk",
+      "sid": "294",
+      "web": "https://rybari-sternberk.cz/",
+      "rss": "https://rybari-sternberk.cz/feed/",
+      "aktuality": "https://rybari-sternberk.cz/brigady/aktualni-brigady/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Severočeský ÚS",
+      "nazev": "Bílina",
+      "sid": "187",
+      "web": "https://www.crsbilina.cz/",
+      "rss": "https://www.crsbilina.cz/feed/",
+      "aktuality": "https://www.crsbilina.cz/aktuality/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Severočeský ÚS",
+      "nazev": "Chomutov",
+      "sid": "194",
+      "web": "https://www.crs-chomutov.cz/",
+      "rss": "https://crs-chomutov.cz/rss/all.xml",
+      "aktuality": "https://www.crs-chomutov.cz/aktuality-/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Severočeský ÚS",
+      "nazev": "Chrastava",
+      "sid": "484",
+      "web": "https://www.mocrschrastava.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Severočeský ÚS",
+      "nazev": "Duchcov",
+      "sid": "186",
+      "web": "https://rybydux.webnode.cz/",
+      "rss": "https://rybydux.webnode.cz/rss/all.xml",
+      "aktuality": "https://rybydux.webnode.cz/novinky/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Severočeský ÚS",
+      "nazev": "Frýdlant v Čechách",
+      "sid": "223",
+      "web": "https://crs-frydlant.cz/",
+      "rss": "https://crs-frydlant.cz/feed/",
+      "aktuality": "https://crs-frydlant.cz/aktuality-2/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Severočeský ÚS",
+      "nazev": "Horní Podluží",
+      "sid": "225",
+      "web": "https://rybarihp.webnode.cz/",
+      "rss": null,
+      "aktuality": "https://rybarihp.webnode.cz/zpravodaj-mo/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Severočeský ÚS",
+      "nazev": "Jablonné v Podještědí",
+      "sid": "215",
+      "web": "https://rybarijablonne.webnode.cz/",
+      "rss": null,
+      "aktuality": "https://rybarijablonne.webnode.cz/",
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Severočeský ÚS",
+      "nazev": "Kadaň",
+      "sid": "213",
+      "web": "https://www.rybarikadan.cz/",
+      "rss": "https://www.rybarikadan.cz/?format=feed&type=rss",
+      "aktuality": "https://www.rybarikadan.cz/11-novinky/10-jak-spravne-vyplnit-ulovkovy-listek",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Severočeský ÚS",
+      "nazev": "Klášterec nad Ohří",
+      "sid": "214",
+      "web": "https://www.rybari-klasterec.kabel1.cz/",
+      "rss": "https://www.rybari-klasterec.kabel1.cz/index.php/feed/",
+      "aktuality": "https://www.rybari-klasterec.kabel1.cz/index.php/category/aktuality/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Severočeský ÚS",
+      "nazev": "Krásná Lípa",
+      "sid": "198",
+      "web": "https://www.rybarikl.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Severočeský ÚS",
+      "nazev": "Libochovice",
+      "sid": "210",
+      "web": "https://rybarilibochovice.webnode.cz/",
+      "rss": null,
+      "aktuality": "https://rybarilibochovice.webnode.cz/zpravy-vyboru/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Severočeský ÚS",
+      "nazev": "Louny",
+      "sid": "211",
+      "web": "https://crslouny4.webnode.cz/",
+      "rss": null,
+      "aktuality": "https://crslouny4.webnode.cz/aktuality/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Severočeský ÚS",
+      "nazev": "Malá Skála",
+      "sid": "309",
+      "web": "https://www.rybari-ms.com/",
+      "rss": null,
+      "aktuality": "https://www.rybari-ms.com/aktuality",
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Severočeský ÚS",
+      "nazev": "Mimoň",
+      "sid": "218",
+      "web": "https://mocrs-mimon.webnode.cz/",
+      "rss": null,
+      "aktuality": "https://mocrs-mimon.webnode.cz/dulezite-informace-aktuality/",
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Severočeský ÚS",
+      "nazev": "Most",
+      "sid": "188",
+      "web": "https://rybarimost.cz/",
+      "rss": "https://rybarimost.cz/feed/",
+      "aktuality": "https://rybarimost.cz/zpravodaj/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Severočeský ÚS",
+      "nazev": "Nový Bor",
+      "sid": "191",
+      "web": "https://www.mocrsnovybor.cz/cs/",
+      "rss": null,
+      "aktuality": "https://www.mocrsnovybor.cz/cs/aktuality/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Severočeský ÚS",
+      "nazev": "Podbořany",
+      "sid": "190",
+      "web": "https://mo-crs-podborany-z-s.netstranky.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Severočeský ÚS",
+      "nazev": "Postoloprty",
+      "sid": "193",
+      "web": "https://www.mocrspostoloprty.cz/",
+      "rss": null,
+      "aktuality": "https://www.mocrspostoloprty.cz/aktuality/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Severočeský ÚS",
+      "nazev": "Svijany",
+      "sid": "197",
+      "web": "https://mosvijany.cz/",
+      "rss": "https://mosvijany.cz/feed/",
+      "aktuality": "https://mosvijany.cz/",
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Severočeský ÚS",
+      "nazev": "Varnsdorf",
+      "sid": "221",
+      "web": "https://crsmovdf.wbs.cz/",
+      "rss": null,
+      "aktuality": "https://crsmovdf.wbs.cz/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Severočeský ÚS",
+      "nazev": "Velký Šenov",
+      "sid": "224",
+      "web": "https://crsvelkysenov.wz.cz/",
+      "rss": "https://crsvelkysenov.wz.cz/feed/",
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Severočeský ÚS",
+      "nazev": "Ústí nad Labem",
+      "sid": "185",
+      "web": "https://rybariusti.cz/",
+      "rss": null,
+      "aktuality": "https://rybariusti.cz/clanky",
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Severočeský ÚS",
+      "nazev": "Žandov",
+      "sid": "216",
+      "web": "https://www.rybarizandov.cz/",
+      "rss": null,
+      "aktuality": "https://www.rybarizandov.cz/Zpravodaje.html",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Bakov nad Jizerou",
+      "sid": "9",
+      "web": "https://www.mocrsbakov.cz/",
+      "rss": "https://mocrsbakov.cz/rss/all.xml",
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Benešov",
+      "sid": "37",
+      "web": "https://rybaribenesov.cz/",
+      "rss": "https://rybaribenesov.cz/feed/",
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Beroun",
+      "sid": "15",
+      "web": "https://www.crsmoberoun.cz/",
+      "rss": "https://www.crsmoberoun.cz/rss/articles/data.xml",
+      "aktuality": "https://www.crsmoberoun.cz/clanky/clenska-zakladna/zpravodaj/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Brandýs nad Labem - Stará Boleslav",
+      "sid": "48",
+      "web": "https://rybari-brandys.cz/",
+      "rss": "https://rybari-brandys.cz/feed/",
+      "aktuality": "https://rybari-brandys.cz/category/novinky/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Březnice",
+      "sid": "70",
+      "web": "https://www.rybaribreznice.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Dolní Bousov",
+      "sid": "335",
+      "web": "https://rodb.cz/",
+      "rss": "https://rodb.cz/feed/",
+      "aktuality": "https://rodb.cz/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Dymokury",
+      "sid": "337",
+      "web": "https://www.mocrs-dymokury.cz/",
+      "rss": "https://www.mocrs-dymokury.cz/?format=feed&type=rss",
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Hořovice",
+      "sid": "26",
+      "web": "https://www.mocrshorovice.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Hulice",
+      "sid": "69",
+      "web": "https://www.mocrshulice.cz/",
+      "rss": "https://mocrshulice.cz/rss/all.xml",
+      "aktuality": "https://www.mocrshulice.cz/news/novinky/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Hřebeč",
+      "sid": "338",
+      "web": "https://www.rybarihrebec.cz/",
+      "rss": "https://www.rybarihrebec.cz/?feed=rss2",
+      "aktuality": "https://www.rybarihrebec.cz/?cat=2",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Jesenice u Rakovníka",
+      "sid": "84",
+      "web": "https://mo-crs-jesenice.websnadno.cz/",
+      "rss": null,
+      "aktuality": "https://mo-crs-jesenice.websnadno.cz/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Jince",
+      "sid": "58",
+      "web": "https://www.jince.cz/",
+      "rss": null,
+      "aktuality": "https://www.jince.cz/mestys-jince/aktuality/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Kolín",
+      "sid": "53",
+      "web": "https://www.rybarikolin.cz/",
+      "rss": "https://www.rybarikolin.cz/feed/",
+      "aktuality": null,
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Kostelec nad Labem",
+      "sid": "47",
+      "web": "https://rybari-kostelec.cz/",
+      "rss": null,
+      "aktuality": "https://rybari-kostelec.cz/aktuality/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Kralupy nad Vltavou",
+      "sid": "77",
+      "web": "https://www.kralupy-rybari.cz/",
+      "rss": "https://www.kralupy-rybari.cz/?feed=rss2",
+      "aktuality": "https://www.kralupy-rybari.cz/?page_id=4959",
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Králův Dvůr",
+      "sid": "341",
+      "web": "https://rybarikd.cz/",
+      "rss": "https://rybarikd.cz/feed/",
+      "aktuality": "https://rybarikd.cz/aktuality/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Kutná Hora",
+      "sid": "342",
+      "web": "https://www.rybarikh.cz/",
+      "rss": "https://www.rybarikh.cz/feed/",
+      "aktuality": "https://www.rybarikh.cz/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Křivoklát",
+      "sid": "18",
+      "web": "https://rybarikrivoklat.estranky.cz/",
+      "rss": "https://rybarikrivoklat.estranky.cz/rss/articles/data.xml",
+      "aktuality": "https://rybarikrivoklat.estranky.cz/clanky/kontakty.html",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Lidice",
+      "sid": "28",
+      "web": "https://www.rybari-lidice.cz/",
+      "rss": null,
+      "aktuality": "https://www.rybari-lidice.cz/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Mladá Boleslav",
+      "sid": "33",
+      "web": "https://www.rybarimb.cz/",
+      "rss": "https://www.rybarimb.cz/feed/",
+      "aktuality": "https://www.rybarimb.cz/aktuality/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Mnichovo Hradiště",
+      "sid": "34",
+      "web": "https://rybarimh.cz/",
+      "rss": "https://rybarimh.cz/feed/",
+      "aktuality": "https://rybarimh.cz/category/vsechny-novinky/",
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Mělník",
+      "sid": "44",
+      "web": "https://www.rybarimelnik.cz/cs/",
+      "rss": null,
+      "aktuality": "https://www.rybarimelnik.cz/cs/aktuality",
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Načeradec",
+      "sid": "22",
+      "web": "https://rybari.naceradec.cz/",
+      "rss": null,
+      "aktuality": "https://rybari.naceradec.cz/index.php",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Neratovice",
+      "sid": "46",
+      "web": "https://rybarineratovice.cz/",
+      "rss": null,
+      "aktuality": "https://rybarineratovice.cz/aktuality",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Nižbor",
+      "sid": "17",
+      "web": "https://www.rybarinizbor.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Nová Ves I",
+      "sid": "52",
+      "web": "https://rybari-novaves.estranky.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Nové Strašecí",
+      "sid": "345",
+      "web": "https://www.rybari-ns.cz/",
+      "rss": "https://www.rybari-ns.cz/?feed=rss2",
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Nymburk",
+      "sid": "50",
+      "web": "https://www.crsmonymburk.cz/",
+      "rss": null,
+      "aktuality": "https://www.crsmonymburk.cz/",
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Obříství",
+      "sid": "45",
+      "web": "https://www.moobristvi.cz/",
+      "rss": "https://moobristvi.cz/rss/all.xml",
+      "aktuality": "https://www.moobristvi.cz/novinky/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Odolena Voda",
+      "sid": "346",
+      "web": "https://www.rybariodolenavoda.cz/",
+      "rss": "https://rybariodolenavoda.cz/rss/all.xml",
+      "aktuality": "https://www.rybariodolenavoda.cz/novinky/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Plaňany",
+      "sid": "39",
+      "web": "https://www.planany.eu/",
+      "rss": null,
+      "aktuality": "https://www.planany.eu/zivot-v-obci/aktuality/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Poděbrady",
+      "sid": "51",
+      "web": "https://rybaripodebrady.eu/",
+      "rss": "https://rybaripodebrady.eu/feed/",
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Pátek u Poděbrad",
+      "sid": "347",
+      "web": "https://www.rybaripatek.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Předměřice nad Jizerou",
+      "sid": "31",
+      "web": "https://rybari-predmerice.webnode.cz/",
+      "rss": "https://rybari-predmerice.webnode.cz/rss/all.xml",
+      "aktuality": "https://rybari-predmerice.webnode.cz/archive/news/",
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Příbram",
+      "sid": "57",
+      "web": "https://www.mocrspribram.cz/",
+      "rss": null,
+      "aktuality": "https://www.mocrspribram.cz/aktuality/",
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Přívory",
+      "sid": "83",
+      "web": "https://www.rybariprivory.cz/",
+      "rss": null,
+      "aktuality": "https://www.rybariprivory.cz/clanky/o-nas/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Rakovník",
+      "sid": "19",
+      "web": "https://www.mocrsrakovnik.hys.cz/",
+      "rss": "https://www.mocrsrakovnik.hys.cz/feed/",
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Slaný",
+      "sid": "27",
+      "web": "https://rybarislany.cz/",
+      "rss": "https://rybarislany.cz/rss.xml",
+      "aktuality": "https://rybarislany.cz/aktuality/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Smečno",
+      "sid": "75",
+      "web": "https://www.rybarismecno.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Soutice",
+      "sid": "66",
+      "web": "https://www.mo-soutice.cz/",
+      "rss": "https://www.mo-soutice.cz/feed",
+      "aktuality": "https://www.mo-soutice.cz/category/aktualni-informace",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Tehov",
+      "sid": "76",
+      "web": "https://www.rybaritehov.cz/",
+      "rss": null,
+      "aktuality": "https://www.rybaritehov.cz/aktuality2/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Týnec nad Labem",
+      "sid": "54",
+      "web": "https://www.rybari-tynecnl.cz/",
+      "rss": null,
+      "aktuality": "https://www.rybari-tynecnl.cz/top-aktuality-21",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Týnec nad Sázavou",
+      "sid": "63",
+      "web": "https://www.mocrstynecns.cz/",
+      "rss": "https://www.mocrstynecns.cz/feed/",
+      "aktuality": "https://www.mocrstynecns.cz/aktuality/",
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Tři Dvory",
+      "sid": "56",
+      "web": "https://www.rybaritridvory.cz/",
+      "rss": null,
+      "aktuality": "https://www.rybaritridvory.cz/novinky/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Uhříněves",
+      "sid": "61",
+      "web": "https://rybariuhrineves.cz/",
+      "rss": "https://rybariuhrineves.cz/feed/",
+      "aktuality": "https://rybariuhrineves.cz/category/aktuality/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Unhošť",
+      "sid": "36",
+      "web": "https://crsmounhost.cz/",
+      "rss": "https://crsmounhost.cz/feed/",
+      "aktuality": "https://crsmounhost.cz/aktuality/",
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Velké Popovice",
+      "sid": "355",
+      "web": "https://www.rybarivp.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Velký Osek",
+      "sid": "356",
+      "web": "https://rybarivelkyosek.cz/",
+      "rss": "https://rybarivelkyosek.cz/feed/",
+      "aktuality": "https://rybarivelkyosek.cz/category/aktuality/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Vlastějovice",
+      "sid": "68",
+      "web": "https://rybarivlastejovice.estranky.cz/",
+      "rss": "https://rybarivlastejovice.estranky.cz/rss/articles/data.xml",
+      "aktuality": "https://rybarivlastejovice.estranky.cz/clanky/aktuality/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Vlašim",
+      "sid": "21",
+      "web": "https://rybarivlasim.websnadno.cz/",
+      "rss": null,
+      "aktuality": "https://rybarivlasim.websnadno.cz/Aktuality.html",
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Votice",
+      "sid": "358",
+      "web": "https://www.rybarivotice.cz/",
+      "rss": "https://www.rybarivotice.cz/feed/",
+      "aktuality": "https://www.rybarivotice.cz/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Zdice",
+      "sid": "25",
+      "web": "https://www.mocrszdice.wz.cz/",
+      "rss": null,
+      "aktuality": "https://www.mocrszdice.wz.cz/aktuality.htm",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Zruč nad Sázavou",
+      "sid": "67",
+      "web": "https://rybarizruc.webnode.cz/",
+      "rss": null,
+      "aktuality": "https://rybarizruc.webnode.cz/novinky/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Zvoleněves",
+      "sid": "360",
+      "web": "https://www.rybarizvoleneves.cz/",
+      "rss": null,
+      "aktuality": "https://www.rybarizvoleneves.cz/index.html",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Zvánovice",
+      "sid": "82",
+      "web": "https://rybarizvanovice.estranky.cz/",
+      "rss": null,
+      "aktuality": "https://rybarizvanovice.estranky.cz/clanky/informace/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Čelákovice",
+      "sid": "49",
+      "web": "https://www.rybaricelakovice.cz/",
+      "rss": "https://www.rybaricelakovice.cz/feed/",
+      "aktuality": "https://www.rybaricelakovice.cz/category/aktuality/",
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Čerčany",
+      "sid": "64",
+      "web": "https://rybari-cercany.webnode.cz/",
+      "rss": "https://rybari-cercany.webnode.cz/rss/all.xml",
+      "aktuality": null,
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Český Brod",
+      "sid": "73",
+      "web": "https://www.mo-cesbrod.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Čáslav",
+      "sid": "24",
+      "web": "https://rybaricaslav.cz/",
+      "rss": "https://rybaricaslav.cz/feed/",
+      "aktuality": "https://rybaricaslav.cz/novinky/",
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Šlapanice v Čechách",
+      "sid": "354",
+      "web": "https://www.rybarislapanice.cz/",
+      "rss": null,
+      "aktuality": "https://www.rybarislapanice.cz/%C4%8Dlensk%C3%A1-sekce/dodatek-k-ryb-%C5%99-2026",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Žebrák",
+      "sid": "361",
+      "web": "https://rybari-zebrak.cz/",
+      "rss": "https://rybari-zebrak.cz/feed/",
+      "aktuality": "https://rybari-zebrak.cz/aktuality/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Žehuň",
+      "sid": "362",
+      "web": "https://www.rybarizehun.cz/",
+      "rss": null,
+      "aktuality": "https://www.rybarizehun.cz/novinky/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Žiželice nad Cidlinou",
+      "sid": "363",
+      "web": "https://rybarizizelice.cz/",
+      "rss": "https://rybarizizelice.cz/feed/",
+      "aktuality": null,
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Žleby",
+      "sid": "364",
+      "web": "https://rybarizleby.cz/",
+      "rss": "https://rybarizleby.cz/feed/",
+      "aktuality": "https://rybarizleby.cz/aktuality/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Bartošovice v Orlických horách",
+      "sid": "426",
+      "web": "https://rybaribartosovice.cz/",
+      "rss": "https://rybaribartosovice.cz/feed/",
+      "aktuality": "https://rybaribartosovice.cz/zpravodaj-crs/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Bojanov",
+      "sid": "427",
+      "web": "https://mo-crs-bojanov.webnode.cz/",
+      "rss": "https://mo-crs-bojanov.webnode.cz/rss/all.xml",
+      "aktuality": "https://mo-crs-bojanov.webnode.cz/novinky/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Běstvina",
+      "sid": "428",
+      "web": "https://www.rybaribestvina.cz/",
+      "rss": null,
+      "aktuality": "https://www.rybaribestvina.cz/clanky/aktuality/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Chlumec nad Cidlinou",
+      "sid": "437",
+      "web": "https://mocrs-chlumecnadcidlinou.estranky.cz/",
+      "rss": "https://mocrs-chlumecnadcidlinou.estranky.cz/rss/articles/data.xml",
+      "aktuality": "https://mocrs-chlumecnadcidlinou.estranky.cz/clanky/aktuality/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Chotěboř",
+      "sid": "227",
+      "web": "https://mocrschotebor.cz/",
+      "rss": "https://mocrschotebor.cz/feed/",
+      "aktuality": "https://mocrschotebor.cz/category/novinky/",
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Chroustovice",
+      "sid": "247",
+      "web": "https://crs-chroustovice.tode.cz/",
+      "rss": null,
+      "aktuality": "https://crs-chroustovice.tode.cz/index.html",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Chrudim",
+      "sid": "232",
+      "web": "https://crsmo1chrudim.webnode.cz/",
+      "rss": null,
+      "aktuality": "https://crsmo1chrudim.webnode.cz/aktualne/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Chrudim 2",
+      "sid": "234",
+      "web": "https://www.rybarichrudim.cz/",
+      "rss": "https://www.rybarichrudim.cz/feed/",
+      "aktuality": "https://www.rybarichrudim.cz/category/aktuality/",
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Dvůr Králové nad Labem",
+      "sid": "241",
+      "web": "https://rybaridk.cz/",
+      "rss": "https://rybaridk.cz/feed/",
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Golčův Jeníkov",
+      "sid": "230",
+      "web": "https://mo-crs-golcuv-jenikov.cz/",
+      "rss": "https://mo-crs-golcuv-jenikov.cz/feed/",
+      "aktuality": null,
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Havlíčkův Brod",
+      "sid": "434",
+      "web": "https://rybarihb.cz/",
+      "rss": "https://rybarihb.cz/feed/",
+      "aktuality": null,
+      "zdroj": "email"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Hlinsko v Čechách",
+      "sid": "235",
+      "web": "https://www.crshlinsko.cz/",
+      "rss": null,
+      "aktuality": "https://www.crshlinsko.cz/aktuality.php",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Holice",
+      "sid": "435",
+      "web": "https://www.mocrsholice.cz/",
+      "rss": "https://www.mocrsholice.cz/?feed=rss2",
+      "aktuality": "https://www.mocrsholice.cz/?cat=1",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Horní Maršov",
+      "sid": "315",
+      "web": "https://rybarihornimarsov.webnode.cz/",
+      "rss": "https://rybarihornimarsov.webnode.cz/rss/all.xml",
+      "aktuality": "https://rybarihornimarsov.webnode.cz/aktuality-info/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Hostinné",
+      "sid": "312",
+      "web": "https://crshostinne.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "email"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Hořice v Podkrkonoší",
+      "sid": "436",
+      "web": "https://www.mohorice.cz/",
+      "rss": null,
+      "aktuality": "https://mohorice.cz/Aktuality/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Hradec Králové",
+      "sid": "239",
+      "web": "https://www.rybarihk.cz/",
+      "rss": null,
+      "aktuality": "https://www.rybarihk.cz/organizace/rybarsky-zpravodaj",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Hrochův Týnec",
+      "sid": "314",
+      "web": "https://rybariht.cz/",
+      "rss": "https://rybariht.cz/feed/",
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Hronov",
+      "sid": "326",
+      "web": "https://mohronov.webnode.cz/",
+      "rss": "https://mohronov.webnode.cz/rss/all.xml",
+      "aktuality": "https://mohronov.webnode.cz/novinky/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Jablonné nad Orlicí",
+      "sid": "323",
+      "web": "https://www.rybarijablonneno.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Jaroměř",
+      "sid": "14",
+      "web": "https://www.crsmojaromer.cz/",
+      "rss": null,
+      "aktuality": "https://www.crsmojaromer.cz/index.html",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Jilemnice",
+      "sid": "236",
+      "web": "https://rybari.jilemnice.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Jičín",
+      "sid": "440",
+      "web": "https://www.mocrsjicin.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Kopidlno",
+      "sid": "441",
+      "web": "https://mocrskopidlno.cz/",
+      "rss": "https://mocrskopidlno.cz/feed/",
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Košťálov",
+      "sid": "246",
+      "web": "https://rybari-kostalov.cz/",
+      "rss": "https://rybari-kostalov.cz/feed/",
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Králíky",
+      "sid": "250",
+      "web": "https://www.crskraliky.cz/",
+      "rss": null,
+      "aktuality": "https://www.crskraliky.cz/clanky/zpravy-od-vody/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Lanškroun",
+      "sid": "446",
+      "web": "https://www.crslan.cz/",
+      "rss": "https://crslan.omega.omegatech.cz/?feed=rss2",
+      "aktuality": null,
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Letohrad",
+      "sid": "322",
+      "web": "https://www.crsletohrad.cz/",
+      "rss": "https://www.crsletohrad.cz/feed/",
+      "aktuality": "https://www.crsletohrad.cz/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Libáň",
+      "sid": "448",
+      "web": "https://crsliban.webnode.cz/",
+      "rss": "https://crsliban.webnode.cz/rss/all.xml",
+      "aktuality": "https://crsliban.webnode.cz/novinky/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Lipnice nad Sázavou",
+      "sid": "252",
+      "web": "https://www.crslipnice.cz/",
+      "rss": "https://www.crslipnice.cz/index.php?format=feed&type=rss",
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Litomyšl",
+      "sid": "244",
+      "web": "https://crsmo-litomysl.wbs.cz/",
+      "rss": null,
+      "aktuality": "https://crsmo-litomysl.wbs.cz/Aktuality-Plan-prace-brigady-hajeni.html",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Lázně Bělohrad",
+      "sid": "447",
+      "web": "https://mo-crs-lazne-belohrad.webnode.cz/",
+      "rss": "https://mo-crs-lazne-belohrad.webnode.cz/rss/all.xml",
+      "aktuality": "https://mo-crs-lazne-belohrad.webnode.cz/aktuality/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Lípa nad Orlicí",
+      "sid": "449",
+      "web": "https://www.rybarilipa.cz/",
+      "rss": null,
+      "aktuality": "https://www.rybarilipa.cz/novinky/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Meziměstí u Broumova",
+      "sid": "451",
+      "web": "https://rybari-mezimesti.webnode.cz/",
+      "rss": null,
+      "aktuality": "https://rybari-mezimesti.webnode.cz/aktuality/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Miletín",
+      "sid": "452",
+      "web": "https://rybari.miletin.cz/",
+      "rss": "https://rybari.miletin.cz/?feed=rss2",
+      "aktuality": "https://rybari.miletin.cz/?cat=25",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Miřetice",
+      "sid": "243",
+      "web": "https://www.crsmiretice.cz/",
+      "rss": null,
+      "aktuality": "https://www.crsmiretice.cz/aktuality.html",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Moravany",
+      "sid": "453",
+      "web": "https://mocrsmoravany.estranky.cz/",
+      "rss": null,
+      "aktuality": "https://mocrsmoravany.estranky.cz/clanky/revir.html",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Nechanice",
+      "sid": "456",
+      "web": "https://mocrsnechanice.wbs.cz/",
+      "rss": null,
+      "aktuality": "https://mocrsnechanice.wbs.cz/AKTUALITY.html",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Nová Paka",
+      "sid": "457",
+      "web": "https://rybari-npaka-cz.webnode.cz/",
+      "rss": "https://rybari-npaka-cz.webnode.cz/rss/all.xml",
+      "aktuality": "https://rybari-npaka-cz.webnode.cz/novinky/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Nové Město nad Metují",
+      "sid": "245",
+      "web": "https://www.crsnovemesto.cz/",
+      "rss": "https://www.crsnovemesto.cz/rss.xml",
+      "aktuality": "https://www.crsnovemesto.cz/vsechny-clanky/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Nový Bydžov",
+      "sid": "228",
+      "web": "https://www.rybari-bydzov.cz/",
+      "rss": null,
+      "aktuality": "https://www.rybari-bydzov.cz/archiv-novinek",
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Náchod",
+      "sid": "455",
+      "web": "https://www.rybari-nachod.cz/",
+      "rss": "https://www.rybari-nachod.cz/rss/articles/data.xml",
+      "aktuality": "https://www.rybari-nachod.cz/clanky/reviry/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Ostroměř",
+      "sid": "458",
+      "web": "https://www.rybari-ostromer.com/",
+      "rss": "https://rybari-ostromer.com/rss/all.xml",
+      "aktuality": "https://www.rybari-ostromer.com/novinky/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Pardubice",
+      "sid": "231",
+      "web": "https://rybaripce.cz/",
+      "rss": null,
+      "aktuality": "https://rybaripce.cz/novinky/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Police nad Metují",
+      "sid": "316",
+      "web": "https://www.mo-police.wz.cz/",
+      "rss": null,
+      "aktuality": "https://www.mo-police.wz.cz/index.html",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Potštejn",
+      "sid": "459",
+      "web": "https://mo-potstejn.webnode.cz/",
+      "rss": "https://mo-potstejn.webnode.cz/rss/all.xml",
+      "aktuality": "https://mo-potstejn.webnode.cz/diskuze-a-nazory/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Prachovice",
+      "sid": "460",
+      "web": "https://www.rybarikraskov.cz/",
+      "rss": "https://www.rybarikraskov.cz/index.php/feed/",
+      "aktuality": null,
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Přelouč",
+      "sid": "238",
+      "web": "https://www.rybariprelouc.cz/",
+      "rss": null,
+      "aktuality": "https://www.rybariprelouc.cz/aktuality/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Ronov nad Doubravou",
+      "sid": "461",
+      "web": "https://rybarironov.cz/",
+      "rss": null,
+      "aktuality": "https://rybarironov.cz/aktuality",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Semily",
+      "sid": "318",
+      "web": "https://www.crs-semily.cz/",
+      "rss": "https://www.crs-semily.cz/index.php?format=feed&type=rss",
+      "aktuality": "https://www.crs-semily.cz/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Slatiňany",
+      "sid": "233",
+      "web": "https://www.rybarislatinany.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Smiřice",
+      "sid": "240",
+      "web": "https://www.crsmosmirice.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Solnice",
+      "sid": "311",
+      "web": "https://mo-solnice.cz/",
+      "rss": "https://mo-solnice.cz/feed/",
+      "aktuality": "https://mo-solnice.cz/aktuality/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Stárkov",
+      "sid": "464",
+      "web": "https://mo-starkov.webnode.cz/",
+      "rss": "https://mo-starkov.webnode.cz/rss/all.xml",
+      "aktuality": "https://mo-starkov.webnode.cz/rybarske-zavody/aktualni-rocnik/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Trutnov",
+      "sid": "251",
+      "web": "https://www.crstrutnov.cz/",
+      "rss": "https://www.crstrutnov.cz/?format=feed&type=rss",
+      "aktuality": "https://www.crstrutnov.cz/aktuality",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Turnov",
+      "sid": "467",
+      "web": "https://www.crsmoturnov.cz/",
+      "rss": null,
+      "aktuality": "https://www.crsmoturnov.cz/aktuality/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Týniště nad Orlicí",
+      "sid": "248",
+      "web": "https://www.rybari-tyniste.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Třebechovice pod Orebem",
+      "sid": "229",
+      "web": "https://www.crs-trebechovice.cz/cs/main",
+      "rss": null,
+      "aktuality": "https://www.crs-trebechovice.cz/cs/blogs",
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Vamberk",
+      "sid": "468",
+      "web": "https://www.rybarivamberk.cz/",
+      "rss": "https://www.rybarivamberk.cz/feed/",
+      "aktuality": "https://www.rybarivamberk.cz/blog/",
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Vrchlabí",
+      "sid": "242",
+      "web": "https://www.crsmo-vrchlabi.cz/",
+      "rss": null,
+      "aktuality": "https://www.crsmo-vrchlabi.cz/default.aspx",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Vysoké Mýto",
+      "sid": "469",
+      "web": "https://www.rybarivm.cz/",
+      "rss": "https://rybarivm.cz/rss/all.xml",
+      "aktuality": "https://www.rybarivm.cz/blog/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Vysoké Veselí",
+      "sid": "470",
+      "web": "https://ryby-vysokeveseli.estranky.cz/",
+      "rss": null,
+      "aktuality": "https://ryby-vysokeveseli.estranky.cz/clanky/aktuality.html",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Ústí nad Orlicí",
+      "sid": "321",
+      "web": "https://www.ustectirybari.cz/",
+      "rss": null,
+      "aktuality": "https://www.ustectirybari.cz/novinky/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Častolovice",
+      "sid": "226",
+      "web": "https://mocrscastolovice.cz/",
+      "rss": "https://mocrscastolovice.cz/feed/",
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Červený Kostelec",
+      "sid": "256",
+      "web": "https://rybarick.cz/",
+      "rss": "https://rybarick.cz/feed/",
+      "aktuality": "https://rybarick.cz/aktualni-info/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Česká Skalice",
+      "sid": "255",
+      "web": "https://www.crsceskaskalice.cz/",
+      "rss": null,
+      "aktuality": "https://www.crsceskaskalice.cz/domovsk%C3%A1-str%C3%A1nka/aktuality-rev%C3%ADr",
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Česká Třebová",
+      "sid": "432",
+      "web": "https://ctrybar.netstranky.cz/",
+      "rss": null,
+      "aktuality": "https://ctrybar.netstranky.cz/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Žamberk",
+      "sid": "471",
+      "web": "https://rybarizamberk.estranky.cz/",
+      "rss": null,
+      "aktuality": "https://rybarizamberk.estranky.cz/clanky/kontakty/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Aš",
+      "sid": "148",
+      "web": "https://www.rybarias.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Blovice",
+      "sid": "179",
+      "web": "https://crsblovice.cz/",
+      "rss": "https://crsblovice.cz/?feed=rss2",
+      "aktuality": "https://crsblovice.cz/?page_id=53",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Božičany",
+      "sid": "145",
+      "web": "https://www.mobozicany.cz/",
+      "rss": "https://www.mobozicany.cz/feed/",
+      "aktuality": "https://www.mobozicany.cz/nejvetsi-novinky-v-ris-2025-2026/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Cheb",
+      "sid": "163",
+      "web": "https://crscheb.cz/",
+      "rss": "https://crscheb.cz/feed/",
+      "aktuality": "https://crscheb.cz/category/aktuality/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Dobřany",
+      "sid": "167",
+      "web": "https://rybaridobrany.webnode.cz/",
+      "rss": "https://rybaridobrany.webnode.cz/rss/all.xml",
+      "aktuality": "https://rybaridobrany.webnode.cz/novinky/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Domažlice",
+      "sid": "183",
+      "web": "https://mocrsdomazlice.webnode.cz/",
+      "rss": "https://mocrsdomazlice.webnode.cz/rss/all.xml",
+      "aktuality": "https://mocrsdomazlice.webnode.cz/news/vitejte-na-novem-webu/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Holoubkov",
+      "sid": "144",
+      "web": "https://crsmo-holoubkov.webnode.cz/",
+      "rss": "https://crsmo-holoubkov.webnode.cz/rss/all.xml",
+      "aktuality": "https://crsmo-holoubkov.webnode.cz/aktuality/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Holýšov",
+      "sid": "168",
+      "web": "https://crsholysov.webnode.cz/",
+      "rss": "https://crsholysov.webnode.cz/rss/all.xml",
+      "aktuality": "https://crsholysov.webnode.cz/novinky/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Horažďovice",
+      "sid": "164",
+      "web": "https://www.crs-horazdovice.cz/",
+      "rss": "https://crs-horazdovice.cz/rss/all.xml",
+      "aktuality": "https://www.crs-horazdovice.cz/novinky/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Karlovy Vary",
+      "sid": "159",
+      "web": "https://www.crskv.cz/",
+      "rss": "https://www.crskv.cz/feed/",
+      "aktuality": "https://www.crskv.cz/aktuality/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Kralovice",
+      "sid": "150",
+      "web": "https://crs-mokralovice.cz/",
+      "rss": "https://crs-mokralovice.cz/index.php?format=feed&type=rss",
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Loket nad Ohří",
+      "sid": "160",
+      "web": "https://mo-loket.webnode.cz/",
+      "rss": "https://mo-loket.webnode.cz/rss/all.xml",
+      "aktuality": "https://mo-loket.webnode.cz/news/aktuality-2026/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Líně",
+      "sid": "166",
+      "web": "https://crsline.717.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Město Touškov",
+      "sid": "156",
+      "web": "https://rybaritouskov.cz/",
+      "rss": "https://rybaritouskov.cz/feed/",
+      "aktuality": "https://rybaritouskov.cz/aktuality/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Nepomuk",
+      "sid": "181",
+      "web": "https://mo-nepomuk.webnode.cz/",
+      "rss": "https://mo-nepomuk.webnode.cz/rss/all.xml",
+      "aktuality": null,
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Nýrsko",
+      "sid": "306",
+      "web": "https://www.crsnyrsko.cz/",
+      "rss": null,
+      "aktuality": "https://www.crsnyrsko.cz/clanky/aktuality/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Ostrov",
+      "sid": "142",
+      "web": "https://rybariostrov.estranky.cz/",
+      "rss": null,
+      "aktuality": "https://rybariostrov.estranky.cz/clanky/aktuality.html",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Plzeň 1",
+      "sid": "154",
+      "web": "https://www.mocrsplzen.cz/",
+      "rss": "https://www.mocrsplzen.cz/index.php?format=feed&type=rss",
+      "aktuality": "https://www.mocrsplzen.cz/index.php/aktuality",
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Plzeň 3 eCity",
+      "sid": "419",
+      "web": "https://www.rybariplzen.cz/",
+      "rss": "https://www.rybariplzen.cz/feed/",
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Plánice",
+      "sid": "140",
+      "web": "https://rybariplanice.webnode.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Poběžovice",
+      "sid": "141",
+      "web": "https://mocrspobezovice.wbs.cz/",
+      "rss": null,
+      "aktuality": "https://mocrspobezovice.wbs.cz/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Přeštice",
+      "sid": "178",
+      "web": "https://prestictirybari.webnode.cz/",
+      "rss": null,
+      "aktuality": "https://prestictirybari.webnode.cz/kontakt/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Radnice",
+      "sid": "137",
+      "web": "https://www.crsradnice.cz/",
+      "rss": "https://www.crsradnice.cz/feed/",
+      "aktuality": "https://www.crsradnice.cz/aktuality/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Rokycany",
+      "sid": "146",
+      "web": "https://www.crsrokycany.cz/",
+      "rss": "https://www.crsrokycany.cz/rss.xml",
+      "aktuality": "https://www.crsrokycany.cz/rubrika/aktuality/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Sokolov",
+      "sid": "161",
+      "web": "https://www.crssokolov.cz/",
+      "rss": null,
+      "aktuality": "https://www.crssokolov.cz/",
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Srbice",
+      "sid": "153",
+      "web": "https://rybarisrbice.webnode.cz/",
+      "rss": "https://rybarisrbice.webnode.cz/rss/all.xml",
+      "aktuality": "https://rybarisrbice.webnode.cz/novinky/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Staňkov",
+      "sid": "169",
+      "web": "https://www.crsstankov.cz/",
+      "rss": null,
+      "aktuality": "https://www.crsstankov.cz/slozka/zpravy-z-vyrocni-schuze-brezen-2016/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Stod",
+      "sid": "152",
+      "web": "https://crsmostod.webnode.cz/",
+      "rss": "https://crsmostod.webnode.cz/rss/all.xml",
+      "aktuality": "https://crsmostod.webnode.cz/novinky/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Stříbro",
+      "sid": "157",
+      "web": "https://www.rybaristribro.cz/",
+      "rss": "https://feeds.feedburner.com/RybariStribro?format=xml",
+      "aktuality": "https://www.rybaristribro.cz/aktuality",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Toužim",
+      "sid": "173",
+      "web": "https://www.crstouzim.cz/",
+      "rss": "https://www.crstouzim.cz/feed/",
+      "aktuality": "https://www.crstouzim.cz/category/nezarazene/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Třemošná",
+      "sid": "176",
+      "web": "https://www.crstremosna.cz/",
+      "rss": "https://www.crstremosna.cz/?feed=rss2",
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Zbiroh",
+      "sid": "182",
+      "web": "https://crsmozbiroh.webnode.cz/",
+      "rss": null,
+      "aktuality": "https://crsmozbiroh.webnode.cz/novinky/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Štěnovice",
+      "sid": "177",
+      "web": "https://mocrs-stenovice.webnode.cz/",
+      "rss": "https://mocrs-stenovice.webnode.cz/rss/all.xml",
+      "aktuality": "https://mocrs-stenovice.webnode.cz/clenstvi/aktualni-cenik/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Šťáhlavy",
+      "sid": "139",
+      "web": "https://crs-stahlavy.bluefile.cz/",
+      "rss": null,
+      "aktuality": "https://crs-stahlavy.bluefile.cz/aktuality/?stranka=2",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Ždírec",
+      "sid": "180",
+      "web": "https://mocrszdirec.estranky.cz/",
+      "rss": "https://mocrszdirec.estranky.cz/rss/articles/data.xml",
+      "aktuality": "https://mocrszdirec.estranky.cz/clanky/aktuality/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Bohutín",
+      "sid": "500",
+      "web": "https://www.rybaribohutin.cz/",
+      "rss": null,
+      "aktuality": "https://www.rybaribohutin.cz/sluzby/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Hostivice",
+      "sid": "397",
+      "web": "https://mohostivice.estranky.cz/",
+      "rss": null,
+      "aktuality": "https://mohostivice.estranky.cz/clanky/Aktualne/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Hovorčovice",
+      "sid": "396",
+      "web": "https://rybari-hovorcovice.cz/",
+      "rss": "https://rybari-hovorcovice.cz/feed/",
+      "aktuality": "https://rybari-hovorcovice.cz/category/aktuality/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Klecánky",
+      "sid": "399",
+      "web": "https://crs-klecanky.estranky.cz/",
+      "rss": null,
+      "aktuality": "https://crs-klecanky.estranky.cz/clanky/aktuality/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Ledeč nad Sázavou",
+      "sid": "401",
+      "web": "https://rybari-ledec.estranky.cz/",
+      "rss": null,
+      "aktuality": "https://rybari-ledec.estranky.cz/clanky/aktuality/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Libčice nad Vltavou",
+      "sid": "400",
+      "web": "https://rybari-roztoky.cz/",
+      "rss": null,
+      "aktuality": "https://rybari-roztoky.cz/clanky/kontakt.html",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Milín",
+      "sid": "403",
+      "web": "https://rybarimilin.estranky.cz/",
+      "rss": null,
+      "aktuality": "https://rybarimilin.estranky.cz/clanky/aktuality/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Mníšek pod Brdy",
+      "sid": "404",
+      "web": "https://rybari-mnisek.estranky.cz/",
+      "rss": null,
+      "aktuality": "https://rybari-mnisek.estranky.cz/clanky/aktuality-z-us-praha/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Nový Knín",
+      "sid": "405",
+      "web": "https://rybariknin.webnode.cz/",
+      "rss": "https://rybariknin.webnode.cz/rss/all.xml",
+      "aktuality": "https://rybariknin.webnode.cz/novinky/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Praha 1",
+      "sid": "366",
+      "web": "https://www.rybari.info/",
+      "rss": "https://www.rybari.info/?format=feed&type=rss",
+      "aktuality": "https://www.rybari.info/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Praha 10 - Hostivař",
+      "sid": "392",
+      "web": "https://rybarihostivar.websnadno.cz/",
+      "rss": null,
+      "aktuality": "https://rybarihostivar.websnadno.cz/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Praha 10 - Vinohrady",
+      "sid": "368",
+      "web": "https://www.rybarivinohrady.cz/",
+      "rss": "https://www.rybarivinohrady.cz/feed/",
+      "aktuality": "https://www.rybarivinohrady.cz/2026/02/28/provozni-doba-kancelare-6/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Praha 10 - Záběhlice",
+      "sid": "393",
+      "web": "https://www.rybari-zabehlice.wz.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Praha 11 - Háje",
+      "sid": "491",
+      "web": "https://rybarihaje.cz/",
+      "rss": "https://rybarihaje.cz/feed/",
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Praha 3 - Žižkov I",
+      "sid": "369",
+      "web": "https://www.rybari-zizkov.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Praha 3 - Žižkov II.",
+      "sid": "13",
+      "web": "https://www.loska.cz/zizkov2/",
+      "rss": null,
+      "aktuality": "https://www.loska.cz/zizkov2/?sekce=AKTUALITY",
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Praha 4 - Braník",
+      "sid": "370",
+      "web": "https://www.rybaribranik.cz/",
+      "rss": "https://www.rybaribranik.cz/?feed=rss2",
+      "aktuality": "https://www.rybaribranik.cz/?p=1069",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Praha 4 - Michle",
+      "sid": "371",
+      "web": "https://www.rybarimichle.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Praha 4 - Nusle",
+      "sid": "373",
+      "web": "https://www.rybarinusle.cz/",
+      "rss": null,
+      "aktuality": "https://www.rybarinusle.cz/detail-novinky/tistene-soupisy-reviru/",
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Praha 5 - Jinonice",
+      "sid": "379",
+      "web": "https://www.rybarijinonice.cz/",
+      "rss": "https://www.rybarijinonice.cz/rss/articles/data.xml",
+      "aktuality": "https://www.rybarijinonice.cz/clanky/kontakt.html",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Praha 5 - Radlice",
+      "sid": "380",
+      "web": "https://www.rybariradlice.cz/Aktuality",
+      "rss": null,
+      "aktuality": "https://www.rybariradlice.cz/Aktuality",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Praha 5 - Radotín",
+      "sid": "374",
+      "web": "https://www.rybariradotin.cz/",
+      "rss": "https://www.rybariradotin.cz/feed/",
+      "aktuality": "https://www.rybariradotin.cz/aktuality/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Praha 5 - Smíchov",
+      "sid": "375",
+      "web": "https://www.crssmichov.cz/",
+      "rss": null,
+      "aktuality": "https://www.crssmichov.cz/clanky/opozdene-vraceni",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Praha 5 - Zbraslav",
+      "sid": "376",
+      "web": "https://rybari-zbraslav.cz/",
+      "rss": "https://rybari-zbraslav.cz/feed/",
+      "aktuality": "https://rybari-zbraslav.cz/category/aktualita/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Praha 6 - Dejvice",
+      "sid": "382",
+      "web": "https://www.crsdejvice.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "api"
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Praha 8 - Karlín",
+      "sid": "12",
+      "web": "https://www.rybarikarlin.cz/",
+      "rss": "https://www.rybarikarlin.cz/?feed=rss2",
+      "aktuality": "https://www.rybarikarlin.cz/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Praha 8 - Kobylisy",
+      "sid": "486",
+      "web": "https://rybarikobylisy.webnode.cz/",
+      "rss": "https://rybarikobylisy.webnode.cz/rss/all.xml",
+      "aktuality": "https://rybarikobylisy.webnode.cz/aktuality/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Praha 9 - Běchovice",
+      "sid": "385",
+      "web": "https://rybaribechovice.cz/",
+      "rss": "https://rybaribechovice.cz/feed/",
+      "aktuality": "https://rybaribechovice.cz/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Praha 9 - Vinoř",
+      "sid": "391",
+      "web": "https://rybari-vinor.cz/",
+      "rss": null,
+      "aktuality": "https://rybari-vinor.cz/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Praha 9 - Vysočany",
+      "sid": "10",
+      "web": "https://www.rybarivysocany.cz/",
+      "rss": null,
+      "aktuality": "https://www.rybarivysocany.cz/starsi-novinky.html",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Praha 9 - Újezd nad Lesy",
+      "sid": "390",
+      "web": "https://www.mocrs-ujezd.cz/",
+      "rss": "https://mocrs-ujezd.cz/rss/all.xml",
+      "aktuality": "https://www.mocrs-ujezd.cz/novinky/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Praha 9 - Čakovice",
+      "sid": "386",
+      "web": "https://www.rybari-cakovice.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Sluštice",
+      "sid": "411",
+      "web": "https://rybarislustice.wz.cz/",
+      "rss": "https://rybarislustice.wz.cz/feed/",
+      "aktuality": "https://rybarislustice.wz.cz/aktualni-obeznik/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Světlá nad Sázavou",
+      "sid": "410",
+      "web": "https://www.rybari-svetlans.cz/",
+      "rss": null,
+      "aktuality": "https://www.rybari-svetlans.cz/aktuality",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Sázava nad Sázavou",
+      "sid": "409",
+      "web": "https://www.crssazava.cz/home",
+      "rss": null,
+      "aktuality": "https://www.crssazava.cz/news",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Černošice",
+      "sid": "492",
+      "web": "https://rybari-cernosice.webnode.cz/",
+      "rss": null,
+      "aktuality": "https://rybari-cernosice.webnode.cz/aktuality/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Řevnice",
+      "sid": "408",
+      "web": "https://www.rybarirevnice.cz/",
+      "rss": "https://rybarirevnice.cz/rss/all.xml",
+      "aktuality": "https://www.rybarirevnice.cz/aktuality/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Štěchovice",
+      "sid": "412",
+      "web": "https://www.rybaristechovice.cz/",
+      "rss": "https://rybaristechovice.cz/rss/all.xml",
+      "aktuality": "https://www.rybaristechovice.cz/aktuality/",
+      "zdroj": "uzemni_svaz"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Adamov",
+      "sid": null,
+      "web": "https://www.mro-adamov.cz/",
+      "rss": "https://www.mro-adamov.cz/index.php?format=feed&type=rss",
+      "aktuality": "https://www.mro-adamov.cz/index.php/aktuality",
+      "zdroj": "mrs_api"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Batelov",
+      "sid": null,
+      "web": "https://www.mrsbatelov.cz/",
+      "rss": null,
+      "aktuality": "https://www.mrsbatelov.cz/aktuality.htm",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Blansko",
+      "sid": null,
+      "web": "https://mrsblansko.cz/",
+      "rss": "https://mrsblansko.cz/feed/",
+      "aktuality": "https://mrsblansko.cz/category/aktuality/",
+      "zdroj": "mrs_api"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Bojkovice",
+      "sid": null,
+      "web": "https://www.mrsbojkovice.cz/",
+      "rss": "https://www.mrsbojkovice.cz/blog/x5feed.php",
+      "aktuality": "https://www.mrsbojkovice.cz/blog/index.php",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Boskovice",
+      "sid": null,
+      "web": "https://www.rybariboskovice.cz/",
+      "rss": null,
+      "aktuality": "https://www.rybariboskovice.cz/aktuality/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Brno 1",
+      "sid": null,
+      "web": "https://mrsbrno1.cz/",
+      "rss": "https://mrsbrno1.cz/feed/",
+      "aktuality": "https://mrsbrno1.cz/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Brno 3",
+      "sid": null,
+      "web": "https://brno3.momrs.cz/",
+      "rss": null,
+      "aktuality": "https://brno3.momrs.cz/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Brno 4",
+      "sid": null,
+      "web": "https://mrsbrno4.cz/",
+      "rss": "https://mrsbrno4.cz/feed/",
+      "aktuality": "https://mrsbrno4.cz/",
+      "zdroj": "mrs_api"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Brno 5",
+      "sid": null,
+      "web": "https://www.mrs-zs-ps-brno5.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Bystřice nad Pernštejnem",
+      "sid": null,
+      "web": "https://www.momrs-bystricenp.cz/",
+      "rss": "https://momrs-bystricenp.cz/rss/all.xml",
+      "aktuality": "https://www.momrs-bystricenp.cz/news/zprava-z-tradicnich-rybarskych-zavodu/",
+      "zdroj": "mrs_api"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Bystřice pod Hostýnem",
+      "sid": null,
+      "web": "https://www.rybari-bph.cz/",
+      "rss": null,
+      "aktuality": "https://www.rybari-bph.cz/clanky/vcs/",
+      "zdroj": "mrs_api"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Chropyně",
+      "sid": null,
+      "web": "https://www.mochropyne.cz/",
+      "rss": "https://www.mochropyne.cz/?format=feed&type=rss",
+      "aktuality": "https://www.mochropyne.cz/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Dolní Loučky",
+      "sid": null,
+      "web": "https://mrsmodolniloucky.estranky.cz/",
+      "rss": null,
+      "aktuality": "https://mrsmodolniloucky.estranky.cz/clanky/aktuality/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Dubňany",
+      "sid": null,
+      "web": "https://www.mrsdubnany.cz/",
+      "rss": "https://mrsdubnany.cz/rss/all.xml",
+      "aktuality": null,
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Hluk",
+      "sid": null,
+      "web": "https://www.mrshluk.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "mrs_api"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Hodonín",
+      "sid": null,
+      "web": "https://www.mrshodo.cz/",
+      "rss": "https://www.mrshodo.cz/feed/",
+      "aktuality": null,
+      "zdroj": "mrs_api"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Holešov",
+      "sid": null,
+      "web": "https://rybari-holesov.cz/",
+      "rss": "https://rybari-holesov.cz/?format=feed&type=rss",
+      "aktuality": "https://rybari-holesov.cz/pro-nase-rybare/aktuality-schvalene-zmeny-mrs",
+      "zdroj": "mrs_api"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Hrušovany nad Jevišovkou",
+      "sid": null,
+      "web": "https://mrshrusovany.cz/",
+      "rss": "https://mrshrusovany.cz/feed/",
+      "aktuality": "https://mrshrusovany.cz/blog/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Jaroměřice nad Rokytnou",
+      "sid": null,
+      "web": "https://rybarijaromerice.estranky.cz/",
+      "rss": "https://rybarijaromerice.estranky.cz/rss/articles/data.xml",
+      "aktuality": "https://rybarijaromerice.estranky.cz/clanky/aktuality/",
+      "zdroj": "mrs_api"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Jemnice",
+      "sid": null,
+      "web": "https://www.mrs-jemnice.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Konice",
+      "sid": null,
+      "web": "https://mrskonice.cz/",
+      "rss": null,
+      "aktuality": "https://mrskonice.cz/aktuality.html",
+      "zdroj": "mrs_api"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Kostelany nad Moravou",
+      "sid": null,
+      "web": "https://rybarikostelany.cz/",
+      "rss": "https://rybarikostelany.cz/feed/",
+      "aktuality": "https://rybarikostelany.cz/aktuality/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Kroměříž",
+      "sid": null,
+      "web": "https://mrsmokromeriz.estranky.cz/",
+      "rss": null,
+      "aktuality": "https://mrsmokromeriz.estranky.cz/clanky/cenik.html",
+      "zdroj": "mrs_api"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Kunovice",
+      "sid": null,
+      "web": "https://www.momrs-kunovice.cz/",
+      "rss": null,
+      "aktuality": "https://www.momrs-kunovice.cz/aktuality/",
+      "zdroj": "mrs_api"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Kvasice",
+      "sid": null,
+      "web": "https://www.rybarikvasice.cz/",
+      "rss": null,
+      "aktuality": "https://www.rybarikvasice.cz/clanky/aktuality.html",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Kyjov",
+      "sid": null,
+      "web": "https://www.rybarikyjov.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "mrs_api"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Lednice",
+      "sid": null,
+      "web": "https://www.mrslednice.cz/",
+      "rss": "https://www.mrslednice.cz/rss/articles/data.xml",
+      "aktuality": "https://www.mrslednice.cz/clanky/videa.html",
+      "zdroj": "mrs_api"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Mohelno",
+      "sid": null,
+      "web": "https://www.rybarimohelno.cz/",
+      "rss": null,
+      "aktuality": "https://www.rybarimohelno.cz/index.php?document=start",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Moravská Nová Ves",
+      "sid": null,
+      "web": "https://www.naryby2018.cz/",
+      "rss": null,
+      "aktuality": "https://www.naryby2018.cz/kontakt2/",
+      "zdroj": "mrs_api"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Moravský Krumlov",
+      "sid": null,
+      "web": "https://www.psmrsmk.cz/",
+      "rss": "https://www.psmrsmk.cz/feed/",
+      "aktuality": null,
+      "zdroj": "mrs_api"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Nedakonice",
+      "sid": null,
+      "web": "https://rybarinedakonice.cz/",
+      "rss": "https://rybarinedakonice.cz/feed/",
+      "aktuality": null,
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Nedvědice",
+      "sid": null,
+      "web": "https://rybarinedvedice.webnode.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "mrs_api"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Nová Ves",
+      "sid": null,
+      "web": "https://www.mrsnovaves.cz/",
+      "rss": null,
+      "aktuality": "https://www.mrsnovaves.cz/clanky/",
+      "zdroj": "mrs_api"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Nové Město na Moravě",
+      "sid": null,
+      "web": "https://www.rybarinmnm.cz/",
+      "rss": null,
+      "aktuality": "https://www.rybarinmnm.cz/aktuality",
+      "zdroj": "mrs_api"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Němčice nad Hanou",
+      "sid": null,
+      "web": "https://mrsnemcicenh.websnadno.cz/",
+      "rss": null,
+      "aktuality": "https://mrsnemcicenh.websnadno.cz/Aktuality.html",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Osvětimany",
+      "sid": null,
+      "web": "https://www.rybariosvetimany.cz/",
+      "rss": "https://www.rybariosvetimany.cz/feed/",
+      "aktuality": "https://www.rybariosvetimany.cz/novinky/",
+      "zdroj": "mrs_api"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Podivín",
+      "sid": null,
+      "web": "https://www.rybaripodivin.cz/",
+      "rss": "https://www.rybaripodivin.cz/feed/",
+      "aktuality": null,
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Police",
+      "sid": null,
+      "web": "https://www.mrspolice.cz/",
+      "rss": "https://www.mrspolice.cz/feed/",
+      "aktuality": null,
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Prostějov",
+      "sid": null,
+      "web": "https://www.mrsprostejov.cz/",
+      "rss": "https://www.mrsprostejov.cz/feed/",
+      "aktuality": "https://www.mrsprostejov.cz/aktuality/",
+      "zdroj": "mrs_api"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Rakvice",
+      "sid": null,
+      "web": "https://mrs-rakvice.cz/",
+      "rss": "https://mrs-rakvice.cz/feed/",
+      "aktuality": null,
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Ratíškovice",
+      "sid": null,
+      "web": "https://www.mrs-ratiskovice.eu/",
+      "rss": null,
+      "aktuality": "https://www.mrs-ratiskovice.eu/",
+      "zdroj": "mrs_api"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Rosice",
+      "sid": null,
+      "web": "https://mrsrosice.proweb.cz/",
+      "rss": null,
+      "aktuality": "https://mrsrosice.proweb.cz/aktuality",
+      "zdroj": "mrs_api"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Rudíkov",
+      "sid": null,
+      "web": "https://www.mrsrudikov.cz/",
+      "rss": null,
+      "aktuality": "https://www.mrsrudikov.cz/p-c180ntay/1/",
+      "zdroj": "mrs_api"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Rájec-Jestřebí",
+      "sid": null,
+      "web": "https://rybari-rajec.webnode.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "mrs_api"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Sehradice",
+      "sid": null,
+      "web": "https://mrssehradice.wz.cz/",
+      "rss": null,
+      "aktuality": "https://mrssehradice.wz.cz/Aktuality/Aktuality.html",
+      "zdroj": "mrs_api"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Slavkov u Brna",
+      "sid": null,
+      "web": "https://www.mrspsslavkov.cz/",
+      "rss": null,
+      "aktuality": "https://www.mrspsslavkov.cz/aktuality/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Staré Město",
+      "sid": null,
+      "web": "https://mostaremesto.webnode.cz/",
+      "rss": "https://mostaremesto.webnode.cz/rss/all.xml",
+      "aktuality": "https://mostaremesto.webnode.cz/novinky/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Strážnice",
+      "sid": null,
+      "web": "https://www.mrsstraznice.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Týnec",
+      "sid": null,
+      "web": "https://mrstynec.webnode.cz/",
+      "rss": "https://mrstynec.webnode.cz/rss/all.xml",
+      "aktuality": "https://mrstynec.webnode.cz/news/rybarske-zavody-2026/",
+      "zdroj": "mrs_api"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Uherské Hradiště",
+      "sid": null,
+      "web": "https://www.rybaruh.cz/",
+      "rss": null,
+      "aktuality": "https://www.rybaruh.cz/aktualne",
+      "zdroj": "mrs_api"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Uherský Brod",
+      "sid": null,
+      "web": "https://www.rybariub.cz/",
+      "rss": null,
+      "aktuality": "https://www.rybariub.cz/blog/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Uherský Ostroh",
+      "sid": null,
+      "web": "https://mrsuhostroh.websnadno.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Velká Bíteš",
+      "sid": null,
+      "web": "https://rybaribites.cz/",
+      "rss": "https://rybaribites.cz/feed/",
+      "aktuality": null,
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Velké Meziříčí",
+      "sid": null,
+      "web": "https://www.mrs-velkemezirici.cz/",
+      "rss": null,
+      "aktuality": "https://www.mrs-velkemezirici.cz/novinky/",
+      "zdroj": "mrs_api"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Veselí nad Moravou",
+      "sid": null,
+      "web": "https://rybari-veseli.webnode.cz/",
+      "rss": "https://rybari-veseli.webnode.cz/rss/all.xml",
+      "aktuality": null,
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Veverská Bítýška",
+      "sid": null,
+      "web": "https://mrsvb.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Vranov nad Dyjí",
+      "sid": null,
+      "web": "https://www.rybarivranov.cz/",
+      "rss": null,
+      "aktuality": "https://www.rybarivranov.cz/aktuality",
+      "zdroj": "mrs_api"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Vranovice",
+      "sid": null,
+      "web": "https://movranovice.cz/",
+      "rss": "https://movranovice.cz/?feed=rss2",
+      "aktuality": null,
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Vyškov",
+      "sid": null,
+      "web": "https://www.mrsvyskov.cz/",
+      "rss": null,
+      "aktuality": null,
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Zlín",
+      "sid": null,
+      "web": "https://www.mrszlin.cz/",
+      "rss": null,
+      "aktuality": "https://www.mrszlin.cz/novinky",
+      "zdroj": "mrs_api"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Znojmo",
+      "sid": null,
+      "web": "https://mrsznojmo.cz/",
+      "rss": "https://mrsznojmo.cz/feed/",
+      "aktuality": "https://mrsznojmo.cz/aktuality/",
+      "zdroj": "hledani"
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Šlapanice",
+      "sid": null,
+      "web": "https://www.mrsslapanice.cz/",
+      "rss": "https://www.mrsslapanice.cz/?format=feed&type=rss",
+      "aktuality": "https://www.mrsslapanice.cz/novinky",
+      "zdroj": "hledani"
+    }
+  ],
+  "neovereno": [
+    {
+      "svaz": "MRS",
+      "nazev": "Břeclav",
+      "sid": null,
+      "kandidati": [
+        "http://www.rybaribreclav.cz/"
+      ]
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Dolní Kounice",
+      "sid": null,
+      "kandidati": [
+        "http://rybarikounice.cz/"
+      ]
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Ivančice",
+      "sid": null,
+      "kandidati": [
+        "https://mrs.ivancice.cz/"
+      ]
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Jihlava",
+      "sid": null,
+      "kandidati": [
+        "http://www.mrsjihlava.cz/"
+      ]
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Mikulov",
+      "sid": null,
+      "kandidati": [
+        "http://mrsmikulov.cz/",
+        "http://mrsmikulov.ic.cz/"
+      ]
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Moravské Budějovice",
+      "sid": null,
+      "kandidati": [
+        "http://www.mbrybari.wz.cz/"
+      ]
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Mrákotín",
+      "sid": null,
+      "kandidati": [
+        "http://www.rybari-mrakotin.cz/"
+      ]
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Náměšť nad Oslavou",
+      "sid": null,
+      "kandidati": [
+        "http://www.rybariznameste.kvalitne.cz/"
+      ]
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Slavičín",
+      "sid": null,
+      "kandidati": [
+        "http://www.mrsmoslavicin.com/"
+      ]
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Svratka",
+      "sid": null,
+      "kandidati": [
+        "http://www.rs-svratka.cz/"
+      ]
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Telč",
+      "sid": null,
+      "kandidati": [
+        "http://www.sportovnirybaritelc.cz/"
+      ]
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Tišnov",
+      "sid": null,
+      "kandidati": [
+        "http://www.mrs-tisnov.cz/"
+      ]
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Třebíč",
+      "sid": null,
+      "kandidati": [
+        "http://www.rybaritrebic.cz/"
+      ]
+    },
+    {
+      "svaz": "MRS",
+      "nazev": "Žďár nad Sázavou",
+      "sid": null,
+      "kandidati": [
+        "http://www.mrszr.czweb.org/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Bavorov",
+      "sid": "91",
+      "kandidati": [
+        "http://www.crsbavorov.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Hluboká nad Vltavou",
+      "sid": "129",
+      "kandidati": [
+        "http://mo-hluboka.wz.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Jindřichův Hradec",
+      "sid": "97",
+      "kandidati": [
+        "http://www.crsjhradec.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Strakonice",
+      "sid": "117",
+      "kandidati": [
+        "http://www.rybari.strakonice.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "Volyně",
+      "sid": "133",
+      "kandidati": [
+        "http://www.crsvolyne.8u.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Jihočeský ÚS",
+      "nazev": "České Budějovice 1",
+      "sid": "113",
+      "kandidati": [
+        "http://www.rybaricb.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Moravskoslezský ÚS",
+      "nazev": "Brodek u Přerova",
+      "sid": "283",
+      "kandidati": [
+        "http://www.crsbrodek.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Moravskoslezský ÚS",
+      "nazev": "Jablunkov",
+      "sid": "330",
+      "kandidati": [
+        "http://mocrs.jablunkov.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Moravskoslezský ÚS",
+      "nazev": "Orlová",
+      "sid": "292",
+      "kandidati": [
+        "http://www.crs-mo-orlova.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Moravskoslezský ÚS",
+      "nazev": "Přerov",
+      "sid": "261",
+      "kandidati": [
+        "http://www.crsmoprerov.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Moravskoslezský ÚS",
+      "nazev": "Vsetín",
+      "sid": "267",
+      "kandidati": [
+        "http://www.mocrsvsetin.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Severočeský ÚS",
+      "nazev": "Chřibská",
+      "sid": "195",
+      "kandidati": [
+        "http://www.rybarichribska.websnadno.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Severočeský ÚS",
+      "nazev": "Děčín",
+      "sid": "199",
+      "kandidati": [
+        "http://www.rybaridecin.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Severočeský ÚS",
+      "nazev": "Hrádek nad Nisou",
+      "sid": "209",
+      "kandidati": [
+        "http://www.rybari-hradek.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Severočeský ÚS",
+      "nazev": "Jablonec nad Nisou",
+      "sid": "208",
+      "kandidati": [
+        "http://rybsvazjbc.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Severočeský ÚS",
+      "nazev": "Liberec",
+      "sid": "192",
+      "kandidati": [
+        "http://www.rybsvaz-liberec.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Severočeský ÚS",
+      "nazev": "Litoměřice",
+      "sid": "200",
+      "kandidati": [
+        "http://www.crs-litomerice.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Severočeský ÚS",
+      "nazev": "Stráž pod Ralskem",
+      "sid": "219",
+      "kandidati": [
+        "http://www.mostraz.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Severočeský ÚS",
+      "nazev": "Tanvald",
+      "sid": "424",
+      "kandidati": [
+        "http://www.rybsvaz-tanvald.unas.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Severočeský ÚS",
+      "nazev": "Teplice v Čechách",
+      "sid": "485",
+      "kandidati": [
+        "http://www.mocrsteplice.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Severočeský ÚS",
+      "nazev": "Zákupy",
+      "sid": "310",
+      "kandidati": [
+        "http://www.mocrs-zakupy.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Severočeský ÚS",
+      "nazev": "Česká Kamenice",
+      "sid": "425",
+      "kandidati": [
+        "http://rybari.ceska-kamenice.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Severočeský ÚS",
+      "nazev": "Česká Lípa",
+      "sid": "217",
+      "kandidati": [
+        "http://www.rybaricl.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Severočeský ÚS",
+      "nazev": "Štětí",
+      "sid": "202",
+      "kandidati": [
+        "http://www.rybari-steti.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Severočeský ÚS",
+      "nazev": "Žatec",
+      "sid": "212",
+      "kandidati": [
+        "http://www.rybarizatec.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Benátky nad Jizerou",
+      "sid": "32",
+      "kandidati": [
+        "http://www.mocrsbenatky.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Bělá pod Bezdězem",
+      "sid": "20",
+      "kandidati": [
+        "http://www.rybaribpb.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Dolní Kralovice",
+      "sid": "78",
+      "kandidati": [
+        "http://rybari.dolni-kralovice.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Kladno",
+      "sid": "16",
+      "kandidati": [
+        "http://www.rybarikladno.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Libice nad Cidlinou",
+      "sid": "343",
+      "kandidati": [
+        "http://crs-libice.webpark.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Mnichovice",
+      "sid": "80",
+      "kandidati": [
+        "http://www.mocrsmnichovice.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Přišimasy",
+      "sid": "74",
+      "kandidati": [
+        "http://www.crsmoprisimasy.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Rožmitál pod Třemšínem",
+      "sid": "71",
+      "kandidati": [
+        "http://www.rybarirozmital.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Rožďalovice",
+      "sid": "351",
+      "kandidati": [
+        "http://www.mocrs-rozdalovice.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Rudná",
+      "sid": "498",
+      "kandidati": [
+        "http://www.rybarskecentrumrudna.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Sedlčany",
+      "sid": "59",
+      "kandidati": [
+        "http://www.rybari-sedlcany.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Veltruby",
+      "sid": "55",
+      "kandidati": [
+        "http://rybari-veltruby.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Zbraslavice",
+      "sid": "359",
+      "kandidati": [
+        "http://rybarizbra.wz.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Středočeský ÚS",
+      "nazev": "Český Šternberk",
+      "sid": "65",
+      "kandidati": [
+        "https://www.mocrsceskysternberk.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Broumov",
+      "sid": "254",
+      "kandidati": [
+        "http://www.rybaribroumov.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Choceň",
+      "sid": "249",
+      "kandidati": [
+        "http://www.rybarichocen.cz/",
+        "https://www.rybari-chocen.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Havlovice",
+      "sid": "257",
+      "kandidati": [
+        "http://www.mocrshavlovice.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Klášterec nad Orlicí",
+      "sid": "320",
+      "kandidati": [
+        "http://www.crsklasterec.unas.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Kostelec nad Orlicí",
+      "sid": "442",
+      "kandidati": [
+        "http://www.crs-kostelec.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Moravská Třebová",
+      "sid": "454",
+      "kandidati": [
+        "https://www.rybari-mt.cz/",
+        "http://www.rybarimoravskatrebova.estranky.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Nekoř",
+      "sid": "319",
+      "kandidati": [
+        "http://www.rybari-nekor.euweb.cz/",
+        "http://www.rybari-nekor.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Opočno",
+      "sid": "258",
+      "kandidati": [
+        "http://mo-opocno.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Rychnov nad Kněžnou",
+      "sid": "313",
+      "kandidati": [
+        "http://www.mocrsnk.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Svitavy",
+      "sid": "466",
+      "kandidati": [
+        "http://www.mocrs-svitavy.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Východočeský ÚS",
+      "nazev": "Těchonín",
+      "sid": "324",
+      "kandidati": [
+        "http://www.rybari-techonin.cz/",
+        "http://i-techonin.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Chrást",
+      "sid": "138",
+      "kandidati": [
+        "http://www.crschrast.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Horšovský Týn",
+      "sid": "170",
+      "kandidati": [
+        "http://www.rybarihorsovskytyn.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Kdyně",
+      "sid": "172",
+      "kandidati": [
+        "http://www.rybarikdyne.estranky.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Klatovy",
+      "sid": "175",
+      "kandidati": [
+        "http://rybari.klatovsko.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Kraslice",
+      "sid": "307",
+      "kandidati": [
+        "http://rybari-kraslice.cz/",
+        "http://www.rybari-kraslice.ic.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Kynšperk nad Ohří",
+      "sid": "162",
+      "kandidati": [
+        "http://www.crsmokynsperk.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Křimice",
+      "sid": "155",
+      "kandidati": [
+        "http://www.rybarikrimice.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Teplá",
+      "sid": "174",
+      "kandidati": [
+        "http://mocrs-tepla.wz.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Západočeský ÚS",
+      "nazev": "Žlutice",
+      "sid": "305",
+      "kandidati": [
+        "http://www.crszlutice.wz.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Dobříš",
+      "sid": "395",
+      "kandidati": [
+        "http://www.rybaridobris.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Ouběnice",
+      "sid": "406",
+      "kandidati": [
+        "http://www.rybarioubenice.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Praha 4 - Modřany",
+      "sid": "372",
+      "kandidati": [
+        "https://www.rybari-modrany.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Praha 4 - Pankrác",
+      "sid": "1184733",
+      "kandidati": [
+        "http://www.rybaripankrac.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Praha 5 - Barrandov",
+      "sid": "377",
+      "kandidati": [
+        "http://www.mo-crs-barrandov.wz.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Praha 5 - Velká Chuchle",
+      "sid": "365",
+      "kandidati": [
+        "http://www.rybarichuchle.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Praha 8 - Libeň",
+      "sid": "384",
+      "kandidati": [
+        "http://www.crsmoliben.wz.cz/"
+      ]
+    },
+    {
+      "svaz": "ČRS – Územní svaz města Prahy",
+      "nazev": "Praha 9 - Kyje",
+      "sid": "388",
+      "kandidati": [
+        "http://www.rybarikyje.cz/"
+      ]
+    }
+  ],
+  "poznamka": "neovereno = URL uvedené územním svazem/API/katalogem, které se nepodařilo ověřit (web jen po HTTP, neplatný TLS certifikát nebo nedostupný); nejsou v poli organizace."
+}

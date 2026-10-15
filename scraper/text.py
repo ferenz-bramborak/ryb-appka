@@ -61,8 +61,9 @@ def dates_in_text(text: str) -> list[date]:
 
 TYPY = [
     ("vysazeni", r"vysaz|vysadil|zarybn|násad|nasazen[ao] .*(kapr|štik|pstruh|amur|candát)|vypuštěn[oiy] .*(ryb|plůd|jeseter)"),
-    ("zakaz", r"zákaz (lovu|rybolovu)|uzavřen[íý]? revír|lov (je )?zakázán|výlov|vypouštění nádrže"),
+    ("zakaz", r"zákaz (lovu|rybolovu)|uzavřen[íý]? revír|lov (je )?zakázán|hájení revír|hájen[íý] .*po (na|vy)sazení|revír .*uzavř"),
     ("uhyn", r"úhyn|otrav|mrtvé ryby|hynou"),
+    ("vylov", r"výlov|vypouštění nádrže|vypuštění rybník"),
     ("zavody", r"závod[yůu]? |rybářské závody|dětské rybářské"),
 ]
 
@@ -80,22 +81,16 @@ _MN = r"(\d{1,3}(?:[ .]\d{3})*(?:,\d+)?|\d+(?:,\d+)?)\s*(kg|ks|kusů|kilogramů)
 
 def vysazeni_z_textu(text: str) -> list[dict]:
     """Volný text → [{druh, mnozstvi, jednotka}] pro dvojice „druh … množství“ ve stejné větě."""
-    out = []
+    out: dict[str, dict] = {}
     for veta in re.split(r"(?<=[.;!?\n])\s+|,\s+(?=\D)", text or ""):
         druhy = druhy_v_textu(veta)
-        if not druhy:
-            continue
+        for d in druhy:
+            out.setdefault(d, {"druh": d})
         m = re.search(_MN, veta, re.I)
-        rec = {"druh": druhy[0]}
-        if m and len(druhy) == 1:
-            rec["mnozstvi"] = float(m.group(1).replace(" ", "").replace(".", "").replace(",", "."))
-            rec["jednotka"] = "kg" if m.group(2).lower().startswith("k") and "g" in m.group(2).lower() else "ks"
-        if not any(r["druh"] == rec["druh"] for r in out):
-            out.append(rec)
-        for d in druhy[1:]:
-            if not any(r["druh"] == d for r in out):
-                out.append({"druh": d})
-    return out
+        if m and len(druhy) == 1 and "mnozstvi" not in out[druhy[0]]:
+            out[druhy[0]]["mnozstvi"] = float(m.group(1).replace(" ", "").replace(".", "").replace(",", "."))
+            out[druhy[0]]["jednotka"] = "kg" if m.group(2).lower().startswith("k") and "g" in m.group(2).lower() else "ks"
+    return list(out.values())
 
 
 def iso(d: date | datetime | None) -> str | None:
