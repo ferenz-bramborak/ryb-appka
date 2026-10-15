@@ -1,0 +1,56 @@
+name: Data a web
+
+on:
+  schedule:
+    - cron: "17 3 * * *"   # revíry, vysazování, úlovky – jednou denně
+    - cron: "41 * * * *"   # stav vody ČHMÚ – každou hodinu
+  workflow_dispatch:
+  push:
+    branches: [master, main]
+    paths: ["web/**", "scraper/**"]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: data-a-web
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r scraper/requirements.txt
+      - name: Stažení dat
+        run: |
+          if [ "${{ github.event.schedule }}" = "41 * * * *" ]; then
+            python -m scraper.run --only voda
+          else
+            python -m scraper.run
+          fi
+      - name: Uložení dat do repozitáře
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898729+github-actions[bot]@users.noreply.github.com"
+          git add web/data
+          git diff --cached --quiet || git commit -m "Aktualizace dat $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: web
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
