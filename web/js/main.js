@@ -353,13 +353,17 @@ async function viewNovinky() {
   ];
   const render = () => {
     const f = FILTRY.find(x => x[0] === filtr) ?? FILTRY[0];
-    const items = feed.filter(f[2]);
+    const sv = getSvaz();
+    const svazOk = z => sv === 'vse' || svazKey(z.svaz) === sv || (z.reviry ?? []).some(r => svazKey(byId.get(r.id)?.svaz) === sv);
+    const items = feed.filter(z => f[2](z) && svazOk(z));
     view.innerHTML = `
       <div class="chips">${FILTRY.map(([k, n]) => `<button class="chip ${k === filtr ? 'active' : ''}" data-f="${k}">${n}</button>`).join('')}</div>
+      ${svazChips()}
       ${filtr === 'pobliz' && !lastPos ? '<div class="card small">Pro novinky z okolí otevři nejdřív záložku „U vody“, aby appka znala tvou polohu.</div>' : ''}
       ${items.length ? items.map(z => newsItem(z, seen)).join('') : '<div class="card muted">Za poslední měsíc tu nic není.</div>'}
       <p class="small muted">Zprávy za poslední měsíc: hlášení svazů o vysazování, novinky místních organizací, Bleskovky a diskuse z mrk.cz.</p>`;
-    view.querySelectorAll('.chip').forEach(b => { b.onclick = () => { filtr = b.dataset.f; store.set('novinky-filtr', filtr); render(); }; });
+    view.querySelectorAll('[data-f]').forEach(b => { b.onclick = () => { filtr = b.dataset.f; store.set('novinky-filtr', filtr); render(); }; });
+    bindSvazChips(view, render);
   };
   render();
   if (feed[0]) store.set('novinky-videno', feed[0].datum);
@@ -376,13 +380,31 @@ function renderRevirNovinky(d) {
     <div class="muted">${esc(z.zdroj ?? '')}</div></li>`).join('')}</ul></div>`;
 }
 
+
+// ---------- Filtr svazu (ČRS / MRS), sdílený napříč záložkami ----------
+const SVAZY = [['vse', 'Všechny svazy'], ['crs', 'ČRS'], ['mrs', 'MRS']];
+const svazKey = s => (String(s ?? '').startsWith('MRS') ? 'mrs' : String(s ?? '').startsWith('ČRS') ? 'crs' : null);
+const getSvaz = () => store.get('svaz-filtr') ?? 'vse';
+const revirMatchesSvaz = r => getSvaz() === 'vse' || svazKey(r.svaz) === getSvaz();
+
+function svazChips() {
+  const cur = getSvaz();
+  return `<div class="chips">${SVAZY.map(([k, n]) => `<button class="chip ${k === cur ? 'active' : ''}" data-svaz="${k}">${n}</button>`).join('')}</div>`;
+}
+function bindSvazChips(root, onChange) {
+  root.querySelectorAll('[data-svaz]').forEach(b => {
+    b.onclick = () => { store.set('svaz-filtr', b.dataset.svaz); onChange(); };
+  });
+}
+
 // ---------- Mapa ----------
 let map = null;
 const shapeLayers = new Map();
 function viewMap() {
   if (!DB.reviry.length) { view.innerHTML = emptyData(); return; }
   if (typeof L === 'undefined') { view.innerHTML = '<div class="card">Mapu se nepodařilo načíst (jsi online?).</div>'; return; }
-  view.innerHTML = '<div id="map"></div>';
+  view.innerHTML = `${svazChips()}<div id="map" style="height:calc(100vh - 215px)"></div>`;
+  bindSvazChips(view, viewMap);
   map?.remove();
   shapeLayers.clear();
   map = L.map('map', { preferCanvas: true }).setView(lastPos ? [lastPos.lat, lastPos.lon] : [49.8, 15.5], lastPos ? 12 : 7);
@@ -391,7 +413,7 @@ function viewMap() {
   const markers = [];
   for (const r of DB.reviry) {
     const c = revirCenter(r);
-    if (!c) continue;
+    if (!c || !revirMatchesSvaz(r)) continue;
     markers.push(L.circleMarker([c.lat, c.lon], { radius: 4, weight: 1, color: '#fff', fillOpacity: 0.9, fillColor: color(r) })
       .addTo(map)
       .bindPopup(`<a href="#/revir/${encodeURIComponent(r.id)}">${esc(r.nazev)}</a><br>${esc(r.cislo ?? r.id)} · ${isTrout(r) ? 'pstruhový' : 'mimopstruhový'}`));
@@ -407,7 +429,7 @@ function viewMap() {
   const drawShapes = async () => {
     if (map.getZoom() < 12) return;
     const b = map.getBounds();
-    const visible = DB.reviry.filter(r => r.bbox && r.bbox[2] >= b.getSouth() && r.bbox[0] <= b.getNorth() && r.bbox[3] >= b.getWest() && r.bbox[1] <= b.getEast());
+    const visible = DB.reviry.filter(r => revirMatchesSvaz(r) && r.bbox && r.bbox[2] >= b.getSouth() && r.bbox[0] <= b.getNorth() && r.bbox[3] >= b.getWest() && r.bbox[1] <= b.getEast());
     for (const r of visible.slice(0, 60)) {
       if (shapeLayers.has(r.id)) continue;
       shapeLayers.set(r.id, null);
@@ -426,17 +448,18 @@ function viewMap() {
 // ---------- Hledání ----------
 function viewSearch() {
   if (!DB.reviry.length) { view.innerHTML = emptyData(); return; }
-  view.innerHTML = `<div class="card"><input type="search" id="q" placeholder="Název, číslo revíru, MO nebo svaz…">
+  view.innerHTML = `${svazChips()}<div class="card"><input type="search" id="q" placeholder="Název, číslo revíru, MO nebo svaz…">
     <ul class="list" id="results"></ul></div>`;
   const q = document.getElementById('q');
   const out = document.getElementById('results');
   try { q.value = sessionStorage.getItem('q') ?? ''; } catch { /* soukromý režim */ }
   const run = () => {
     try { sessionStorage.setItem('q', q.value); } catch { /* soukromý režim */ }
-    const res = searchReviry(DB.reviry, q.value);
+    const res = searchReviry(DB.reviry.filter(revirMatchesSvaz), q.value);
     out.innerHTML = res.length ? res.map(r => revirListItem(r)).join('') : q.value ? '<li class="muted" style="padding:10px 0">Nic nenalezeno.</li>' : '';
   };
   q.oninput = run;
+  bindSvazChips(view, () => { view.querySelectorAll('[data-svaz]').forEach(b => b.classList.toggle('active', b.dataset.svaz === getSvaz())); run(); });
   run();
   q.focus();
 }
