@@ -6,6 +6,7 @@ o revíry kvůli jednomu nedostupnému webu).
   python -m scraper.run                 # denní běh: revíry, úlovky, vysazení, voda
   python -m scraper.run --only voda     # hodinový běh: jen stav vody
   python -m scraper.run --only statistika
+  python -m scraper.run --only mrk        # týdně: alternativní názvy a diskuse revírů z mrk.cz
   python -m scraper.run --build-only    # jen znovu sestavit web/data z cache
 """
 from __future__ import annotations
@@ -16,7 +17,7 @@ import logging
 from datetime import datetime, timezone
 
 from .build import CACHE, OUT, build
-from .sources import chmi, crs, mrs, statistika, ulovky_fora, vysazeni
+from .sources import chmi, crs, mrk_reviry, mrs, novinky, statistika, ulovky_fora, vysazeni
 
 log = logging.getLogger("scraper")
 
@@ -26,11 +27,13 @@ DENNI = [
     (mrs, "mrs.json", 250),
     (ulovky_fora, "ulovky.json", 1),
     (vysazeni, "vysazeni.json", 1),
+    (novinky, "novinky.json", 1),
     (chmi, "voda.json", 300),
 ]
 ZDROJE = {
     "voda": [(chmi, "voda.json", 300)],
     "statistika": [(statistika, "statistika.json", 1000)],
+    "mrk": [(mrk_reviry, "mrk_reviry.json", 800)],
 }
 
 

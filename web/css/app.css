@@ -145,3 +145,23 @@ table.simple td.num, table.simple th.num { text-align: right; font-variant-numer
 details summary { cursor: pointer; font-weight: 600; }
 .pre { white-space: pre-line; }
 .loading { color: var(--muted); font-style: italic; }
+
+.tabbar a { position: relative; }
+.tab-badge {
+  position: absolute; top: 4px; left: calc(50% + 6px);
+  min-width: 18px; height: 18px; padding: 0 5px; border-radius: 9px;
+  background: var(--bad); color: #fff; font-size: 11px; line-height: 18px; text-align: center;
+}
+.chips { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 4px; margin-bottom: 10px; }
+.chip {
+  flex: none; border: 1px solid var(--line); background: var(--card); color: var(--text);
+  border-radius: 999px; padding: 6px 12px; font: inherit; font-size: 14px; cursor: pointer;
+}
+.chip.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+@media (prefers-color-scheme: dark) { .chip.active { color: #0d1a14; } }
+.news-item.new { border-left: 4px solid var(--bad); }
+.news-item h3 { margin: 6px 0 4px; font-size: 16px; }
+.news-item h3 a { color: var(--text); text-decoration: none; }
+.revir-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.revir-chips a { font-size: 13px; background: var(--accent-soft); color: var(--accent); border-radius: 8px; padding: 3px 8px; text-decoration: none; }
+.nowrap { white-space: nowrap; }

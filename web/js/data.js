@@ -20,6 +20,10 @@ export async function loadIndex() {
   return { reviry: reviry?.reviry ?? [], stanice: voda?.stanice ?? [], meta: meta ?? {} };
 }
 
+export function loadNovinky() {
+  return loadJson('novinky.json').then(d => d?.novinky ?? []);
+}
+
 export function loadDetail(id) {
   return loadJson(`r/${encodeURIComponent(id)}.json`).then(d => d ?? {});
 }

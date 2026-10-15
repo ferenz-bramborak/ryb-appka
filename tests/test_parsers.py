@@ -64,3 +64,17 @@ def test_parovani_nazvu():
     assert p.podle_textu("Ohře") == []
     assert p.podle_textu("Do ÚN Rozkoš bylo vysazeno", "ČRS – Východočeský ÚS", cely_text=True) == ["451200"]
     assert p.podle_mo("ČRS – Západočeský ÚS", "Kynšperk nad Ohří") == ["431038", "431100"]
+
+
+def test_text_zpravy():
+    from datetime import date
+    from scraper.text import parse_date, typ_zpravy, vysazeni_z_textu
+    assert parse_date("Wed, 16 Sep 2026 12:00:16 +0100") == date(2026, 9, 16)
+    assert parse_date("15. 9. 2026") == date(2026, 9, 15)
+    assert parse_date("10. října 2026") == date(2026, 10, 10)
+    assert typ_zpravy("Na Trnávku vysazeni pstruzi duhoví") == "vysazeni"
+    assert typ_zpravy("Zákaz rybolovu – Malše 1") == "zakaz"
+    assert typ_zpravy("Úhyn ryb v řece Moravě") == "uhyn"
+    assert typ_zpravy("Zkoušky pro získání rybářského lístku") == "info"
+    v = vysazeni_z_textu("Do revíru bylo vysazeno 500 kg kapra. Dále 2 000 ks štiky.")
+    assert v == [{"druh": "kapr", "mnozstvi": 500.0, "jednotka": "kg"}, {"druh": "štika", "mnozstvi": 2000.0, "jednotka": "ks"}]

@@ -7,12 +7,13 @@ on:
     - cron: "17 3 * * *"    # denně: revíry, pravidla, úlovky z fór, vysazování, voda
     - cron: "41 * * * *"    # každou hodinu: stav vody ČHMÚ
     - cron: "23 4 2 * *"    # měsíčně: oficiální statistika úlovků ČRS (~30 tis. dotazů)
+    - cron: "37 1 * * 1"    # týdně: alternativní názvy a diskuse revírů z mrk.cz (~20 min)
   workflow_dispatch:
     inputs:
       rezim:
         description: "Co stáhnout"
         type: choice
-        options: [denni, voda, statistika, vse]
+        options: [denni, voda, statistika, mrk, vse]
         default: vse
   push:
     branches: [master, main, rybarska-appka]
@@ -58,12 +59,17 @@ jobs:
             python -m scraper.run --only voda
           elif [ "$SCHEDULE" = "23 4 2 * *" ] || [ "$REZIM" = "statistika" ]; then
             python -m scraper.run --only statistika
+          elif [ "$SCHEDULE" = "37 1 * * 1" ] || [ "$REZIM" = "mrk" ]; then
+            python -m scraper.run --only mrk
           elif [ "${{ github.event_name }}" = "push" ] && [ -f data-cache/crs.json ]; then
             python -m scraper.run --build-only
           else
             python -m scraper.run
             if [ "$REZIM" = "vse" ] || [ ! -f data-cache/statistika.json ]; then
               python -m scraper.run --only statistika
+            fi
+            if [ "$REZIM" = "vse" ] || [ ! -f data-cache/mrk_reviry.json ]; then
+              python -m scraper.run --only mrk
             fi
           fi
 

@@ -34,7 +34,7 @@ DRUHY = [
     ("parm", "parma"), ("mren", "parma"), ("plotic", "plotice"), ("cejn", "cejn"), ("uhor", "úhoř"),
     ("mnik", "mník jednovousý"), ("podoust", "podoustev"), ("podust", "podoustev"),
     ("ostrorek", "ostroretka"), ("karas", "karas"), ("siven", "siven"), ("sivn", "siven"),
-    ("hlavatk", "hlavatka"), ("perlin", "perlín"), ("oukle", "ouklej"),
+    ("hlavatk", "hlavatka"), ("perlin", "perlín"), ("oukle", "ouklej"), ("jeseter", "jeseter"), ("jesete", "jeseter"),
 ]
 LIN = re.compile(r"\blin(a|y|u|e|i|em|ove|ik|ika|iky)?\b")
 

@@ -1,4 +1,4 @@
-import { loadDetail, loadIndex, locate, recentCatches, revirCenter, searchReviry, summarizeCatches } from './data.js';
+import { distanceKm, loadDetail, loadIndex, loadNovinky, locate, recentCatches, revirCenter, searchReviry, summarizeCatches } from './data.js';
 import { isTrout, seasonStatus } from './rules.js';
 import { describeCode, fetchWeather, moonLabel, moonPhase } from './weather.js';
 import { describeWater, stationForRevir, waterTemperature } from './water.js';
@@ -114,6 +114,7 @@ async function renderDetail(r, el, token) {
     <div class="card"><h2>💧 Stav vody</h2>${renderWater(station)}</div>
     <div class="card"><h2>🐟 Co se tu chytá</h2>${renderStatistika(d.statistika)}${renderCatches(catches, tokCatches, r)}</div>
     <div class="card"><h2>🪣 Vysazování</h2>${renderStocking(d.vysazeni)}</div>
+    ${renderRevirNovinky(d)}
     ${renderPravidla(d.pravidla)}
     <div class="card"><h2>📋 Popis revíru</h2>
       ${d.popis ? `<p class="pre">${esc(d.popis)}</p>` : '<p class="muted">Popis není k dispozici.</p>'}
@@ -283,6 +284,98 @@ function renderKontakty(k) {
   return `<div class="card"><h2>☎️ Kontakty</h2>${one('Hospodařící organizace', k.mo)}${one('Uživatel revíru', k.uzivatel)}</div>`;
 }
 
+
+// ---------- Novinky ----------
+const TYPY = {
+  vysazeni: ['🪣', 'Vysazení', 'good'],
+  zakaz: ['⛔', 'Zákaz / omezení', 'bad'],
+  uhyn: ['☠️', 'Úhyn / škody', 'bad'],
+  zavody: ['🏆', 'Závody', 'neutral'],
+  info: ['ℹ️', 'Zpráva', 'neutral'],
+};
+const typBadgeNews = t => { const [i, n, c] = TYPY[t] ?? TYPY.info; return `<span class="badge ${c}">${i} ${n}</span>`; };
+
+const store = {
+  get(k) { try { return localStorage.getItem(k); } catch { return null; } },
+  set(k, v) { try { localStorage.setItem(k, v); } catch { /* soukromý režim */ } },
+};
+
+async function updateNewsBadge() {
+  const feed = await loadNovinky();
+  const seen = store.get('novinky-videno') ?? '';
+  const n = feed.filter(z => z.datum > seen).length;
+  const b = document.getElementById('news-badge');
+  if (!b) return;
+  b.hidden = !n || !seen;  // při úplně první návštěvě nestrašit číslem
+  b.textContent = n > 99 ? '99+' : String(n);
+}
+
+function vysazeniTable(rows) {
+  if (!rows?.length) return '';
+  const row = v => `<tr>
+    <td>${esc(cap(v.druh))}${v.kategorie ? ` <span class="muted">${esc(v.kategorie)}</span>` : ''}</td>
+    <td>${esc(v.mo ? 'MO ' + v.mo : v.revir_text ?? '')}</td>
+    <td class="num nowrap">${v.mnozstvi != null ? num(v.mnozstvi) + '&nbsp;' + esc(v.jednotka ?? '') : ''}</td></tr>`;
+  const head = rows.slice(0, 6), rest = rows.slice(6);
+  return `<table class="simple small" style="margin-top:6px"><tbody>${head.map(row).join('')}</tbody></table>
+    ${rest.length ? `<details><summary class="small">Celý rozpis (${rows.length} položek)</summary>
+      <table class="simple small"><tbody>${rest.map(row).join('')}</tbody></table></details>` : ''}`;
+}
+
+function newsItem(z, seen) {
+  const revs = z.reviry ?? [];
+  return `<div class="card news-item ${seen && z.datum > seen ? 'new' : ''}">
+    <div class="spread"><span class="small muted">${fmtDate(z.datum)}</span>${typBadgeNews(z.typ)}</div>
+    <h3>${z.url ? `<a href="${esc(z.url)}" target="_blank" rel="noopener">${esc(z.titulek ?? 'Zpráva')}</a>` : esc(z.titulek ?? 'Zpráva')}</h3>
+    <div class="small muted">${esc(z.zdroj ?? '')}${z.mo && !String(z.zdroj ?? '').includes(z.mo) ? ' · MO ' + esc(z.mo) : ''}</div>
+    ${z.text ? `<p class="small" style="margin:6px 0">${esc(z.text.slice(0, 260))}${z.text.length > 260 ? '…' : ''}</p>` : ''}
+    ${vysazeniTable(z.vysazeni)}
+    ${revs.length ? `<div class="revir-chips">${revs.slice(0, 10).map(r => `<a href="#/revir/${encodeURIComponent(r.id)}">${esc(r.nazev)}</a>`).join('')}${revs.length > 10 ? `<span class="small muted">+${revs.length - 10} revírů</span>` : ''}</div>` : ''}
+  </div>`;
+}
+
+async function viewNovinky() {
+  view.innerHTML = '<p class="loading">Načítám novinky…</p>';
+  const feed = await loadNovinky();
+  const seen = store.get('novinky-videno') ?? '';
+  let filtr = store.get('novinky-filtr') ?? 'vse';
+  const byId = new Map(DB.reviry.map(r => [r.id, r]));
+  const poblizKm = 30;
+  const nearby = z => lastPos && (z.reviry ?? []).some(r => {
+    const c = revirCenter(byId.get(r.id) ?? {});
+    return c && distanceKm(lastPos, c) <= poblizKm;
+  });
+  const FILTRY = [
+    ['vse', 'Vše', () => true],
+    ['vysazeni', '🪣 Vysazení', z => z.typ === 'vysazeni'],
+    ['zakazy', '⛔ Zákazy a úhyny', z => z.typ === 'zakaz' || z.typ === 'uhyn'],
+    ['pobliz', `📍 Do ${poblizKm} km`, nearby],
+  ];
+  const render = () => {
+    const f = FILTRY.find(x => x[0] === filtr) ?? FILTRY[0];
+    const items = feed.filter(f[2]);
+    view.innerHTML = `
+      <div class="chips">${FILTRY.map(([k, n]) => `<button class="chip ${k === filtr ? 'active' : ''}" data-f="${k}">${n}</button>`).join('')}</div>
+      ${filtr === 'pobliz' && !lastPos ? '<div class="card small">Pro novinky z okolí otevři nejdřív záložku „U vody“, aby appka znala tvou polohu.</div>' : ''}
+      ${items.length ? items.map(z => newsItem(z, seen)).join('') : '<div class="card muted">Za poslední měsíc tu nic není.</div>'}
+      <p class="small muted">Zprávy za poslední měsíc: hlášení svazů o vysazování, novinky místních organizací, Bleskovky a diskuse z mrk.cz.</p>`;
+    view.querySelectorAll('.chip').forEach(b => { b.onclick = () => { filtr = b.dataset.f; store.set('novinky-filtr', filtr); render(); }; });
+  };
+  render();
+  if (feed[0]) store.set('novinky-videno', feed[0].datum);
+  updateNewsBadge();
+}
+
+function renderRevirNovinky(d) {
+  const items = [...(d.novinky ?? []), ...(d.diskuse ?? []).map(x => ({ datum: x.datum, typ: 'info', titulek: x.text, zdroj: `mrk.cz – diskuse (${x.autor})`, url: d.mrk }))]
+    .sort((a, b) => b.datum.localeCompare(a.datum));
+  if (!items.length) return '';
+  return `<div class="card"><h2>📰 Novinky z revíru</h2><ul class="list small">${items.slice(0, 10).map(z => `<li style="padding:6px 0">
+    <div class="spread"><span class="muted">${fmtDate(z.datum)}</span>${typBadgeNews(z.typ)}</div>
+    <div>${z.url ? `<a href="${esc(z.url)}" target="_blank" rel="noopener">${esc(z.titulek.slice(0, 200))}</a>` : esc(z.titulek.slice(0, 200))}</div>
+    <div class="muted">${esc(z.zdroj ?? '')}</div></li>`).join('')}</ul></div>`;
+}
+
 // ---------- Mapa ----------
 let map = null;
 const shapeLayers = new Map();
@@ -355,6 +448,7 @@ function route() {
   if (h.startsWith('#/revir/')) { tab = null; viewRevir(decodeURIComponent(h.slice(8))); }
   else if (h === '#/mapa') { tab = 'map'; renderToken++; viewMap(); }
   else if (h === '#/hledat') { tab = 'search'; renderToken++; viewSearch(); }
+  else if (h === '#/novinky') { tab = 'news'; renderToken++; viewNovinky(); }
   else viewHome();
   document.querySelectorAll('.tabbar a').forEach(a => a.classList.toggle('active', a.dataset.tab === tab));
   window.scrollTo(0, 0);
@@ -366,6 +460,7 @@ async function init() {
   if (DB.meta.generated) document.getElementById('data-age').textContent = 'data: ' + fmtDate(DB.meta.generated);
   window.addEventListener('hashchange', route);
   route();
+  updateNewsBadge();
   if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
 }
 
