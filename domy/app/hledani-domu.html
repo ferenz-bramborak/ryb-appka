@@ -1,0 +1,650 @@
+<title>Domeček u lesa</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: lepkavá hlavička se záložkami, pod ní seznam karet (1–2 sloupce); Top = srovnávací tabulka + rozbor od Clauda */
+:root {
+  --bg: #f3f5f1;
+  --surface: #ffffff;
+  --sunk: #e8ece5;
+  --fg: #18231c;
+  --muted: #5d6b61;
+  --line: #d6ddd3;
+  --spruce: #24553f;
+  --spruce-soft: #dcebe2;
+  --amber: #b77a12;
+  --amber-soft: #f6e8c9;
+  --good: #2e7d4f;
+  --warn: #a8640c;
+  --bad: #b0412e;
+  --bad-soft: #f5ddd7;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --font-data: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --r: 10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1612; --surface: #16201a; --sunk: #1d2a22; --fg: #e3eae5; --muted: #95a59a; --line: #2b3a30;
+    --spruce: #7cc39c; --spruce-soft: #1f3a2b; --amber: #e3ad4c; --amber-soft: #3a2e14;
+    --good: #6fcf97; --warn: #e0a24a; --bad: #ec8a76; --bad-soft: #3d201b; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1612; --surface: #16201a; --sunk: #1d2a22; --fg: #e3eae5; --muted: #95a59a; --line: #2b3a30;
+  --spruce: #7cc39c; --spruce-soft: #1f3a2b; --amber: #e3ad4c; --amber-soft: #3a2e14;
+  --good: #6fcf97; --warn: #e0a24a; --bad: #ec8a76; --bad-soft: #3d201b; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { background: var(--bg); color: var(--fg); font: 16px/1.45 var(--font-body); }
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line); }
+header.top .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; padding-block: 12px 0; }
+h1 { font: 700 1.45rem/1.1 var(--font-display); margin: 0; letter-spacing: -0.01em; text-wrap: balance; }
+h1 small { display: block; font: 400 .8rem/1.3 var(--font-body); color: var(--muted); letter-spacing: 0; margin-top: 3px; }
+nav.tabs { display: flex; gap: 2px; width: 100%; overflow-x: auto; }
+nav.tabs button { font: 600 .95rem var(--font-body); color: var(--muted); background: none; border: 0; border-bottom: 3px solid transparent; padding: 10px 14px 9px; cursor: pointer; white-space: nowrap; }
+nav.tabs button[aria-selected="true"] { color: var(--fg); border-bottom-color: var(--spruce); }
+nav.tabs .n { font: 500 .75rem var(--font-data); background: var(--sunk); color: var(--muted); border-radius: 99px; padding: 1px 7px; margin-left: 6px; }
+nav.tabs button[aria-selected="true"] .n { background: var(--spruce-soft); color: var(--spruce); }
+main { padding-block: 18px 60px; }
+section[role="tabpanel"] { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; }
+.status { font-size: .85rem; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px 14px; }
+.status b { color: var(--fg); font-weight: 600; }
+.dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--good); margin-right: 5px; vertical-align: 1px; }
+.dot.err { background: var(--bad); }
+
+.filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.chip { font: 600 .85rem var(--font-body); border: 1px solid var(--line); background: var(--surface); color: var(--fg); border-radius: 99px; padding: 6px 12px; cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--spruce); border-color: var(--spruce); color: var(--bg); }
+select, input[type="search"] { font: 500 .9rem var(--font-body); color: var(--fg); background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; }
+input[type="search"] { min-width: 0; flex: 1 1 160px; max-width: 260px; }
+.spacer { flex: 1; }
+:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+.list { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 520px), 1fr)); gap: 14px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); display: grid; grid-template-columns: 168px minmax(0, 1fr); overflow: hidden; }
+.card.ne { opacity: .55; }
+.card.stazeno .photo::after { content: "Staženo z nabídky"; position: absolute; inset: auto 0 0 0; background: var(--bad); color: #fff; font: 600 .72rem var(--font-body); padding: 3px 8px; }
+.photo { position: relative; background: var(--sunk) center/cover no-repeat; min-height: 150px; }
+.photo .ph { position: absolute; inset: 0; display: grid; place-items: center; color: var(--muted); font-size: .75rem; text-align: center; padding: 8px; }
+.score { position: absolute; top: 8px; left: 8px; font: 700 1rem/1 var(--font-display); background: var(--surface); color: var(--fg); border-radius: 8px; padding: 6px 7px 5px; min-width: 38px; text-align: center; box-shadow: 0 1px 3px rgb(0 0 0 / .18); }
+.score small { display: block; font: 500 .55rem var(--font-data); color: var(--muted); letter-spacing: .06em; margin-top: 2px; }
+.new { position: absolute; top: 8px; right: 8px; background: var(--amber); color: #fff; font: 700 .68rem var(--font-body); letter-spacing: .06em; text-transform: uppercase; border-radius: 5px; padding: 3px 6px; }
+.body { padding: 12px 14px; display: grid; gap: 8px; min-width: 0; }
+.row1 { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+.price { font: 700 1.2rem var(--font-display); font-variant-numeric: tabular-nums; }
+.price .old { font: 400 .8rem var(--font-body); color: var(--good); margin-left: 6px; }
+.place { font-weight: 600; color: var(--muted); font-size: .92rem; }
+.title { font-size: .9rem; color: var(--muted); margin: 0; }
+.tags { display: flex; flex-wrap: wrap; gap: 5px; }
+.tag { font: 600 .74rem var(--font-body); background: var(--sunk); color: var(--fg); border-radius: 5px; padding: 2px 7px; }
+.tag.plus { background: var(--spruce-soft); color: var(--spruce); }
+.tag.minus { background: var(--bad-soft); color: var(--bad); }
+.metrics { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 2px 10px; font-size: .84rem; }
+.metrics dt { color: var(--muted); font-size: .72rem; text-transform: uppercase; letter-spacing: .06em; padding-top: 2px; }
+.metrics dd { margin: 0; font-variant-numeric: tabular-nums; }
+.mono { font-family: var(--font-data); font-size: .8rem; }
+.actions { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.act { font: 600 .82rem var(--font-body); border: 1px solid var(--line); background: var(--surface); color: var(--fg); border-radius: 7px; padding: 5px 10px; cursor: pointer; }
+.act.top[aria-pressed="true"] { background: var(--amber); border-color: var(--amber); color: #fff; }
+.act.mozna[aria-pressed="true"] { background: var(--spruce-soft); border-color: var(--spruce); color: var(--spruce); }
+.act.ne[aria-pressed="true"] { background: var(--bad-soft); border-color: var(--bad); color: var(--bad); }
+.votes { font-size: .78rem; color: var(--muted); }
+.pocit { font-size: .78rem; color: var(--muted); display: inline-flex; align-items: center; gap: 4px; }
+.stars { display: inline-flex; }
+.star { font-size: 1.05rem; line-height: 1; color: var(--line); background: none; border: 0; padding: 0 1px; cursor: pointer; }
+span.star { cursor: default; }
+.star[aria-pressed="true"], .star[data-on="true"] { color: var(--amber); }
+.pocit-row { white-space: nowrap; font-size: .8rem; color: var(--muted); }
+a { color: var(--spruce); }
+.links { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: .84rem; }
+details.more summary { cursor: pointer; font-size: .84rem; color: var(--spruce); font-weight: 600; }
+details.more p { font-size: .88rem; margin: 6px 0; white-space: pre-line; }
+textarea { width: 100%; font: .9rem var(--font-body); color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 7px; padding: 7px 9px; min-height: 54px; resize: vertical; }
+.empty { background: var(--surface); border: 1px dashed var(--line); border-radius: var(--r); padding: 28px; text-align: center; color: var(--muted); }
+.empty h2 { font: 700 1.1rem var(--font-display); color: var(--fg); margin: 0 0 6px; }
+
+h2.sec { font: 700 1.15rem var(--font-display); margin: 6px 0 0; }
+.cmpwrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); }
+table.cmp { border-collapse: collapse; font-size: .86rem; min-width: 100%; }
+table.cmp th, table.cmp td { padding: 7px 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+table.cmp thead th { min-width: 170px; max-width: 220px; font-weight: 600; }
+table.cmp tbody th { color: var(--muted); font-size: .72rem; text-transform: uppercase; letter-spacing: .06em; font-weight: 600; position: sticky; left: 0; background: var(--surface); white-space: nowrap; }
+table.cmp td { font-variant-numeric: tabular-nums; }
+table.cmp td.best { color: var(--good); font-weight: 700; }
+table.cmp .thumb { width: 100%; aspect-ratio: 16/10; max-width: 100%; background: var(--sunk) center/cover; border-radius: 6px; margin-bottom: 6px; }
+.analysis { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 18px 20px; max-width: 78ch; }
+.analysis h3 { font: 700 1.05rem var(--font-display); margin: 16px 0 6px; }
+.analysis h3:first-child { margin-top: 0; }
+.analysis p, .analysis li { font-size: .95rem; }
+.analysis .meta { font-size: .8rem; color: var(--muted); margin-bottom: 10px; }
+.btn { font: 600 .9rem var(--font-body); background: var(--spruce); color: var(--bg); border: 0; border-radius: 8px; padding: 9px 14px; cursor: pointer; }
+.btn[disabled] { opacity: .5; cursor: default; }
+.btn.ghost { background: none; color: var(--spruce); border: 1px solid var(--spruce); }
+.mapbox { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 10px; }
+.mapbox canvas { width: 100%; height: auto; display: block; border-radius: 6px; }
+.legend { font-size: .78rem; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 6px; }
+.w-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: 10px 22px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 16px; }
+.w-grid label { display: grid; gap: 2px; font-size: .9rem; font-weight: 600; }
+.w-grid label span { font-weight: 400; color: var(--muted); font-size: .8rem; }
+.w-grid input[type="range"] { width: 100%; accent-color: var(--spruce); }
+.prose { max-width: 70ch; font-size: .95rem; }
+.toast { position: fixed; left: 50%; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: var(--fg); color: var(--bg); padding: 8px 14px; border-radius: 8px; font-size: .88rem; z-index: 9; }
+@media (max-width: 560px) {
+  .card { grid-template-columns: minmax(0, 1fr); }
+  .photo { min-height: 170px; }
+}
+@media (prefers-reduced-motion: no-preference) { .card { transition: opacity .2s; } }
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <h1>Domeček u lesa <small id="sub">Rodinné domy kolem Rosic, Střelic a Oslavan · max 15 mil. · 4+ pokoje · bez řadovek</small></h1>
+    <nav class="tabs" role="tablist">
+      <button role="tab" id="tab-nabidky" aria-selected="true" aria-controls="p-nabidky">Nabídky<span class="n" id="n-nabidky">–</span></button>
+      <button role="tab" id="tab-top" aria-selected="false" aria-controls="p-top">Top a porovnání<span class="n" id="n-top">0</span></button>
+      <button role="tab" id="tab-vahy" aria-selected="false" aria-controls="p-vahy">Co je pro nás důležité</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section role="tabpanel" id="p-nabidky">
+    <div class="status" id="status"><span>Načítám nabídky…</span></div>
+    <div class="filters" id="filters">
+      <button class="chip" id="f-nove" aria-pressed="false">Nové za 7 dní</button>
+      <button class="chip" id="f-bungalov" aria-pressed="false">Bungalov</button>
+      <button class="chip" id="f-cihla" aria-pressed="false">Zděné</button>
+      <button class="chip" id="f-les" aria-pressed="false">Les do 500 m</button>
+      <button class="chip" id="f-pozemek" aria-pressed="false">Pozemek 600 m²+</button>
+      <button class="chip" id="f-hned" aria-pressed="false">K nastěhování</button>
+      <button class="chip" id="f-skryt" aria-pressed="true">Skrýt zamítnuté</button>
+      <span class="spacer"></span>
+      <input type="search" id="q" placeholder="Hledat obec, text…" aria-label="Hledat">
+      <select id="sort" aria-label="Řazení">
+        <option value="skore">Podle skóre</option>
+        <option value="nove">Nejnovější</option>
+        <option value="cena">Nejlevnější</option>
+        <option value="rodina">Nejblíž rodině</option>
+        <option value="les">Nejvíc lesa</option>
+        <option value="pocit">Podle našeho pocitu</option>
+      </select>
+    </div>
+    <div class="list" id="list">
+      <div class="empty"><h2>Nabídky se načítají</h2>Tady se objeví rodinné domy ze Sreality, iDNES Reality, Bezrealitek a Reasu, seřazené podle toho, jak sedí na vaše přání.</div>
+    </div>
+  </section>
+
+  <section role="tabpanel" id="p-top" hidden>
+    <p class="prose" style="margin:0">Domy, které jste označili <b>Top</b> nebo <b>Možná</b>. Srovnání je vedle sebe, pod ním rozbor od Clauda: pořadí, plusy a minusy a na co se zeptat na prohlídce.</p>
+    <div id="cmp"></div>
+    <div class="mapbox" id="mapbox" hidden>
+      <canvas id="map" width="1100" height="620" aria-label="Mapa: rodina, top domy a lesy"></canvas>
+      <div class="legend"><span>Zelená plocha = les (ESA WorldCover)</span><span>◆ rodina</span><span>● Top</span><span>○ Možná</span></div>
+    </div>
+    <h2 class="sec">Rozbor od Clauda</h2>
+    <div class="actions">
+      <button class="btn" id="btn-ai">Porovnat teď</button>
+      <span class="votes" id="ai-note">Claude projde vaše Top a Možná domy a napíše doporučení.</span>
+    </div>
+    <div class="analysis" id="analysis"><p class="meta">Zatím žádný rozbor. Označte pár domů jako Top a klikněte na Porovnat teď.</p></div>
+  </section>
+
+  <section role="tabpanel" id="p-vahy" hidden>
+    <p class="prose" style="margin:0">Skóre 0–100 skládá to, co jste napsali, že chcete. Posuvníky mění váhu jednotlivých věcí; nastavení je společné pro oba.</p>
+    <div class="w-grid" id="weights"></div>
+    <div class="prose">
+      <h2 class="sec">Jak se počítá</h2>
+      <p>Údaje o vodě, kanalizaci, garáži a sklepu jsou z parametrů inzerátu, a když chybí, z jeho popisu. Vzdálenosti ke školce, škole, obchodu, lékaři a zastávce jsou ze Sreality; u inzerátů z jiných webů se berou z nejbližšího domu do 700 m a jsou označené jako odhad (≈). Dojíždění do Brna veřejnou dopravou ukazuje nejbližší zastávku autobusu a vlaku.</p>
+      <p><b>Les</b>: vzdálenost k souvislému lesu a podíl lesa do 2 km (satelitní mapa ESA WorldCover). <b>Kopce</b>: členitost terénu do 1,5 km (výškový model Copernicus), aby to nebyla placka s poli. <b>Rodina</b>: průměrný dojezd autem do Rosic, Střelic a Padochova (OpenStreetMap). Počítá se i dojezd do centra Brna a do Hranic na Moravě. <b>D1</b>: dojezd k nejbližšímu nájezdu. Tvrdá kritéria (cena do 15 mil., aspoň 4 pokoje, pozemek aspoň 250 m², žádné řadovky, do 35 km od rodiny) se hlídají už při stahování.</p>
+      <p>Nové nabídky stahuje Claude každé ráno. Duplicitní inzeráty téhož domu z více webů se slučují do jedné karty s odkazy na všechny.</p>
+    </div>
+  </section>
+</main>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+const VAHY_VYCHOZI = { les: 20, kopce: 6, rodina: 16, d1: 6, pokoje: 10, pozemek: 12, typ: 8, stavba: 5, stav: 10, cena: 5, plocha: 5, site: 3, sluzby: 4, pocit: 12 };
+const VAHY_POPIS = {
+  les: ["Les blízko", "vzdálenost k lesu a les v okolí"], kopce: ["Kopce, ne placka", "členitost terénu"],
+  rodina: ["Blízko rodiny", "Rosice, Střelice, Oslavany"], d1: ["Blízko D1", "dojezd k nájezdu"],
+  pokoje: ["Víc pokojů", "4 je minimum, 5+ lepší"], pozemek: ["Velká zahrada", "pro psy a děti"],
+  typ: ["Bungalov", "přízemní dům"], stavba: ["Zděný", "cihla > dřevostavba"], stav: ["Hned k nastěhování", "stav domu"],
+  cena: ["Nižší cena", "rezerva v rozpočtu"], plocha: ["Užitná plocha", "m² domu"],
+  site: ["Vodovod a kanalizace", "veřejné sítě místo studny a septiku"], sluzby: ["Školka, obchod, doktor", "pěšky dostupné"],
+  pocit: ["Náš pocit", "vaše hvězdičky u domu"],
+};
+const S = { meta: null, domy: [], foto: {}, ozn: {}, vahy: { ...VAHY_VYCHOZI }, analyza: null, me: null, user: null, db: null, sample: null, tab: "nabidky", lastVisit: null, mapa: null };
+const $ = (s) => document.querySelector(s);
+const clamp = (x) => Math.max(0, Math.min(1, x));
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const fmtCena = (c) => c ? (c / 1e6).toLocaleString("cs-CZ", { maximumFractionDigits: 2 }) + " mil. Kč" : "cena v RK";
+const fmtM = (m) => m == null ? "–" : m < 1000 ? `${m} m` : `${(m / 1000).toLocaleString("cs-CZ", { maximumFractionDigits: 1 })} km`;
+const dnyOd = (d) => Math.round((Date.now() - new Date(d + "T12:00:00Z")) / 864e5);
+const novy = (d, dny) => d.prvni > (S.meta?.prvni_beh || "") && dnyOd(d.prvni) <= dny;
+const pokojeTxt = (n) => n == null ? "" : `${n} ${n >= 5 ? "pokojů" : "pokoje"}`;
+function toast(t) { const el = $("#toast"); el.textContent = t; el.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => (el.hidden = true), 2600); }
+function store(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
+
+/* ---------- skóre ---------- */
+function rodinaMin(d) {
+  const keys = ["rosice", "strelice", "padochov"];
+  const v = keys.map((k) => d.dojezd?.[k] ?? (d.vzdusne?.[k] != null ? d.vzdusne[k] * 1.5 + 3 : null)).filter((x) => x != null);
+  return v.length ? v.reduce((a, b) => a + b, 0) / v.length : null;
+}
+function slozky(d) {
+  const p = d.priroda || {};
+  const lm = p.les_m;
+  const f1 = lm == null ? 0 : lm <= 150 ? 1 : lm <= 400 ? 0.8 : lm <= 800 ? 0.5 : lm <= 1500 ? 0.25 : 0.05;
+  const rod = rodinaMin(d);
+  return {
+    les: 0.6 * f1 + 0.4 * clamp((p.les_2km ?? 0) / 45),
+    kopce: clamp(((p.clenitost ?? 10) - 8) / 40),
+    rodina: rod == null ? 0.3 : clamp((35 - rod) / 25),
+    d1: d.dojezd?.d1 == null ? 0.4 : clamp((25 - d.dojezd.d1) / 20),
+    pokoje: d.pokoje == null ? 0.4 : d.pokoje >= 6 ? 1 : d.pokoje === 5 ? 0.85 : 0.6,
+    pozemek: d.pozemek == null ? 0.3 : d.pozemek >= 1000 ? 1 : d.pozemek >= 600 ? 0.8 : d.pozemek >= 400 ? 0.5 : 0.2,
+    typ: d.typ === "bungalov" ? 1 : d.typ === "patrový" ? 0.45 : 0.4,
+    stavba: { "cihla": 1, "dřevostavba": 0.75, "smíšená": 0.7, "kámen": 0.7, "montovaná": 0.5, "panel": 0.3 }[d.stavba] ?? 0.5,
+    stav: { "novostavba": 1, "po rekonstrukci": 0.95, "velmi dobrý": 0.9, "dobrý": 0.7, "v rekonstrukci": 0.5, "ve výstavbě": 0.55, "před rekonstrukcí": 0.35, "projekt": 0.3, "špatný": 0.1 }[d.stav] ?? 0.5,
+    cena: d.cena ? clamp(1 - (d.cena - 7e6) / 8e6) : 0.4,
+    plocha: d.uzitna ? clamp((d.uzitna - 90) / 80) : 0.4,
+    site: (d.voda ? (d.voda.startsWith("vodovod") ? 0.5 : 0.25) : 0.25) + (d.kanalizace ? (d.kanalizace === "veřejná kanalizace" ? 0.5 : 0.2) : 0.25),
+    sluzby: (() => { const p = d.poi || {}; const f = (m, ok, bad) => m == null ? 0.4 : clamp((bad - m) / (bad - ok)); return (f(p.skolka, 400, 2500) + f(p.obchod, 300, 2000) + f(p.lekar, 500, 4000)) / 3; })(),
+    pocit: (() => { const v = Object.values(S.ozn[d.id]?.pocit || {}).filter(Boolean); return v.length ? (v.reduce((a, b) => a + b, 0) / v.length - 1) / 4 : 0.5; })(),
+  };
+}
+function skore(d) {
+  const s = slozky(d); let sum = 0, w = 0;
+  for (const k in S.vahy) { sum += (s[k] ?? 0) * S.vahy[k]; w += S.vahy[k]; }
+  return w ? Math.round((sum / w) * 100) : 0;
+}
+
+/* ---------- označení ---------- */
+function stavDomu(id) {
+  const o = S.ozn[id]; if (!o?.hlasy) return null;
+  const v = Object.values(o.hlasy);
+  return v.includes("top") ? "top" : v.includes("mozna") ? "mozna" : v.length && v.every((x) => x === "ne") ? "ne" : null;
+}
+async function hlasuj(d, volba) {
+  if (!S.db || !S.me) { toast("Ukládání tu nefunguje – otevři stránku přihlášený v Claude."); return; }
+  const ref = S.db.doc("oznaceni/" + d.id);
+  const cur = S.ozn[d.id];
+  const mine = cur?.hlasy?.[S.me];
+  const nova = mine === volba ? null : volba;
+  const snap = { nazev: d.nazev, cena: d.cena, obec: d.obec, url: d.odkazy?.[0]?.url || "" };
+  try {
+    if (cur) await ref.update({ hlasy: { [S.me]: nova }, snapshot: snap, cas: new Date().toISOString() });
+    else await ref.set({ hlasy: { [S.me]: nova }, poznamka: "", snapshot: snap, cas: new Date().toISOString() });
+    toast(nova === "top" ? "Přidáno do Top" : nova === "mozna" ? "Označeno jako Možná" : nova === "ne" ? "Zamítnuto" : "Označení zrušeno");
+  } catch (e) { toast(e.code === "invalid_argument" ? "Nemáš oprávnění ukládat – požádej o roli Contributor." : "Uložení se nepovedlo, zkus to znovu."); }
+}
+async function ulozPoznamku(d, text) {
+  if (!S.db) return;
+  const ref = S.db.doc("oznaceni/" + d.id);
+  try {
+    if (S.ozn[d.id]) await ref.update({ poznamka: text });
+    else await ref.set({ hlasy: {}, poznamka: text, snapshot: { nazev: d.nazev, cena: d.cena, obec: d.obec }, cas: new Date().toISOString() });
+    toast("Poznámka uložena");
+  } catch (e) { toast("Poznámku se nepovedlo uložit."); }
+}
+
+/* ---------- vykreslení seznamu ---------- */
+const F = { nove: false, bungalov: false, cihla: false, les: false, pozemek: false, hned: false, skryt: true };
+function filtruj() {
+  const q = $("#q").value.trim().toLowerCase();
+  let a = S.domy.map((d) => ({ d, s: skore(d), st: stavDomu(d.id) }));
+  a = a.filter(({ d, st }) =>
+    (!F.nove || novy(d, 7)) && (!F.bungalov || d.typ === "bungalov") && (!F.cihla || d.stavba === "cihla") &&
+    (!F.les || (d.priroda?.les_m ?? 1e9) <= 500) && (!F.pozemek || (d.pozemek ?? 0) >= 600) &&
+    (!F.hned || ["novostavba", "po rekonstrukci", "velmi dobrý", "dobrý"].includes(d.stav)) &&
+    (!F.skryt || st !== "ne") &&
+    (!q || `${d.obec} ${d.adresa} ${d.nazev} ${d.popis} ${d.vlastnosti?.join(" ")}`.toLowerCase().includes(q)));
+  const by = $("#sort").value;
+  const key = { skore: (x) => -x.s, nove: (x) => -new Date(x.d.prvni), cena: (x) => x.d.cena ?? 1e12, rodina: (x) => rodinaMin(x.d) ?? 1e9, les: (x) => x.d.priroda?.les_m ?? 1e9, pocit: (x) => -(Object.values(S.ozn[x.d.id]?.pocit || {}).filter(Boolean).reduce((a, b, _, arr) => a + b / arr.length, 0)) }[by];
+  a.sort((x, y) => key(x) - key(y) || y.s - x.s);
+  return a;
+}
+function tagy(d) {
+  const t = [];
+  if (d.dispozice || d.pokoje) t.push([d.dispozice || pokojeTxt(d.pokoje), d.pokoje >= 5 ? "plus" : ""]);
+  if (d.uzitna) t.push([`${d.uzitna} m²`, ""]);
+  if (d.pozemek) t.push([`pozemek ${d.pozemek.toLocaleString("cs-CZ")} m²`, d.pozemek >= 800 ? "plus" : d.pozemek < 400 ? "minus" : ""]);
+  if (d.typ) t.push([d.typ, d.typ === "bungalov" ? "plus" : ""]);
+  if (d.stavba) t.push([d.stavba, d.stavba === "cihla" ? "plus" : ["panel", "montovaná"].includes(d.stavba) ? "minus" : ""]);
+  if (d.stav) t.push([d.stav, ["před rekonstrukcí", "špatný", "projekt"].includes(d.stav) ? "minus" : ["novostavba", "po rekonstrukci", "velmi dobrý"].includes(d.stav) ? "plus" : ""]);
+  if (d.poloha === "dvojdům") t.push(["dvojdům", "minus"]);
+  if (d.penb) t.push([`PENB ${d.penb}`, "ABC".includes(d.penb) ? "plus" : "FG".includes(d.penb) ? "minus" : ""]);
+  for (const v of d.vlastnosti || []) if (v !== "k rekonstrukci") t.push([v, v === "u lesa" ? "plus" : ""]);
+  return t.map(([x, c]) => `<span class="tag ${c}">${esc(x)}</span>`).join("");
+}
+function dojezdTxt(d) {
+  const j = d.dojezd || {};
+  const r = (k, n) => j[k] != null ? `${n} ${j[k]}′` : d.vzdusne?.[k] != null ? `${n} ${d.vzdusne[k]} km` : "";
+  return [r("rosice", "Rosice"), r("strelice", "Střelice"), r("padochov", "Padochov")].filter(Boolean).join(" · ");
+}
+const ano = (b) => b === true ? "ano" : b === false ? "ne" : "neuvedeno";
+const odhad = (d) => d.poi_odhad ? " (odhad podle okolí)" : "";
+function sluzbyTxt(d) {
+  const p = d.poi || {};
+  const x = [["školka", p.skolka], ["škola", p.skola], ["obchod", p.obchod], ["lékař", p.lekar]].filter(([, m]) => m != null);
+  return x.length ? x.map(([n, m]) => `${n} ${fmtM(m)}`).join(" · ") + odhad(d) : "";
+}
+function mhdTxt(d) {
+  const p = d.poi || {};
+  const x = [p.bus != null ? `bus ${fmtM(p.bus)}` : "", p.vlak != null && p.vlak < 5000 ? `vlak ${fmtM(p.vlak)}` : ""].filter(Boolean);
+  return x.length ? "zastávka: " + x.join(", ") + odhad(d) : "";
+}
+function hvezdy(d, uid, editable) {
+  const v = S.ozn[d.id]?.pocit?.[uid] || 0;
+  return `<span class="stars" data-id="${esc(d.id)}">${[1, 2, 3, 4, 5].map((n) => editable ? `<button class="star" data-n="${n}" aria-label="Pocit ${n} z 5" aria-pressed="${n <= v}">★</button>` : `<span class="star" aria-hidden="true" data-on="${n <= v}">★</span>`).join("")}</span>`;
+}
+async function nastavPocit(d, n) {
+  if (!S.db || !S.me) { toast("Ukládání tu nefunguje – otevři stránku přihlášený v Claude."); return; }
+  const cur = S.ozn[d.id]; const v = cur?.pocit?.[S.me] === n ? null : n;
+  const ref = S.db.doc("oznaceni/" + d.id);
+  try {
+    if (cur) await ref.update({ pocit: { [S.me]: v } });
+    else await ref.set({ hlasy: {}, pocit: { [S.me]: v }, poznamka: "", snapshot: { nazev: d.nazev, cena: d.cena, obec: d.obec, url: d.odkazy?.[0]?.url || "" }, cas: new Date().toISOString() });
+  } catch (e) { toast("Pocit se nepovedlo uložit."); }
+}
+function karta({ d, s, st }) {
+  const p = d.priroda || {};
+  const foto = S.foto[d.id];
+  const isNew = d.prvni > (S.meta?.prvni_beh || "") && (S.lastVisit ? d.prvni >= S.lastVisit : dnyOd(d.prvni) <= 3);
+  const h = d.historie || [];
+  const sleva = h.length > 1 && h[0].cena > d.cena ? ` <span class="old">↓ z ${fmtCena(h[0].cena)}</span>` : "";
+  const mine = S.ozn[d.id]?.hlasy?.[S.me];
+  const votes = S.ozn[d.id]?.hlasy ? Object.entries(S.ozn[d.id].hlasy).filter(([, v]) => v) : [];
+  const el = document.createElement("article");
+  el.className = `card ${st === "ne" ? "ne" : ""} ${d.aktivni ? "" : "stazeno"}`;
+  el.innerHTML = `
+    <div class="photo" style="${foto ? `background-image:url('${foto}')` : ""}">
+      ${foto ? "" : `<div class="ph">${esc(d.obec)}</div>`}
+      <div class="score" title="Skóre podle vašich vah">${s}<small>SKÓRE</small></div>
+      ${isNew ? '<span class="new">Nové</span>' : ""}
+    </div>
+    <div class="body">
+      <div class="row1"><span class="price">${fmtCena(d.cena)}${sleva}</span><span class="place">${esc(d.obec)}</span></div>
+      <p class="title">${esc(d.nazev)}${d.adresa && d.adresa !== d.obec ? ` · ${esc(d.adresa)}` : ""}</p>
+      <div class="tags">${tagy(d)}</div>
+      <dl class="metrics">
+        <dt>Les</dt><dd>${p.les_m != null ? `${fmtM(p.les_m)} od lesa · ${p.les_2km} % lesa do 2 km` : "les dál než 3 km"}${p.prevyseni != null ? ` · převýšení okolí ${p.prevyseni} m` : ""}</dd>
+        <dt>Rodina</dt><dd>${dojezdTxt(d) || "–"}</dd>
+        <dt>Brno</dt><dd>${d.dojezd?.brno != null ? `autem ${d.dojezd.brno}′` : "–"}${mhdTxt(d) ? ` · ${mhdTxt(d)}` : ""}</dd>
+        <dt>D1</dt><dd>${d.dojezd?.d1 != null ? `${d.dojezd.d1}′ (${esc(d.dojezd.d1_exit)})` : "–"}${d.dojezd?.hranice != null ? ` · Hranice ${d.dojezd.hranice}′` : ""}</dd>
+        <dt>Sítě</dt><dd>${esc(d.voda || "voda neuvedena")} · ${esc(d.kanalizace || "odpad neuveden")} · garáž ${ano(d.garaz)} · sklep ${ano(d.sklep)}</dd>
+        <dt>Okolí</dt><dd>${sluzbyTxt(d) || "–"}</dd>
+      </dl>
+      <div class="links">${(d.odkazy || []).map((o) => `<a href="${esc(o.url)}" target="_blank" rel="noopener">${esc(o.zdroj)}${o.aktivni ? "" : " (staženo)"}</a>`).join("")}<span class="votes">${d.odkazy?.[0]?.rk ? esc(d.odkazy[0].rk) + " · " : ""}v nabídce od ${new Date(d.prvni).toLocaleDateString("cs-CZ")}</span></div>
+      <div class="actions">
+        <button class="act top" aria-pressed="${mine === "top"}">★ Top</button>
+        <button class="act mozna" aria-pressed="${mine === "mozna"}">Možná</button>
+        <button class="act ne" aria-pressed="${mine === "ne"}">Ne</button>
+        <span class="pocit">Pocit ${hvezdy(d, S.me, true)}</span>
+        <span class="votes" data-votes="${esc(JSON.stringify(votes))}"></span>
+      </div>
+      <details class="more"><summary>Popis a poznámka</summary>
+        <p>${esc(d.popis)}</p>
+        ${h.length > 1 ? `<p class="mono">Cena: ${h.map((x) => `${x.d} ${fmtCena(x.cena)}`).join(" → ")}</p>` : ""}
+        <textarea id="pozn-${esc(d.id)}" placeholder="Společná poznámka (např. volat makléři, prohlídka v sobotu)">${esc(S.ozn[d.id]?.poznamka || "")}</textarea>
+      </details>
+    </div>`;
+  el.querySelector(".act.top").onclick = () => hlasuj(d, "top");
+  el.querySelector(".act.mozna").onclick = () => hlasuj(d, "mozna");
+  el.querySelector(".act.ne").onclick = () => hlasuj(d, "ne");
+  for (const b of el.querySelectorAll(".stars .star")) b.onclick = () => nastavPocit(d, +b.dataset.n);
+  const ta = el.querySelector("textarea");
+  ta.onchange = () => ulozPoznamku(d, ta.value.trim());
+  return el;
+}
+let renderLimit = 40;
+async function renderList() {
+  const list = $("#list");
+  const a = filtruj();
+  $("#n-nabidky").textContent = S.domy.length ? String(a.length) : "–";
+  if (!S.domy.length) return;
+  list.replaceChildren();
+  if (!a.length) { list.innerHTML = `<div class="empty"><h2>Nic neodpovídá filtrům</h2>Zkuste některý filtr vypnout.</div>`; return; }
+  for (const x of a.slice(0, renderLimit)) list.append(karta(x));
+  if (a.length > renderLimit) {
+    const b = document.createElement("button"); b.className = "btn ghost"; b.textContent = `Zobrazit dalších ${Math.min(40, a.length - renderLimit)} z ${a.length - renderLimit}`;
+    b.onclick = () => { renderLimit += 40; renderList(); }; list.append(b);
+  }
+  await jmena(list);
+}
+async function jmena(root) {
+  const els = [...root.querySelectorAll("[data-votes]")];
+  const ids = [...new Set(els.flatMap((e) => JSON.parse(e.dataset.votes).map(([u]) => u)))];
+  const ps = S.user && ids.length ? await S.user.profiles(ids) : {};
+  const label = { top: "★", mozna: "možná", ne: "ne" };
+  for (const e of els) {
+    const v = JSON.parse(e.dataset.votes);
+    e.textContent = v.map(([u, x]) => `${u === S.me ? "ty" : (ps[u]?.name || "partner").split(" ")[0]}: ${label[x]}`).join(" · ");
+  }
+}
+
+/* ---------- top a porovnání ---------- */
+function vybrane() {
+  const ids = Object.keys(S.ozn).filter((id) => ["top", "mozna"].includes(stavDomu(id)));
+  return ids.map((id) => {
+    const d = S.domy.find((x) => x.id === id);
+    return d ? { d, st: stavDomu(id), s: skore(d) } : { d: { id, ...S.ozn[id].snapshot, aktivni: false, odkazy: [{ zdroj: "inzerát", url: S.ozn[id].snapshot?.url }] }, st: stavDomu(id), s: null, mimo: true };
+  }).sort((a, b) => (a.st === "top" ? 0 : 1) - (b.st === "top" ? 0 : 1) || (b.s ?? 0) - (a.s ?? 0));
+}
+function renderTop() {
+  const v = vybrane();
+  $("#n-top").textContent = String(v.filter((x) => x.st === "top").length);
+  const box = $("#cmp");
+  if (!v.length) { box.innerHTML = `<div class="empty"><h2>Zatím nic vybraného</h2>V Nabídkách klikněte u domu na ★ Top nebo Možná a tady je uvidíte vedle sebe.</div>`; $("#mapbox").hidden = true; return; }
+  const lidi = [...new Set(v.flatMap((x) => Object.keys(S.ozn[x.d.id]?.pocit || {})).concat(S.me ? [S.me] : []))];
+  const dj = (k) => (x) => x.d.dojezd?.[k] != null ? `${x.d.dojezd[k]} min` : x.d.vzdusne?.[k] != null ? `${x.d.vzdusne[k]} km vzdušně` : "–";
+  const djn = (k) => (x) => x.d.dojezd?.[k];
+  const penbN = (x) => x.d.penb ? "ABCDEFG".indexOf(x.d.penb) : null;
+  const stavN = (x) => ({ "novostavba": 0, "po rekonstrukci": 1, "velmi dobrý": 2, "dobrý": 3, "v rekonstrukci": 4, "ve výstavbě": 4, "před rekonstrukcí": 5, "projekt": 6, "špatný": 7 }[x.d.stav] ?? null);
+  const pm = (k) => (x) => x.d.poi?.[k] != null ? fmtM(x.d.poi[k]) + (x.d.poi_odhad ? " ≈" : "") : "–";
+  const pmn = (k) => (x) => x.d.poi?.[k];
+  const rows = [
+    ["Skóre", (x) => x.s ?? "–", (x) => x.s, "max"],
+    ["Cena", (x) => fmtCena(x.d.cena), (x) => x.d.cena, "min"],
+    ["Užitná plocha", (x) => x.d.uzitna ? x.d.uzitna + " m²" + (x.d.dispozice || x.d.pokoje ? ` · ${esc(x.d.dispozice || pokojeTxt(x.d.pokoje))}` : "") : "–", (x) => x.d.uzitna, "max"],
+    ["Voda", (x) => esc(x.d.voda || "neuvedeno")],
+    ["Kanalizace", (x) => esc(x.d.kanalizace || "neuvedeno")],
+    ["Pozemek", (x) => x.d.pozemek ? x.d.pozemek.toLocaleString("cs-CZ") + " m²" : "–", (x) => x.d.pozemek, "max"],
+    ["Příroda", (x) => x.d.priroda ? `les ${fmtM(x.d.priroda.les_m)} · ${x.d.priroda.les_2km} % lesa do 2 km · převýšení ${x.d.priroda.prevyseni} m` : "–", (x) => x.d.priroda?.les_m, "min"],
+    ["Pocit", (x) => lidi.map((u) => `<div class="pocit-row"><span data-who="${esc(u)}"></span> ${hvezdy(x.d, u, u === S.me)}</div>`).join("") || "–"],
+    ["Dojíždění do Brna", (x) => mhdTxt(x.d) || "–"],
+    ["Brno autem", dj("brno"), djn("brno"), "min"],
+    ["Padochov", dj("padochov"), djn("padochov"), "min"],
+    ["Rosice", dj("rosice"), djn("rosice"), "min"],
+    ["Střelice", dj("strelice"), djn("strelice"), "min"],
+    ["Hranice", dj("hranice"), djn("hranice"), "min"],
+    ["D1", (x) => x.d.dojezd?.d1 != null ? `${x.d.dojezd.d1} min · ${esc(x.d.dojezd.d1_exit)}` : "–", djn("d1"), "min"],
+    ["Garáž", (x) => ano(x.d.garaz)],
+    ["Sklep", (x) => ano(x.d.sklep)],
+    ["Energetická třída", (x) => esc(x.d.penb || "neuvedeno"), penbN, "min"],
+    ["Stav", (x) => esc(x.d.stav || "neuvedeno") + (x.d.typ ? ` · ${esc(x.d.typ)}` : "") + (x.d.stavba ? ` · ${esc(x.d.stavba)}` : ""), stavN, "min"],
+    ["Školka", pm("skolka"), pmn("skolka"), "min"],
+    ["Škola", pm("skola"), pmn("skola"), "min"],
+    ["Obchody", pm("obchod"), pmn("obchod"), "min"],
+    ["Doktoři", pm("lekar"), pmn("lekar"), "min"],
+    ["Navíc", (x) => esc((x.d.vlastnosti || []).join(", ") || "–")],
+    ["Poznámka", (x) => esc(S.ozn[x.d.id]?.poznamka || "")],
+    ["Odkazy", (x) => (x.d.odkazy || []).filter((o) => o.url).map((o) => `<a href="${esc(o.url)}" target="_blank" rel="noopener">${esc(o.zdroj)}</a>`).join("<br>")],
+  ];
+  const best = (fn, dir) => { const vals = v.map(fn).filter((x) => x != null); return vals.length > 1 ? (dir === "max" ? Math.max(...vals) : Math.min(...vals)) : null; };
+  box.innerHTML = `<div class="cmpwrap"><table class="cmp"><thead><tr><th></th>${v.map((x) => `<th><div class="thumb" style="${S.foto[x.d.id] ? `background-image:url('${S.foto[x.d.id]}')` : ""}"></div>${x.st === "top" ? "★ " : ""}${esc(x.d.obec || x.d.nazev)}${x.d.aktivni === false ? ' <span class="tag minus">staženo</span>' : ""}</th>`).join("")}</tr></thead><tbody>${rows.map(([n, f, num, dir]) => { const b = num ? best(num, dir) : null; return `<tr><th>${n}</th>${v.map((x) => `<td class="${b != null && num(x) === b ? "best" : ""}">${f(x)}</td>`).join("")}</tr>`; }).join("")}</tbody></table></div>`;
+  for (const b of box.querySelectorAll(".stars button.star")) b.onclick = () => { const x = v.find((y) => y.d.id === b.parentElement.dataset.id); if (x) nastavPocit(x.d, +b.dataset.n); };
+  (async () => { const els = [...box.querySelectorAll("[data-who]")]; const ps = S.user && lidi.length ? await S.user.profiles(lidi) : {};
+    for (const e of els) e.textContent = e.dataset.who === S.me ? "ty" : (ps[e.dataset.who]?.name || "partner").split(" ")[0]; })();
+  kresliMapu(v);
+}
+function kresliMapu(v) {
+  const m = S.mapa; const cv = $("#map");
+  if (!m || !S.meta) { $("#mapbox").hidden = true; return; }
+  $("#mapbox").hidden = false;
+  const [B0, L0, B1, L1] = m.bbox;
+  const pts = [...(S.meta.rodina || []), ...v.filter((o) => o.d.lat).map((o) => o.d)];
+  let lat0 = Math.min(...pts.map((p) => p.lat)) - 0.04, lat1 = Math.max(...pts.map((p) => p.lat)) + 0.04;
+  let lon0 = Math.min(...pts.map((p) => p.lon)) - 0.07, lon1 = Math.max(...pts.map((p) => p.lon)) + 0.07;
+  const k = Math.cos((lat0 + lat1) / 2 * Math.PI / 180);           // km na stupeň délky vs. šířky
+  const want = cv.width / cv.height, have = ((lon1 - lon0) * k) / (lat1 - lat0);
+  if (have < want) { const d = ((lat1 - lat0) * want / k - (lon1 - lon0)) / 2; lon0 -= d; lon1 += d; }
+  else { const d = ((lon1 - lon0) * k / want - (lat1 - lat0)) / 2; lat0 -= d; lat1 += d; }
+  const ctx = cv.getContext("2d"); const W = cv.width, H = cv.height;
+  const css = getComputedStyle(document.documentElement);
+  const col = (n) => css.getPropertyValue(n).trim();
+  const X = (lon) => ((lon - lon0) / (lon1 - lon0)) * W, Y = (lat) => ((lat1 - lat) / (lat1 - lat0)) * H;
+  const img = new Image();
+  img.onload = () => {
+    ctx.fillStyle = col("--sunk"); ctx.fillRect(0, 0, W, H);
+    const sx = (lon) => ((lon - L0) / (L1 - L0)) * img.width, sy = (lat) => ((B1 - lat) / (B1 - B0)) * img.height;
+    ctx.globalAlpha = 0.85; ctx.drawImage(img, sx(lon0), sy(lat1), sx(lon1) - sx(lon0), sy(lat0) - sy(lat1), 0, 0, W, H); ctx.globalAlpha = 1;
+    ctx.font = "600 15px 'Source Sans 3', sans-serif";
+    for (const r of S.meta.rodina || []) {
+      const x = X(r.lon), y = Y(r.lat);
+      ctx.fillStyle = col("--fg"); ctx.beginPath(); ctx.moveTo(x, y - 8); ctx.lineTo(x + 8, y); ctx.lineTo(x, y + 8); ctx.lineTo(x - 8, y); ctx.fill();
+      ctx.fillText(r.nazev, x + 11, y + 5);
+    }
+    v.forEach((o, i) => {
+      if (!o.d.lat) return;
+      const x = X(o.d.lon), y = Y(o.d.lat);
+      ctx.lineWidth = 3; ctx.strokeStyle = col("--amber"); ctx.fillStyle = o.st === "top" ? col("--amber") : col("--surface");
+      ctx.beginPath(); ctx.arc(x, y, 9, 0, 7); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = col("--fg"); ctx.fillText(o.d.obec || "", x + 12, y - 8);
+    });
+  };
+  img.src = m.png;
+}
+
+/* ---------- rozbor od Clauda ---------- */
+function md(t) {
+  const lines = String(t || "").split("\n"); let html = "", inList = false;
+  const inl = (s) => esc(s).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/\*(.+?)\*/g, "<i>$1</i>");
+  for (const l of lines) {
+    const m = l.match(/^#{1,4}\s+(.*)/), li = l.match(/^\s*[-*•]\s+(.*)/), ol = l.match(/^\s*\d+[.)]\s+(.*)/);
+    if ((li || ol) && !inList) { html += "<ul>"; inList = true; }
+    if (!(li || ol) && inList) { html += "</ul>"; inList = false; }
+    if (m) html += `<h3>${inl(m[1])}</h3>`; else if (li || ol) html += `<li>${inl((li || ol)[1])}</li>`; else if (l.trim()) html += `<p>${inl(l)}</p>`;
+  }
+  return html + (inList ? "</ul>" : "");
+}
+function renderAnalyza() {
+  const a = S.analyza;
+  if (!a?.text) return;
+  $("#analysis").innerHTML = `<p class="meta">${esc(a.autor === "rutina" ? "Ranní rozbor od Clauda" : "Rozbor od Clauda")} · ${new Date(a.cas).toLocaleString("cs-CZ")} · ${a.domy?.length || 0} domů</p>${md(a.text)}`;
+}
+function popisProClauda(x) {
+  const d = x.d, p = d.priroda || {}, j = d.dojezd || {};
+  return `## ${d.id} – ${d.obec} (${x.st === "top" ? "TOP" : "možná"})
+${d.nazev}; cena ${fmtCena(d.cena)}; ${d.dispozice || pokojeTxt(d.pokoje) || "? pokojů"}; užitná ${d.uzitna ?? "?"} m²; pozemek ${d.pozemek ?? "?"} m²; typ ${d.typ || "?"}; stavba ${d.stavba || "?"}; stav ${d.stav || "?"}; PENB ${d.penb || "?"}
+Les: ${p.les_m ?? ">3000"} m od lesa, ${p.les_2km ?? "?"} % lesa do 2 km; převýšení okolí ${p.prevyseni ?? "?"} m
+Dojezd autem: Padochov (rodiče) ${j.padochov ?? "?"} min, Rosice ${j.rosice ?? "?"} min, Střelice ${j.strelice ?? "?"} min, centrum Brna ${j.brno ?? "?"} min, Hranice na Moravě ${j.hranice ?? "?"} min, D1 ${j.d1 ?? "?"} min (${j.d1_exit || "?"}); veřejná doprava: ${mhdTxt(d) || "?"}
+Voda: ${d.voda || "neuvedeno"}; kanalizace: ${d.kanalizace || "neuvedeno"}; garáž ${ano(d.garaz)}; sklep ${ano(d.sklep)}
+Vybavenost: ${sluzbyTxt(d) || "?"}
+Pocit rodiny (1–5): ${Object.values(S.ozn[d.id]?.pocit || {}).filter(Boolean).join(", ") || "nehodnoceno"}
+Navíc: ${(d.vlastnosti || []).join(", ")}; v nabídce od ${d.prvni}; ${d.aktivni === false ? "INZERÁT UŽ STAŽEN" : "aktivní"}; skóre ${x.s ?? "?"}
+Poznámka rodiny: ${S.ozn[d.id]?.poznamka || "–"}
+Popis: ${d.popis || ""}`;
+}
+async function porovnej() {
+  const v = vybrane();
+  if (!v.length) { toast("Nejdřív označte nějaké domy jako Top nebo Možná."); return; }
+  if (!S.sample) { toast("Porovnání na požádání tu není k dispozici – udělá ho ranní rutina."); return; }
+  const btn = $("#btn-ai"); btn.disabled = true; $("#ai-note").textContent = "Claude porovnává…";
+  const zadani = `Jsi poradce rodiny, která kupuje rodinný dům u Brna. Rodina: on 40 let, ona 33, holčička 8 měsíců, do 2 let chtějí další dítě, dva psi. Teď bydlí v panelovém bytě v Brně-Kohoutovicích.
+Chtějí: dům v okolí Brna ideálně u lesa (příroda je hodně důležitá – pěkný les poblíž, ne placka a pole), žádnou řadovku, zahradu pro psy a děti, ideálně bungalov, klidně po rekonstrukci ale ideálně hned k nastěhování, max 15 mil. Kč, ideálně zděný (dřevostavba je ok), aspoň 4 pokoje (víc je lepší). Chtějí být blízko rodiny: bratr v Rosicích, děda ve Střelicích, rodiče v Oslavanech-Padochově; dobře dostupná D1 (jezdí i do Hranic na Moravě).
+Porovnávají hlavně: cena, užitná plocha, voda, kanalizace, pozemek, příroda, jejich pocit, dojíždění do Brna (veřejnou dopravou i autem), Padochov, Rosice, Hranice, garáž, sklep, energetická třída, stav, školka a škola, obchody, doktoři.
+Níže jsou domy, které si označili (TOP = favorit, možná = zvažují). Napiš česky, věcně a konkrétně, ve formátu markdown:
+### Pořadí – očíslované pořadí s jednou větou proč.
+### Dům po domu – pro každý dům nadpis (obec + cena) a odrážky s plusy, minusy a riziky (stav, energetika PENB, velikost pozemku, sousedé, hluk, dojezdy).
+### Na co se zeptat na prohlídce – konkrétní otázky pro každý dům.
+### Doporučení – co by udělal ty a jestli stojí za to rozšířit hledání.
+Neopakuj surová data, interpretuj je. Pokud chybí údaj, řekni co ověřit.
+
+${v.map(popisProClauda).join("\n\n")}`;
+  try {
+    const r = await S.sample(zadani, { modelTier: "complex", onText: ({ text }) => { $("#analysis").innerHTML = `<p class="meta">Claude píše…</p>${md(text)}`; } });
+    const doc = { text: r.text, cas: new Date().toISOString(), autor: "stranka", domy: v.map((x) => x.d.id) };
+    S.analyza = doc; renderAnalyza();
+    if (S.db) { try { await S.db.doc("analyzy/porovnani").set(doc); } catch (e) { toast("Rozbor je hotový, ale nepovedlo se ho uložit pro partnera."); } }
+    $("#ai-note").textContent = "Hotovo. Rozbor je uložený, uvidí ho oba.";
+  } catch (e) {
+    $("#ai-note").textContent = e.code === "rate_limited" ? "Claude je teď vytížený, zkuste to za chvíli." : e.code === "not_granted" ? "Porovnání vyžaduje povolení – nebo počkejte na ranní rozbor." : "Porovnání se nepovedlo, zkuste to znovu.";
+  } finally { btn.disabled = false; }
+}
+
+/* ---------- váhy ---------- */
+let vahyTimer;
+function renderVahy() {
+  const g = $("#weights"); g.replaceChildren();
+  for (const k of Object.keys(VAHY_VYCHOZI)) {
+    const l = document.createElement("label");
+    l.innerHTML = `${VAHY_POPIS[k][0]} <span>${VAHY_POPIS[k][1]} · váha <b class="mono">${S.vahy[k]}</b></span><input type="range" id="w-${k}" min="0" max="30" step="1" value="${S.vahy[k]}">`;
+    const inp = l.querySelector("input");
+    inp.oninput = () => { S.vahy[k] = +inp.value; l.querySelector("b").textContent = inp.value; clearTimeout(vahyTimer); vahyTimer = setTimeout(ulozVahy, 900); };
+    g.append(l);
+  }
+}
+async function ulozVahy() {
+  renderList(); renderTop();
+  if (S.db) { try { await S.db.doc("nastaveni/vahy").set({ ...S.vahy }); } catch (e) { toast("Váhy se nepovedlo uložit."); } }
+}
+
+/* ---------- záložky, filtry ---------- */
+for (const b of document.querySelectorAll('[role="tab"]')) b.onclick = () => ukaz(b.id.slice(4));
+function ukaz(t) {
+  S.tab = t;
+  for (const b of document.querySelectorAll('[role="tab"]')) { const on = b.id === "tab-" + t; b.setAttribute("aria-selected", on); $("#" + b.getAttribute("aria-controls")).hidden = !on; }
+  store("tab", t);
+  if (t === "top") renderTop();
+}
+for (const k of Object.keys(F)) { const b = $("#f-" + k); b.onclick = () => { F[k] = !F[k]; b.setAttribute("aria-pressed", F[k]); renderLimit = 40; renderList(); }; }
+$("#sort").onchange = () => { store("sort", $("#sort").value); renderList(); };
+let qT; $("#q").oninput = () => { clearTimeout(qT); qT = setTimeout(renderList, 250); };
+$("#btn-ai").onclick = porovnej;
+
+function renderStatus() {
+  const m = S.meta; if (!m) return;
+  const z = Object.entries(m.zdroje || {}).map(([n, v]) => `<span><i class="dot ${v.ok ? "" : "err"}"></i>${esc(n)}${v.ok ? ` ${v.pocet}` : " – výpadek"}</span>`).join("");
+  const nove = S.domy.filter((d) => novy(d, 7)).length;
+  $("#status").innerHTML = `<span>Aktualizováno <b>${new Date(m.aktualizovano).toLocaleString("cs-CZ", { dateStyle: "short", timeStyle: "short" })}</b></span><span><b>${m.aktivnich}</b> domů v nabídce, <b>${nove}</b> nových za týden</span>${z}`;
+}
+
+/* ---------- start ---------- */
+(async function start() {
+  const t = store("tab"); if (t && t !== "nabidky" && document.getElementById("tab-" + t)) ukaz(t);
+  const so = store("sort"); if (so) $("#sort").value = so;
+  S.lastVisit = store("posledni-navsteva");
+  renderVahy();
+  const db = await claude.use("db");
+  if (!db) {
+    $("#list").innerHTML = `<div class="empty"><h2>Data nejsou dostupná</h2>Tahle stránka čte nabídky ze sdílené databáze. Otevřete ji přihlášení na claude.ai.</div>`;
+    $("#status").textContent = ""; return;
+  }
+  S.db = db;
+  claude.use("user").then(async (u) => { S.user = u; S.me = u ? await u.id() : null; renderList(); renderTop(); });
+  claude.use("sample").then((s) => { S.sample = s; if (!s) $("#btn-ai").hidden = true, $("#ai-note").textContent = "Rozbor připravuje Claude každé ráno."; });
+  db.collection("nabidky").onSnapshot((snap) => {
+    const docs = Object.fromEntries(snap.docs.map((d) => [d.id, d.data()]));
+    S.meta = docs.meta || null;
+    S.mapa = docs.mapa || null;
+    S.domy = (S.meta?.casti || []).flatMap((c) => docs[c]?.polozky || []);
+    if (S.meta && !S.domy.length) $("#list").innerHTML = `<div class="empty"><h2>Žádné domy</h2>Podle kritérií teď nic není v nabídce.</div>`;
+    renderStatus(); renderList(); if (S.tab === "top") renderTop(); else $("#n-top").textContent = String(vybrane().filter((x) => x.st === "top").length);
+    if (S.meta) setTimeout(() => store("posledni-navsteva", new Date().toISOString().slice(0, 10)), 4000);
+  }, () => { $("#status").textContent = "Spojení s databází se přerušilo – obnovte stránku."; });
+  db.doc("foto/mapa").onSnapshot((d) => { if (d.exists) { S.foto = { ...d.data() }; renderList(); if (S.tab === "top") renderTop(); } });
+  db.collection("oznaceni").onSnapshot((snap) => {
+    S.ozn = Object.fromEntries(snap.docs.map((d) => [d.id, d.data()]));
+    const active = document.activeElement;
+    if (!(active && active.tagName === "TEXTAREA")) renderList();
+    renderTop();
+  });
+  db.doc("analyzy/porovnani").onSnapshot((d) => { if (d.exists) { S.analyza = d.data(); renderAnalyza(); } });
+  db.doc("nastaveni/vahy").onSnapshot((d) => { if (d.exists) { S.vahy = { ...VAHY_VYCHOZI, ...d.data() }; renderVahy(); renderList(); } });
+})();
+</script>

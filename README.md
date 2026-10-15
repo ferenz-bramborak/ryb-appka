@@ -1,5 +1,7 @@
 # Rybářský průvodce
 
+> V repozitáři je i druhý projekt: **[Domeček u lesa](domy/README.md)** – hledání rodinného domu u Brna.
+
 Mobilní webová aplikace (PWA – instaluje se z prohlížeče na plochu telefonu) pro rybáře v ČR.
 Když jdeš k vodě, ukáže:
 

@@ -1,3 +1,7 @@
 __pycache__/
 *.pyc
 web/data/.*.tmp
+
+# domy
+domy/data/export/
+domy/data/*.tmp
